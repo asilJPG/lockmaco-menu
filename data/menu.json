@@ -1,0 +1,255 @@
+{
+  "brand": {
+    "name": "The Lokmaco",
+    "tagline": "Your Personal Confectioner",
+    "currency": {
+      "ru": "сум",
+      "uz": "so‘m",
+      "en": "UZS"
+    },
+    "welcomeTitle": "The Lokmaco",
+    "welcomeLine": "Xush kelibsiz • Добро пожаловать • Welcome"
+  },
+  "sections": {
+    "food": [
+      {
+        "id": "lokma",
+        "name": {
+          "ru": "Локма",
+          "uz": "Loqma",
+          "en": "Lokma"
+        },
+        "items": [
+          {
+            "id": "lokma-classic",
+            "name": {
+              "ru": "Локма классическая",
+              "uz": "Klassik loqma",
+              "en": "Classic Lokma"
+            },
+            "description": {
+              "ru": "Воздушные пончики в медовом сиропе",
+              "uz": "Asal siropidagi yumshoq donutlar",
+              "en": "Airy doughnuts in honey syrup"
+            },
+            "price": 25000,
+            "imageUrl": "",
+            "weight": 180,
+            "measureUnit": "г",
+            "nutrition": {
+              "kcal": 320,
+              "proteins": 4.2,
+              "fats": 12,
+              "carbs": 48
+            },
+            "available": true
+          },
+          {
+            "id": "lokma-choco",
+            "name": {
+              "ru": "Локма с шоколадом",
+              "uz": "Shokoladli loqma",
+              "en": "Chocolate Lokma"
+            },
+            "description": {
+              "ru": "Локма с заварным кремом внутри и шоколадом снаружи",
+              "uz": "Ichida qaymoqli krem, ustida shokolad",
+              "en": "Custard-filled lokma coated in chocolate"
+            },
+            "price": 32000,
+            "imageUrl": "",
+            "weight": 200,
+            "measureUnit": "г",
+            "available": true
+          },
+          {
+            "id": "lokma-pistachio",
+            "name": {
+              "ru": "Локма с фисташкой",
+              "uz": "Pistali loqma",
+              "en": "Pistachio Lokma"
+            },
+            "description": {
+              "ru": "Локма с фисташковым кремом и крошкой",
+              "uz": "Pista kremi va maydalangan pista bilan",
+              "en": "Lokma with pistachio cream and crumbs"
+            },
+            "price": 38000,
+            "imageUrl": "",
+            "weight": 200,
+            "measureUnit": "г",
+            "available": true
+          }
+        ]
+      },
+      {
+        "id": "waffles",
+        "name": {
+          "ru": "Вафли",
+          "uz": "Vaflilar",
+          "en": "Waffles"
+        },
+        "items": [
+          {
+            "id": "waffle-hk",
+            "name": {
+              "ru": "Гонконгские вафли",
+              "uz": "Gonkong vaflisi",
+              "en": "Hong Kong Waffle"
+            },
+            "description": {
+              "ru": "Пузырчатая вафля с мороженым и топпингом на выбор",
+              "uz": "Muzqaymoq va topping bilan pufakli vafli",
+              "en": "Bubble waffle with ice cream and topping of choice"
+            },
+            "price": 45000,
+            "imageUrl": "",
+            "weight": 260,
+            "measureUnit": "г",
+            "available": true
+          },
+          {
+            "id": "waffle-belgian",
+            "name": {
+              "ru": "Бельгийские вафли",
+              "uz": "Belgiya vaflisi",
+              "en": "Belgian Waffle"
+            },
+            "description": {
+              "ru": "Хрустящие вафли с ягодами и сливками",
+              "uz": "Rezavorlar va qaymoq bilan qarsildoq vafli",
+              "en": "Crispy waffles with berries and cream"
+            },
+            "price": 42000,
+            "imageUrl": "",
+            "weight": 240,
+            "measureUnit": "г",
+            "available": true
+          }
+        ]
+      },
+      {
+        "id": "desserts",
+        "name": {
+          "ru": "Десерты",
+          "uz": "Desertlar",
+          "en": "Desserts"
+        },
+        "items": [
+          {
+            "id": "san-sebastian",
+            "name": {
+              "ru": "Сан-Себастьян",
+              "uz": "San-Sebastyan",
+              "en": "San Sebastian"
+            },
+            "description": {
+              "ru": "Баскский чизкейк с карамелизированной корочкой",
+              "uz": "Karamellangan qobiqli bask chizkeyki",
+              "en": "Basque cheesecake with caramelized top"
+            },
+            "price": 48000,
+            "imageUrl": "",
+            "weight": 150,
+            "measureUnit": "г",
+            "available": true
+          }
+        ]
+      }
+    ],
+    "drinks": [
+      {
+        "id": "coffee",
+        "name": {
+          "ru": "Кофе",
+          "uz": "Qahva",
+          "en": "Coffee"
+        },
+        "items": [
+          {
+            "id": "espresso",
+            "name": {
+              "ru": "Эспрессо",
+              "uz": "Espresso",
+              "en": "Espresso"
+            },
+            "description": {
+              "ru": "Классический эспрессо из свежеобжаренных зёрен",
+              "uz": "Yangi qovurilgan donlardan klassik espresso",
+              "en": "Classic espresso from freshly roasted beans"
+            },
+            "price": 20000,
+            "imageUrl": "",
+            "weight": 30,
+            "measureUnit": "мл",
+            "available": true
+          },
+          {
+            "id": "latte",
+            "name": {
+              "ru": "Латте",
+              "uz": "Latte",
+              "en": "Latte"
+            },
+            "description": {
+              "ru": "Нежный латте на молоке",
+              "uz": "Sut bilan yumshoq latte",
+              "en": "Smooth milk latte"
+            },
+            "price": 30000,
+            "imageUrl": "",
+            "weight": 300,
+            "measureUnit": "мл",
+            "available": true
+          },
+          {
+            "id": "turkish-coffee",
+            "name": {
+              "ru": "Кофе по-турецки",
+              "uz": "Turkcha qahva",
+              "en": "Turkish Coffee"
+            },
+            "description": {
+              "ru": "Сваренный в джезве на песке",
+              "uz": "Qumda jezvada tayyorlangan",
+              "en": "Brewed in a cezve on hot sand"
+            },
+            "price": 28000,
+            "imageUrl": "",
+            "weight": 100,
+            "measureUnit": "мл",
+            "available": true
+          }
+        ]
+      },
+      {
+        "id": "tea",
+        "name": {
+          "ru": "Чай",
+          "uz": "Choy",
+          "en": "Tea"
+        },
+        "items": [
+          {
+            "id": "turkish-tea",
+            "name": {
+              "ru": "Турецкий чай",
+              "uz": "Turk choyi",
+              "en": "Turkish Tea"
+            },
+            "description": {
+              "ru": "Классический турецкий чай в армуду",
+              "uz": "Armudu stakanida klassik turk choyi",
+              "en": "Classic Turkish tea in armudu glass"
+            },
+            "price": 15000,
+            "imageUrl": "",
+            "weight": 150,
+            "measureUnit": "мл",
+            "available": true
+          }
+        ]
+      }
+    ]
+  }
+}

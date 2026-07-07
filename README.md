@@ -1,36 +1,35 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# The Lokmaco · QR Menu
 
-## Getting Started
+QR-меню кофейни-кондитерской **The Lokmaco** (Ташкент) + админка. Референс: qrmenu.abnmbgroup.com/bon.
 
-First, run the development server:
+- Публичное меню: `/` — RU/UZ/EN, секции «Еда»/«Напитки», категории, поиск, карточка блюда с КБЖУ.
+- Админка: `/admin` — вход по паролю, редактирование бренда, категорий и блюд, загрузка фото.
+
+## Как хранятся данные
+
+Всё меню — один файл [data/menu.json](data/menu.json), фото — в `public/uploads/`. Без базы данных.
+
+- **Локально**: админка пишет прямо в файлы.
+- **На Vercel**: файловая система read-only, поэтому админка коммитит изменения в GitHub через API → Vercel автоматически пересобирает сайт (~1 мин).
+
+## Запуск локально
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Пароль админки — в `.env.local` (`ADMIN_PASSWORD`).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Деплой на Vercel
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Запушить репозиторий на GitHub.
+2. В Vercel: **Add New Project** → импортировать репозиторий (настройки по умолчанию).
+3. В **Settings → Environment Variables** добавить:
+   - `ADMIN_PASSWORD` — пароль админки;
+   - `GITHUB_TOKEN` — fine-grained PAT (github.com → Settings → Developer settings → Fine-grained tokens) с доступом только к этому репозиторию и правом **Contents: Read and write**;
+   - `GITHUB_REPO` — `owner/repo` (например `asilchik/lokmaco-qr`);
+   - `GITHUB_BRANCH` — `main`.
+4. Привязать домен в **Settings → Domains**.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+После «Сохранить» в админке коммит попадает в репозиторий и Vercel сам передеплоит сайт с новым меню.
