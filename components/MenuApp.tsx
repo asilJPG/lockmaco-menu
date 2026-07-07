@@ -64,7 +64,6 @@ export default function MenuApp({ menu }: { menu: MenuData }) {
         <div className="welcome-card">
           <span className="welcome-kicker">{t.qr_menu}</span>
           <div className="welcome-logo">{menu.brand.welcomeTitle}</div>
-          <div className="welcome-tagline">{menu.brand.tagline}</div>
           <div className="welcome-line">{menu.brand.welcomeLine}</div>
           <div className="welcome-progress"><span /></div>
         </div>
@@ -75,7 +74,6 @@ export default function MenuApp({ menu }: { menu: MenuData }) {
           <div className="brand-lockup">
             <span className="brand-lockup__eyebrow">{t.qr_menu}</span>
             <h1>{menu.brand.name}</h1>
-            <span className="brand-lockup__tagline">{menu.brand.tagline}</span>
           </div>
           <div className="lang-switcher" role="group" aria-label="Language">
             {LANGS.map((l) => (
@@ -181,7 +179,6 @@ export default function MenuApp({ menu }: { menu: MenuData }) {
 
         <footer className="qr-footer">
           <div className="footer-logo">{menu.brand.name}</div>
-          <p>{menu.brand.tagline}</p>
         </footer>
       </main>
 

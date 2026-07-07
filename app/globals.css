@@ -3,8 +3,6 @@
   --brand-dark: #241611;
   --brand-gold: #e0a83e;
   --brand-honey: #f0c169;
-  --brand-pistachio: #7fa653;
-  --brand-pistachio-dark: #55743a;
   --brand-cream: #faf3e7;
   --brand-card: #fffdf8;
   --text: #2a1c12;
@@ -81,14 +79,6 @@ button {
   color: #fff;
 }
 
-.welcome-tagline {
-  margin-top: 6px;
-  font-size: 13px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--brand-gold);
-}
-
 .welcome-line {
   margin-top: 22px;
   font-size: 13px;
@@ -153,13 +143,6 @@ button {
   font-size: clamp(23px, 5.5vw, 34px);
   color: #fff;
   line-height: 1.1;
-}
-
-.brand-lockup__tagline {
-  display: block;
-  margin-top: 3px;
-  font-size: 11px;
-  color: rgba(246, 237, 223, 0.7);
 }
 
 .lang-switcher {
@@ -271,9 +254,9 @@ button {
 }
 
 .chip.active {
-  background: var(--brand-pistachio);
-  border-color: var(--brand-pistachio);
-  color: #fff;
+  background: var(--brand-gold);
+  border-color: var(--brand-gold);
+  color: var(--brand-dark);
 }
 
 /* ---------- Menu ---------- */
@@ -538,9 +521,3 @@ button {
   color: var(--brand-primary);
 }
 
-.qr-footer p {
-  margin-top: 4px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  font-size: 10px;
-}

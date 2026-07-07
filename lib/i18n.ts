@@ -16,7 +16,7 @@ export const UI: Record<Lang, Record<string, string>> = {
     fats: "жиры",
     carbs: "углеводы",
     items: "поз.",
-    qr_menu: "QR MENU",
+    qr_menu: "МЕНЮ",
   },
   uz: {
     menu_title: "Menyu",
@@ -31,7 +31,7 @@ export const UI: Record<Lang, Record<string, string>> = {
     fats: "yog‘",
     carbs: "uglevod",
     items: "ta",
-    qr_menu: "QR MENYU",
+    qr_menu: "MENYU",
   },
   en: {
     menu_title: "Menu",
@@ -46,7 +46,7 @@ export const UI: Record<Lang, Record<string, string>> = {
     fats: "fat",
     carbs: "carbs",
     items: "items",
-    qr_menu: "QR MENU",
+    qr_menu: "MENU",
   },
 };
 

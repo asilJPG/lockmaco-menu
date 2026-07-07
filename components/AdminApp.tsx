@@ -158,11 +158,6 @@ export default function AdminApp() {
             <input className="admin-input" value={menu.brand.name}
               onChange={(e) => update((m) => { m.brand.name = e.target.value; })} />
           </div>
-          <div className="admin-field">
-            <label>Слоган</label>
-            <input className="admin-input" value={menu.brand.tagline}
-              onChange={(e) => update((m) => { m.brand.tagline = e.target.value; })} />
-          </div>
         </div>
       </div>
 

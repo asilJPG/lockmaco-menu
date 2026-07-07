@@ -32,7 +32,7 @@ export type SectionKey = "food" | "drinks";
 export interface MenuData {
   brand: {
     name: string;
-    tagline: string;
+    tagline?: string;
     currency: L10n;
     welcomeTitle: string;
     welcomeLine: string;
