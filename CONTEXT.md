@@ -9,7 +9,7 @@ QR-меню для кофейни-кондитерской The Lokmaco (Ташк
 - Публичное меню `/`: RU/UZ/EN, welcome-лоадер, секции Еда/Напитки, категории-чипсы, поиск, диалог блюда с КБЖУ. Всё в `components/MenuApp.tsx`.
 - Админка `/admin` (`components/AdminApp.tsx`): пароль из `ADMIN_PASSWORD`, CRUD категорий/блюд, три языка полей, загрузка фото (ресайз до 900px JPEG на клиенте).
 - Сохранение: локально — запись в файлы; на Vercel — коммит в GitHub через API (`lib/store.ts`, env: `GITHUB_TOKEN`, `GITHUB_REPO`, `GITHUB_BRANCH`) → автопересборка.
-- Палитра: шоколад `#5C3317` + мёд/карамель `#D9A441` + крем `#F6EDDF` (переменные в `app/globals.css`). Шрифты: Cormorant Garamond + Onest.
+- Палитра (своя, не как у Bon): эспрессо `#3B2416` + мёд `#E0A83E` + фисташка `#7FA653` + тёплый крем `#FAF3E7` (переменные в `app/globals.css`). Шрифты: Playfair Display + Manrope. Адаптив: fluid clamp-размеры, сетка блюд auto-fill (2 колонки на телефоне, 3–5 на десктопе, max-width 1040px).
 
 ## Сделано 2026-07-07
 

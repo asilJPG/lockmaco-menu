@@ -1,15 +1,15 @@
 import type { Metadata, Viewport } from "next";
-import { Cormorant_Garamond, Onest } from "next/font/google";
+import { Playfair_Display, Manrope } from "next/font/google";
 import "./globals.css";
 
-const cormorant = Cormorant_Garamond({
+const playfair = Playfair_Display({
   subsets: ["latin", "cyrillic"],
   weight: ["500", "600", "700"],
   style: ["normal", "italic"],
   variable: "--font-serif",
 });
 
-const onest = Onest({
+const manrope = Manrope({
   subsets: ["latin", "cyrillic"],
   weight: ["300", "400", "500", "600", "700", "800"],
   variable: "--font-sans",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#5C3317",
+  themeColor: "#3B2416",
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
@@ -30,7 +30,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ru">
-      <body className={`${cormorant.variable} ${onest.variable}`}>{children}</body>
+      <body className={`${playfair.variable} ${manrope.variable}`}>{children}</body>
     </html>
   );
 }

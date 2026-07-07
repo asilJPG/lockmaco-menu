@@ -1,12 +1,14 @@
 :root {
-  --brand-primary: #5c3317;
-  --brand-dark: #3e2010;
-  --brand-gold: #d9a441;
-  --brand-honey: #e8b54a;
-  --brand-cream: #f6eddf;
-  --brand-card: #fffbf4;
-  --text: #2b1810;
-  --muted: #8a7263;
+  --brand-primary: #3b2416;
+  --brand-dark: #241611;
+  --brand-gold: #e0a83e;
+  --brand-honey: #f0c169;
+  --brand-pistachio: #7fa653;
+  --brand-pistachio-dark: #55743a;
+  --brand-cream: #faf3e7;
+  --brand-card: #fffdf8;
+  --text: #2a1c12;
+  --muted: #96826f;
   --radius: 18px;
 }
 
@@ -40,7 +42,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: radial-gradient(120% 120% at 20% 0%, #6d3e1c 0%, var(--brand-primary) 45%, var(--brand-dark) 100%);
+  background: radial-gradient(120% 120% at 20% 0%, #57381f 0%, var(--brand-primary) 45%, var(--brand-dark) 100%);
   transition: opacity 0.6s ease, visibility 0.6s;
 }
 
@@ -73,7 +75,7 @@ button {
 
 .welcome-logo {
   font-family: var(--font-serif), serif;
-  font-size: 46px;
+  font-size: clamp(38px, 9vw, 60px);
   font-weight: 600;
   font-style: italic;
   color: #fff;
@@ -118,9 +120,9 @@ button {
 
 /* ---------- Shell ---------- */
 .qr-shell {
-  max-width: 640px;
+  max-width: 1040px;
   margin: 0 auto;
-  padding: 0 16px calc(40px + env(safe-area-inset-bottom));
+  padding: 0 clamp(16px, 3vw, 36px) calc(40px + env(safe-area-inset-bottom));
 }
 
 .qr-header {
@@ -128,10 +130,10 @@ button {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  padding: 18px 20px;
+  padding: clamp(16px, 2.5vw, 26px) clamp(18px, 3vw, 30px);
   margin: 14px 0 18px;
   border-radius: var(--radius);
-  background: linear-gradient(135deg, #6d3e1c 0%, var(--brand-primary) 55%, var(--brand-dark) 100%);
+  background: linear-gradient(135deg, #57381f 0%, var(--brand-primary) 55%, var(--brand-dark) 100%);
   color: var(--brand-cream);
   box-shadow: 0 14px 30px rgba(62, 32, 16, 0.25);
 }
@@ -148,7 +150,7 @@ button {
   font-family: var(--font-serif), serif;
   font-style: italic;
   font-weight: 600;
-  font-size: 28px;
+  font-size: clamp(23px, 5.5vw, 34px);
   color: #fff;
   line-height: 1.1;
 }
@@ -208,6 +210,7 @@ button {
 
 .section-tab.active {
   background: var(--brand-primary);
+  border-bottom: 2px solid var(--brand-gold);
   color: var(--brand-cream);
   box-shadow: 0 8px 18px rgba(92, 51, 23, 0.3);
 }
@@ -268,9 +271,9 @@ button {
 }
 
 .chip.active {
-  background: var(--brand-gold);
-  border-color: var(--brand-gold);
-  color: var(--brand-dark);
+  background: var(--brand-pistachio);
+  border-color: var(--brand-pistachio);
+  color: #fff;
 }
 
 /* ---------- Menu ---------- */
@@ -287,7 +290,7 @@ button {
 
 .category-title h2 {
   font-family: var(--font-serif), serif;
-  font-size: 26px;
+  font-size: clamp(22px, 4vw, 30px);
   font-weight: 600;
   color: var(--brand-dark);
 }
@@ -300,12 +303,8 @@ button {
 
 .dish-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-}
-
-@media (max-width: 330px) {
-  .dish-grid { grid-template-columns: 1fr; }
+  grid-template-columns: repeat(auto-fill, minmax(min(160px, 100%), 1fr));
+  gap: clamp(10px, 1.6vw, 16px);
 }
 
 .dish-card {
@@ -380,8 +379,8 @@ button {
 
 .dish-card__price {
   font-weight: 800;
-  font-size: 15px;
-  color: var(--brand-primary);
+  font-size: clamp(14px, 1.4vw, 16px);
+  color: #8a5a2b;
 }
 
 .dish-card__price small {
@@ -408,8 +407,8 @@ button {
   border: none;
   border-radius: 22px;
   padding: 0;
-  max-width: 420px;
-  width: calc(100% - 32px);
+  max-width: min(480px, calc(100% - 32px));
+  width: 100%;
   background: var(--brand-card);
   box-shadow: 0 30px 80px rgba(43, 24, 16, 0.4);
   margin: auto;
