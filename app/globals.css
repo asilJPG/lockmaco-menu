@@ -290,7 +290,32 @@ button {
   gap: clamp(10px, 1.6vw, 16px);
 }
 
+.dish-badges {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  display: flex;
+  gap: 4px;
+  z-index: 1;
+}
+
+.badge {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 4px 9px;
+  border-radius: 999px;
+  color: #fff;
+  box-shadow: 0 2px 6px rgba(43, 24, 16, 0.25);
+}
+
+.badge--hit { background: var(--brand-gold); color: var(--brand-dark); }
+.badge--new { background: #7fa653; }
+.badge--spicy { background: #c0392b; }
+
 .dish-card {
+  position: relative;
   background: var(--brand-card);
   border: 1px solid rgba(92, 51, 23, 0.09);
   border-radius: var(--radius);
@@ -519,5 +544,19 @@ button {
   font-size: 20px;
   font-weight: 600;
   color: var(--brand-primary);
+}
+
+.info-block {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+}
+
+.info-row a {
+  color: var(--brand-primary);
+  font-weight: 600;
+  text-decoration: none;
 }
 

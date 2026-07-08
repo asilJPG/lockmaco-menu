@@ -50,6 +50,12 @@ export const UI: Record<Lang, Record<string, string>> = {
   },
 };
 
+export const BADGES: Record<string, Record<Lang, string>> = {
+  hit: { ru: "Хит", uz: "Xit", en: "Hit" },
+  new: { ru: "Новинка", uz: "Yangi", en: "New" },
+  spicy: { ru: "Острое", uz: "Achchiq", en: "Spicy" },
+};
+
 export const UNITS: Record<string, Record<Lang, string>> = {
   "г": { ru: "г", uz: "g", en: "g" },
   "мл": { ru: "мл", uz: "ml", en: "ml" },

@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import type { Category, Lang, MenuData, MenuItem, SectionKey } from "@/lib/types";
-import { LANGS } from "@/lib/i18n";
+import type { Badge, Lang, MenuData, MenuItem, SectionKey } from "@/lib/types";
+import { BADGES, LANGS } from "@/lib/i18n";
 
 const LANG_LABEL: Record<Lang, string> = { ru: "Русский", uz: "O‘zbekcha", en: "English" };
 
@@ -158,6 +158,26 @@ export default function AdminApp() {
             <input className="admin-input" value={menu.brand.name}
               onChange={(e) => update((m) => { m.brand.name = e.target.value; })} />
           </div>
+          <div className="admin-field">
+            <label>Телефон</label>
+            <input className="admin-input" value={menu.brand.info?.phone ?? ""}
+              onChange={(e) => update((m) => { m.brand.info = { ...m.brand.info, phone: e.target.value }; })} />
+          </div>
+          <div className="admin-field">
+            <label>Instagram (без @)</label>
+            <input className="admin-input" value={menu.brand.info?.instagram ?? ""}
+              onChange={(e) => update((m) => { m.brand.info = { ...m.brand.info, instagram: e.target.value }; })} />
+          </div>
+          <div className="admin-field">
+            <label>Wi-Fi (пароль)</label>
+            <input className="admin-input" value={menu.brand.info?.wifi ?? ""}
+              onChange={(e) => update((m) => { m.brand.info = { ...m.brand.info, wifi: e.target.value }; })} />
+          </div>
+        </div>
+        <div className="admin-field" style={{ marginTop: 10 }}>
+          <label>Адрес / филиалы</label>
+          <input className="admin-input" value={menu.brand.info?.address ?? ""}
+            onChange={(e) => update((m) => { m.brand.info = { ...m.brand.info, address: e.target.value }; })} />
         </div>
       </div>
 
@@ -360,6 +380,28 @@ function ItemEditor({
               onChange={(e) =>
                 set({ nutrition: { ...item.nutrition, [k]: e.target.value ? Number(e.target.value) : undefined } })
               } />
+          ))}
+        </div>
+      </div>
+
+      <div className="admin-field">
+        <label>Бейджи</label>
+        <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
+          {(Object.keys(BADGES) as Badge[]).map((b) => (
+            <label key={b} style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 14 }}>
+              <input
+                type="checkbox"
+                checked={item.badges?.includes(b) ?? false}
+                onChange={(e) =>
+                  set({
+                    badges: e.target.checked
+                      ? [...(item.badges ?? []), b]
+                      : (item.badges ?? []).filter((x) => x !== b),
+                  })
+                }
+              />
+              {BADGES[b].ru}
+            </label>
           ))}
         </div>
       </div>

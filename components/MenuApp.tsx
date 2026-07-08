@@ -2,7 +2,18 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { Lang, MenuData, MenuItem, SectionKey } from "@/lib/types";
-import { LANGS, UI, formatPrice, unitLabel } from "@/lib/i18n";
+import { BADGES, LANGS, UI, formatPrice, unitLabel } from "@/lib/i18n";
+
+function DishBadges({ badges, lang }: { badges?: string[]; lang: Lang }) {
+  if (!badges?.length) return null;
+  return (
+    <div className="dish-badges">
+      {badges.map((b) => (
+        <span key={b} className={`badge badge--${b}`}>{BADGES[b]?.[lang] ?? b}</span>
+      ))}
+    </div>
+  );
+}
 
 export default function MenuApp({ menu }: { menu: MenuData }) {
   const [lang, setLang] = useState<Lang>("ru");
@@ -152,6 +163,7 @@ export default function MenuApp({ menu }: { menu: MenuData }) {
                     className="dish-card"
                     onClick={() => setSelected(item)}
                   >
+                    <DishBadges badges={item.badges} lang={lang} />
                     {item.imageUrl ? (
                       // eslint-disable-next-line @next/next/no-img-element
                       <img className="dish-card__img" src={item.imageUrl} alt={item.name[lang]} loading="lazy" />
@@ -179,6 +191,24 @@ export default function MenuApp({ menu }: { menu: MenuData }) {
 
         <footer className="qr-footer">
           <div className="footer-logo">{menu.brand.name}</div>
+          {menu.brand.info && (
+            <div className="info-block">
+              {menu.brand.info.address && <div className="info-row">📍 {menu.brand.info.address}</div>}
+              {menu.brand.info.phone && (
+                <div className="info-row">
+                  ☎ <a href={`tel:${menu.brand.info.phone.replace(/[^+\d]/g, "")}`}>{menu.brand.info.phone}</a>
+                </div>
+              )}
+              {menu.brand.info.instagram && (
+                <div className="info-row">
+                  <a href={`https://instagram.com/${menu.brand.info.instagram}`} target="_blank" rel="noopener">
+                    @{menu.brand.info.instagram}
+                  </a>
+                </div>
+              )}
+              {menu.brand.info.wifi && <div className="info-row">Wi-Fi: {menu.brand.info.wifi}</div>}
+            </div>
+          )}
         </footer>
       </main>
 
@@ -193,6 +223,7 @@ export default function MenuApp({ menu }: { menu: MenuData }) {
         {selected && (
           <div style={{ position: "relative" }}>
             <button type="button" className="dialog-close" onClick={() => setSelected(null)} aria-label="Close">×</button>
+            <DishBadges badges={selected.badges} lang={lang} />
             {selected.imageUrl ? (
               // eslint-disable-next-line @next/next/no-img-element
               <img className="dialog-img" src={selected.imageUrl} alt={selected.name[lang]} />

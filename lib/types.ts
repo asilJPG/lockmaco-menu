@@ -9,6 +9,8 @@ export interface Nutrition {
   carbs?: number;
 }
 
+export type Badge = "hit" | "new" | "spicy";
+
 export interface MenuItem {
   id: string;
   name: L10n;
@@ -18,6 +20,7 @@ export interface MenuItem {
   weight?: number;
   measureUnit?: "г" | "мл" | "шт";
   nutrition?: Nutrition;
+  badges?: Badge[];
   available: boolean;
 }
 
@@ -36,6 +39,12 @@ export interface MenuData {
     currency: L10n;
     welcomeTitle: string;
     welcomeLine: string;
+    info?: {
+      wifi?: string;
+      phone?: string;
+      instagram?: string;
+      address?: string;
+    };
   };
   sections: Record<SectionKey, Category[]>;
 }

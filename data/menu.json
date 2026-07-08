@@ -8,7 +8,13 @@
       "en": "UZS"
     },
     "welcomeTitle": "The Lokmaco",
-    "welcomeLine": "Xush kelibsiz • Добро пожаловать • Welcome"
+    "welcomeLine": "Xush kelibsiz • Добро пожаловать • Welcome",
+    "info": {
+      "wifi": "",
+      "phone": "+998 95 331-88-88",
+      "instagram": "thelokmaco",
+      "address": "Ташкент, ТЦ Seoul Mun, Сеульская 7/2 · ТЦ Atlas, Юнусабад 119а"
+    }
   },
   "sections": {
     "food": [
@@ -42,7 +48,10 @@
               "fats": 12,
               "carbs": 48
             },
-            "available": true
+            "available": true,
+            "badges": [
+              "hit"
+            ]
           },
           {
             "id": "lokma-choco",
@@ -106,7 +115,10 @@
             "imageUrl": "",
             "weight": 260,
             "measureUnit": "г",
-            "available": true
+            "available": true,
+            "badges": [
+              "new"
+            ]
           },
           {
             "id": "waffle-belgian",
@@ -152,7 +164,10 @@
             "imageUrl": "",
             "weight": 150,
             "measureUnit": "г",
-            "available": true
+            "available": true,
+            "badges": [
+              "hit"
+            ]
           }
         ]
       }
