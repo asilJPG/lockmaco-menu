@@ -29,33 +29,6 @@
         },
         "items": [
           {
-            "id": "lokma-classic",
-            "name": {
-              "ru": "Локма классическая",
-              "uz": "Klassik loqma",
-              "en": "Classic Lokma"
-            },
-            "description": {
-              "ru": "Воздушные пончики в медовом сиропе",
-              "uz": "Asal siropidagi yumshoq donutlar",
-              "en": "Airy doughnuts in honey syrup"
-            },
-            "price": 25000,
-            "imageUrl": "",
-            "weight": 180,
-            "measureUnit": "г",
-            "nutrition": {
-              "kcal": 320,
-              "proteins": 4.2,
-              "fats": 12,
-              "carbs": 48
-            },
-            "available": true,
-            "badges": [
-              "hit"
-            ]
-          },
-          {
             "id": "lokma-choco",
             "name": {
               "ru": "Локма с шоколадом",
@@ -63,32 +36,76 @@
               "en": "Chocolate Lokma"
             },
             "description": {
-              "ru": "Локма с заварным кремом внутри и шоколадом снаружи",
-              "uz": "Ichida qaymoqli krem, ustida shokolad",
-              "en": "Custard-filled lokma coated in chocolate"
+              "ru": "8 шариков · 12 шт — 64 000 · 16 шт — 76 000",
+              "uz": "8 dona · 12 dona — 64 000 · 16 dona — 76 000",
+              "en": "8 pcs · 12 pcs — 64,000 · 16 pcs — 76,000"
             },
-            "price": 32000,
-            "imageUrl": "",
-            "weight": 200,
-            "measureUnit": "г",
+            "price": 48000,
+            "imageUrl": "/uploads/lokma-choco.jpg",
+            "available": true
+          },
+          {
+            "id": "lokma-coconut",
+            "name": {
+              "ru": "Локма с кокосом",
+              "uz": "Kokosli loqma",
+              "en": "Coconut Lokma"
+            },
+            "description": {
+              "ru": "8 шариков · 12 шт — 72 000 · 16 шт — 81 000",
+              "uz": "8 dona · 12 dona — 72 000 · 16 dona — 81 000",
+              "en": "8 pcs · 12 pcs — 72,000 · 16 pcs — 81,000"
+            },
+            "price": 52000,
+            "imageUrl": "/uploads/lokma-coconut.jpg",
             "available": true
           },
           {
             "id": "lokma-pistachio",
             "name": {
-              "ru": "Локма с фисташкой",
+              "ru": "Локма с фисташками",
               "uz": "Pistali loqma",
               "en": "Pistachio Lokma"
             },
             "description": {
-              "ru": "Локма с фисташковым кремом и крошкой",
-              "uz": "Pista kremi va maydalangan pista bilan",
-              "en": "Lokma with pistachio cream and crumbs"
+              "ru": "8 шариков · 12 шт — 78 000 · 16 шт — 88 000",
+              "uz": "8 dona · 12 dona — 78 000 · 16 dona — 88 000",
+              "en": "8 pcs · 12 pcs — 78,000 · 16 pcs — 88,000"
             },
-            "price": 38000,
-            "imageUrl": "",
-            "weight": 200,
-            "measureUnit": "г",
+            "price": 58000,
+            "imageUrl": "/uploads/lokma-pistachio.jpg",
+            "available": true
+          },
+          {
+            "id": "lokma-fruit",
+            "name": {
+              "ru": "Локма фруктовая",
+              "uz": "Mevali loqma",
+              "en": "Fruit Lokma"
+            },
+            "description": {
+              "ru": "8 шариков · 12 шт — 80 000 · 16 шт — 90 000",
+              "uz": "8 dona · 12 dona — 80 000 · 16 dona — 90 000",
+              "en": "8 pcs · 12 pcs — 80,000 · 16 pcs — 90,000"
+            },
+            "price": 60000,
+            "imageUrl": "/uploads/lokma-fruit.jpg",
+            "available": true
+          },
+          {
+            "id": "fondue",
+            "name": {
+              "ru": "Фондю с мороженым",
+              "uz": "Muzqaymoqli fondyu",
+              "en": "Fondue with Ice Cream"
+            },
+            "description": {
+              "ru": "Локма, фрукты, мороженое и горячий шоколад",
+              "uz": "Loqma, mevalar, muzqaymoq va issiq shokolad",
+              "en": "Lokma, fruit, ice cream and hot chocolate"
+            },
+            "price": 85000,
+            "imageUrl": "/uploads/fondue.jpg",
             "available": true
           }
         ]
@@ -102,74 +119,459 @@
         },
         "items": [
           {
-            "id": "waffle-hk",
+            "id": "hk-choco",
             "name": {
-              "ru": "Гонконгские вафли",
-              "uz": "Gonkong vaflisi",
-              "en": "Hong Kong Waffle"
+              "ru": "Гонконгские вафли с шоколадом",
+              "uz": "Shokoladli Gonkong vaflisi",
+              "en": "Hong Kong Waffle · Chocolate"
             },
             "description": {
-              "ru": "Пузырчатая вафля с мороженым и топпингом на выбор",
-              "uz": "Muzqaymoq va topping bilan pufakli vafli",
-              "en": "Bubble waffle with ice cream and topping of choice"
+              "ru": "",
+              "uz": "",
+              "en": ""
             },
             "price": 45000,
+            "imageUrl": "/uploads/hk-choco.jpg",
+            "available": true
+          },
+          {
+            "id": "hk-banana",
+            "name": {
+              "ru": "Гонконгские вафли с бананом",
+              "uz": "Bananli Gonkong vaflisi",
+              "en": "Hong Kong Waffle · Banana"
+            },
+            "description": {
+              "ru": "",
+              "uz": "",
+              "en": ""
+            },
+            "price": 53000,
+            "imageUrl": "/uploads/hk-banana.jpg",
+            "available": true
+          },
+          {
+            "id": "hk-strawberry",
+            "name": {
+              "ru": "Гонконгские вафли с клубникой",
+              "uz": "Qulupnayli Gonkong vaflisi",
+              "en": "Hong Kong Waffle · Strawberry"
+            },
+            "description": {
+              "ru": "",
+              "uz": "",
+              "en": ""
+            },
+            "price": 55000,
+            "imageUrl": "/uploads/hk-strawberry.jpg",
+            "available": true
+          },
+          {
+            "id": "hk-fruit",
+            "name": {
+              "ru": "Гонконгские вафли фруктовый микс",
+              "uz": "Mevali miks Gonkong vaflisi",
+              "en": "Hong Kong Waffle · Fruit Mix"
+            },
+            "description": {
+              "ru": "",
+              "uz": "",
+              "en": ""
+            },
+            "price": 65000,
+            "imageUrl": "/uploads/hk-fruit.jpg",
+            "available": true
+          },
+          {
+            "id": "belgian-choco",
+            "name": {
+              "ru": "Бельгийские вафли с шоколадом",
+              "uz": "Shokoladli Belgiya vaflisi",
+              "en": "Belgian Waffle · Chocolate"
+            },
+            "description": {
+              "ru": "",
+              "uz": "",
+              "en": ""
+            },
+            "price": 45000,
+            "imageUrl": "/uploads/belgian-choco.jpg",
+            "available": true
+          },
+          {
+            "id": "belgian-banana",
+            "name": {
+              "ru": "Бельгийские вафли с бананом",
+              "uz": "Bananli Belgiya vaflisi",
+              "en": "Belgian Waffle · Banana"
+            },
+            "description": {
+              "ru": "",
+              "uz": "",
+              "en": ""
+            },
+            "price": 53000,
+            "imageUrl": "/uploads/belgian-banana.jpg",
+            "available": true
+          },
+          {
+            "id": "belgian-strawberry",
+            "name": {
+              "ru": "Бельгийские вафли с клубникой",
+              "uz": "Qulupnayli Belgiya vaflisi",
+              "en": "Belgian Waffle · Strawberry"
+            },
+            "description": {
+              "ru": "",
+              "uz": "",
+              "en": ""
+            },
+            "price": 55000,
             "imageUrl": "",
-            "weight": 260,
-            "measureUnit": "г",
+            "available": true
+          },
+          {
+            "id": "belgian-fruit",
+            "name": {
+              "ru": "Бельгийские вафли фруктовый микс",
+              "uz": "Mevali miks Belgiya vaflisi",
+              "en": "Belgian Waffle · Fruit Mix"
+            },
+            "description": {
+              "ru": "",
+              "uz": "",
+              "en": ""
+            },
+            "price": 65000,
+            "imageUrl": "/uploads/belgian-fruit.jpg",
+            "available": true
+          }
+        ]
+      },
+      {
+        "id": "pancakes",
+        "name": {
+          "ru": "Панкейки и блинчики",
+          "uz": "Pankeyk va blinchiklar",
+          "en": "Pancakes & Crêpes"
+        },
+        "items": [
+          {
+            "id": "pancakes-fruit",
+            "name": {
+              "ru": "Английские панкейки «Fruit» ассорти",
+              "uz": "Inglizcha pankeyk «Fruit» assorti",
+              "en": "English Pancakes “Fruit” Assorted"
+            },
+            "description": {
+              "ru": "",
+              "uz": "",
+              "en": ""
+            },
+            "price": 70000,
+            "imageUrl": "",
             "available": true,
             "badges": [
               "new"
             ]
           },
           {
-            "id": "waffle-belgian",
+            "id": "crepes-fruit",
             "name": {
-              "ru": "Бельгийские вафли",
-              "uz": "Belgiya vaflisi",
-              "en": "Belgian Waffle"
+              "ru": "Фруктовые блинчики",
+              "uz": "Mevali blinchiklar",
+              "en": "Fruit Crêpes"
             },
             "description": {
-              "ru": "Хрустящие вафли с ягодами и сливками",
-              "uz": "Rezavorlar va qaymoq bilan qarsildoq vafli",
-              "en": "Crispy waffles with berries and cream"
+              "ru": "",
+              "uz": "",
+              "en": ""
             },
-            "price": 42000,
+            "price": 68000,
             "imageUrl": "",
-            "weight": 240,
-            "measureUnit": "г",
+            "available": true
+          },
+          {
+            "id": "strawberry-cup",
+            "name": {
+              "ru": "Стаканчик клубники в шоколаде",
+              "uz": "Shokoladdagi qulupnay stakanchasi",
+              "en": "Chocolate-Dipped Strawberry Cup"
+            },
+            "description": {
+              "ru": "",
+              "uz": "",
+              "en": ""
+            },
+            "price": 45000,
+            "imageUrl": "",
             "available": true
           }
         ]
       },
       {
-        "id": "desserts",
+        "id": "icecream",
         "name": {
-          "ru": "Десерты",
-          "uz": "Desertlar",
-          "en": "Desserts"
+          "ru": "Мороженое",
+          "uz": "Muzqaymoq",
+          "en": "Ice Cream"
         },
         "items": [
           {
-            "id": "san-sebastian",
+            "id": "ice-vanilla",
             "name": {
-              "ru": "Сан-Себастьян",
-              "uz": "San-Sebastyan",
-              "en": "San Sebastian"
+              "ru": "Ванильное",
+              "uz": "Vanilli",
+              "en": "Vanilla"
             },
             "description": {
-              "ru": "Баскский чизкейк с карамелизированной корочкой",
-              "uz": "Karamellangan qobiqli bask chizkeyki",
-              "en": "Basque cheesecake with caramelized top"
+              "ru": "",
+              "uz": "",
+              "en": ""
             },
-            "price": 48000,
-            "imageUrl": "",
-            "weight": 150,
-            "measureUnit": "г",
-            "available": true,
-            "badges": [
-              "hit"
-            ]
+            "price": 35000,
+            "imageUrl": "/uploads/ice-vanilla.jpg",
+            "available": true
+          },
+          {
+            "id": "ice-strawberry",
+            "name": {
+              "ru": "Клубничное",
+              "uz": "Qulupnayli",
+              "en": "Strawberry"
+            },
+            "description": {
+              "ru": "",
+              "uz": "",
+              "en": ""
+            },
+            "price": 35000,
+            "imageUrl": "/uploads/ice-strawberry.jpg",
+            "available": true
+          },
+          {
+            "id": "ice-raspberry",
+            "name": {
+              "ru": "Малиновое",
+              "uz": "Malinali",
+              "en": "Raspberry"
+            },
+            "description": {
+              "ru": "",
+              "uz": "",
+              "en": ""
+            },
+            "price": 35000,
+            "imageUrl": "/uploads/ice-raspberry.jpg",
+            "available": true
+          },
+          {
+            "id": "ice-kiwi",
+            "name": {
+              "ru": "Киви",
+              "uz": "Kivi",
+              "en": "Kiwi"
+            },
+            "description": {
+              "ru": "",
+              "uz": "",
+              "en": ""
+            },
+            "price": 35000,
+            "imageUrl": "/uploads/ice-kiwi.jpg",
+            "available": true
+          },
+          {
+            "id": "ice-berry",
+            "name": {
+              "ru": "Лесная ягода",
+              "uz": "O‘rmon mevasi",
+              "en": "Wild Berry"
+            },
+            "description": {
+              "ru": "",
+              "uz": "",
+              "en": ""
+            },
+            "price": 35000,
+            "imageUrl": "/uploads/ice-berry.jpg",
+            "available": true
+          },
+          {
+            "id": "ice-peach-banana",
+            "name": {
+              "ru": "Персик / Банан",
+              "uz": "Shaftoli / Banan",
+              "en": "Peach / Banana"
+            },
+            "description": {
+              "ru": "",
+              "uz": "",
+              "en": ""
+            },
+            "price": 35000,
+            "imageUrl": "/uploads/ice-peach-banana.jpg",
+            "available": true
+          },
+          {
+            "id": "ice-mix",
+            "name": {
+              "ru": "Микс",
+              "uz": "Miks",
+              "en": "Mix"
+            },
+            "description": {
+              "ru": "",
+              "uz": "",
+              "en": ""
+            },
+            "price": 40000,
+            "imageUrl": "/uploads/ice-mix.jpg",
+            "available": true
+          },
+          {
+            "id": "ice-choco-moko",
+            "name": {
+              "ru": "Чоко-Моко",
+              "uz": "Choko-Moko",
+              "en": "Choco-Moko"
+            },
+            "description": {
+              "ru": "",
+              "uz": "",
+              "en": ""
+            },
+            "price": 45000,
+            "imageUrl": "/uploads/ice-choco-moko.jpg",
+            "available": true
+          },
+          {
+            "id": "ice-choco",
+            "name": {
+              "ru": "Шоколадное",
+              "uz": "Shokoladli",
+              "en": "Chocolate"
+            },
+            "description": {
+              "ru": "",
+              "uz": "",
+              "en": ""
+            },
+            "price": 45000,
+            "imageUrl": "/uploads/ice-choco.jpg",
+            "available": true
+          },
+          {
+            "id": "ice-choco-mix",
+            "name": {
+              "ru": "Чоко-микс",
+              "uz": "Choko-miks",
+              "en": "Choco Mix"
+            },
+            "description": {
+              "ru": "Стакан с шоколадными топпингами",
+              "uz": "Shokoladli topping bilan stakan",
+              "en": "Cup with chocolate toppings"
+            },
+            "price": 70000,
+            "imageUrl": "/uploads/ice-choco-mix.jpg",
+            "available": true
+          },
+          {
+            "id": "ice-frutti-mix",
+            "name": {
+              "ru": "Фрутти микс",
+              "uz": "Frutti miks",
+              "en": "Frutti Mix"
+            },
+            "description": {
+              "ru": "Стакан со свежими фруктами",
+              "uz": "Yangi mevalar bilan stakan",
+              "en": "Cup with fresh fruit"
+            },
+            "price": 65000,
+            "imageUrl": "/uploads/ice-frutti-mix.jpg",
+            "available": true
+          },
+          {
+            "id": "ice-tsukaty-mix",
+            "name": {
+              "ru": "Цукаты микс",
+              "uz": "Tsukatlar miks",
+              "en": "Candied Fruit Mix"
+            },
+            "description": {
+              "ru": "",
+              "uz": "",
+              "en": ""
+            },
+            "price": 65000,
+            "imageUrl": "/uploads/ice-tsukaty-mix.jpg",
+            "available": true
+          },
+          {
+            "id": "icebox-vanilla",
+            "name": {
+              "ru": "Бокс с собой · Ванильный",
+              "uz": "Olib ketish boksi · Vanilli",
+              "en": "Takeaway Box · Vanilla"
+            },
+            "description": {
+              "ru": "0,5 кг · 1 кг — 140 000",
+              "uz": "0,5 kg · 1 kg — 140 000",
+              "en": "0.5 kg · 1 kg — 140,000"
+            },
+            "price": 70000,
+            "imageUrl": "/uploads/icebox-vanilla.jpg",
+            "available": true
+          },
+          {
+            "id": "icebox-choco",
+            "name": {
+              "ru": "Бокс с собой · Шоколадный",
+              "uz": "Olib ketish boksi · Shokoladli",
+              "en": "Takeaway Box · Chocolate"
+            },
+            "description": {
+              "ru": "0,5 кг · 1 кг — 120 000",
+              "uz": "0,5 kg · 1 kg — 120 000",
+              "en": "0.5 kg · 1 kg — 120,000"
+            },
+            "price": 60000,
+            "imageUrl": "/uploads/icebox-choco.jpg",
+            "available": true
+          },
+          {
+            "id": "icebox-choco-moko",
+            "name": {
+              "ru": "Бокс с собой · Чоко-Моко",
+              "uz": "Olib ketish boksi · Choko-Moko",
+              "en": "Takeaway Box · Choco-Moko"
+            },
+            "description": {
+              "ru": "0,5 кг · 1 кг — 120 000",
+              "uz": "0,5 kg · 1 kg — 120 000",
+              "en": "0.5 kg · 1 kg — 120,000"
+            },
+            "price": 60000,
+            "imageUrl": "/uploads/icebox-choco-moko.jpg",
+            "available": true
+          },
+          {
+            "id": "icebox-mix",
+            "name": {
+              "ru": "Бокс с собой · Микс",
+              "uz": "Olib ketish boksi · Miks",
+              "en": "Takeaway Box · Mix"
+            },
+            "description": {
+              "ru": "0,5 кг · 1 кг — 120 000",
+              "uz": "0,5 kg · 1 kg — 120 000",
+              "en": "0.5 kg · 1 kg — 120,000"
+            },
+            "price": 60000,
+            "imageUrl": "/uploads/icebox-mix.jpg",
+            "available": true
           }
         ]
       }
@@ -191,14 +593,60 @@
               "en": "Espresso"
             },
             "description": {
-              "ru": "Классический эспрессо из свежеобжаренных зёрен",
-              "uz": "Yangi qovurilgan donlardan klassik espresso",
-              "en": "Classic espresso from freshly roasted beans"
+              "ru": "",
+              "uz": "",
+              "en": ""
             },
             "price": 20000,
             "imageUrl": "",
-            "weight": 30,
-            "measureUnit": "мл",
+            "available": true
+          },
+          {
+            "id": "americano",
+            "name": {
+              "ru": "Американо",
+              "uz": "Amerikano",
+              "en": "Americano"
+            },
+            "description": {
+              "ru": "",
+              "uz": "",
+              "en": ""
+            },
+            "price": 22000,
+            "imageUrl": "",
+            "available": true
+          },
+          {
+            "id": "americano-double",
+            "name": {
+              "ru": "Американо дабл",
+              "uz": "Amerikano dabl",
+              "en": "Double Americano"
+            },
+            "description": {
+              "ru": "",
+              "uz": "",
+              "en": ""
+            },
+            "price": 28000,
+            "imageUrl": "",
+            "available": true
+          },
+          {
+            "id": "cappuccino",
+            "name": {
+              "ru": "Капучино",
+              "uz": "Kapuchino",
+              "en": "Cappuccino"
+            },
+            "description": {
+              "ru": "",
+              "uz": "",
+              "en": ""
+            },
+            "price": 28000,
+            "imageUrl": "",
             "available": true
           },
           {
@@ -209,32 +657,182 @@
               "en": "Latte"
             },
             "description": {
-              "ru": "Нежный латте на молоке",
-              "uz": "Sut bilan yumshoq latte",
-              "en": "Smooth milk latte"
-            },
-            "price": 30000,
-            "imageUrl": "",
-            "weight": 300,
-            "measureUnit": "мл",
-            "available": true
-          },
-          {
-            "id": "turkish-coffee",
-            "name": {
-              "ru": "Кофе по-турецки",
-              "uz": "Turkcha qahva",
-              "en": "Turkish Coffee"
-            },
-            "description": {
-              "ru": "Сваренный в джезве на песке",
-              "uz": "Qumda jezvada tayyorlangan",
-              "en": "Brewed in a cezve on hot sand"
+              "ru": "",
+              "uz": "",
+              "en": ""
             },
             "price": 28000,
             "imageUrl": "",
-            "weight": 100,
-            "measureUnit": "мл",
+            "available": true
+          },
+          {
+            "id": "cacao",
+            "name": {
+              "ru": "Какао",
+              "uz": "Kakao",
+              "en": "Cocoa"
+            },
+            "description": {
+              "ru": "",
+              "uz": "",
+              "en": ""
+            },
+            "price": 28000,
+            "imageUrl": "",
+            "available": true
+          },
+          {
+            "id": "cappuccino-double",
+            "name": {
+              "ru": "Капучино дабл",
+              "uz": "Kapuchino dabl",
+              "en": "Double Cappuccino"
+            },
+            "description": {
+              "ru": "",
+              "uz": "",
+              "en": ""
+            },
+            "price": 34000,
+            "imageUrl": "",
+            "available": true
+          },
+          {
+            "id": "latte-double",
+            "name": {
+              "ru": "Латте дабл",
+              "uz": "Latte dabl",
+              "en": "Double Latte"
+            },
+            "description": {
+              "ru": "",
+              "uz": "",
+              "en": ""
+            },
+            "price": 34000,
+            "imageUrl": "",
+            "available": true
+          },
+          {
+            "id": "raf",
+            "name": {
+              "ru": "Раф",
+              "uz": "Raf",
+              "en": "Raf"
+            },
+            "description": {
+              "ru": "",
+              "uz": "",
+              "en": ""
+            },
+            "price": 34000,
+            "imageUrl": "",
+            "available": true
+          },
+          {
+            "id": "hot-choco",
+            "name": {
+              "ru": "Горячий шоколад",
+              "uz": "Issiq shokolad",
+              "en": "Hot Chocolate"
+            },
+            "description": {
+              "ru": "",
+              "uz": "",
+              "en": ""
+            },
+            "price": 34000,
+            "imageUrl": "",
+            "available": true
+          },
+          {
+            "id": "mocaccino",
+            "name": {
+              "ru": "Моккачино",
+              "uz": "Mokachino",
+              "en": "Mocaccino"
+            },
+            "description": {
+              "ru": "",
+              "uz": "",
+              "en": ""
+            },
+            "price": 38000,
+            "imageUrl": "",
+            "available": true
+          }
+        ]
+      },
+      {
+        "id": "ice-coffee",
+        "name": {
+          "ru": "Айс кофе",
+          "uz": "Ays qahva",
+          "en": "Iced Coffee"
+        },
+        "items": [
+          {
+            "id": "ice-americano",
+            "name": {
+              "ru": "Айс американо",
+              "uz": "Ays amerikano",
+              "en": "Iced Americano"
+            },
+            "description": {
+              "ru": "",
+              "uz": "",
+              "en": ""
+            },
+            "price": 35000,
+            "imageUrl": "",
+            "available": true
+          },
+          {
+            "id": "ice-cappuccino",
+            "name": {
+              "ru": "Айс капучино",
+              "uz": "Ays kapuchino",
+              "en": "Iced Cappuccino"
+            },
+            "description": {
+              "ru": "",
+              "uz": "",
+              "en": ""
+            },
+            "price": 35000,
+            "imageUrl": "",
+            "available": true
+          },
+          {
+            "id": "ice-latte",
+            "name": {
+              "ru": "Айс латте",
+              "uz": "Ays latte",
+              "en": "Iced Latte"
+            },
+            "description": {
+              "ru": "",
+              "uz": "",
+              "en": ""
+            },
+            "price": 35000,
+            "imageUrl": "",
+            "available": true
+          },
+          {
+            "id": "frappuccino",
+            "name": {
+              "ru": "Фраппучино",
+              "uz": "Frapuchino",
+              "en": "Frappuccino"
+            },
+            "description": {
+              "ru": "",
+              "uz": "",
+              "en": ""
+            },
+            "price": 38000,
+            "imageUrl": "",
             "available": true
           }
         ]
@@ -248,21 +846,809 @@
         },
         "items": [
           {
-            "id": "turkish-tea",
+            "id": "tea-black-green",
             "name": {
-              "ru": "Турецкий чай",
-              "uz": "Turk choyi",
-              "en": "Turkish Tea"
+              "ru": "Чёрный / Зелёный чай",
+              "uz": "Qora / Ko‘k choy",
+              "en": "Black / Green Tea"
             },
             "description": {
-              "ru": "Классический турецкий чай в армуду",
-              "uz": "Armudu stakanida klassik turk choyi",
-              "en": "Classic Turkish tea in armudu glass"
+              "ru": "",
+              "uz": "",
+              "en": ""
             },
-            "price": 15000,
+            "price": 16000,
             "imageUrl": "",
-            "weight": 150,
-            "measureUnit": "мл",
+            "available": true
+          },
+          {
+            "id": "tea-lemon",
+            "name": {
+              "ru": "Лимонный чай",
+              "uz": "Limonli choy",
+              "en": "Lemon Tea"
+            },
+            "description": {
+              "ru": "",
+              "uz": "",
+              "en": ""
+            },
+            "price": 22000,
+            "imageUrl": "",
+            "available": true
+          },
+          {
+            "id": "tea-bardak",
+            "name": {
+              "ru": "Бардак",
+              "uz": "Bardak choy",
+              "en": "Bardak Tea"
+            },
+            "description": {
+              "ru": "",
+              "uz": "",
+              "en": ""
+            },
+            "price": 28000,
+            "imageUrl": "",
+            "available": true
+          },
+          {
+            "id": "tea-raspberry",
+            "name": {
+              "ru": "Малиновый чай",
+              "uz": "Malinali choy",
+              "en": "Raspberry Tea"
+            },
+            "description": {
+              "ru": "",
+              "uz": "",
+              "en": ""
+            },
+            "price": 35000,
+            "imageUrl": "",
+            "available": true
+          },
+          {
+            "id": "tea-fruit",
+            "name": {
+              "ru": "Фруктовый чай",
+              "uz": "Mevali choy",
+              "en": "Fruit Tea"
+            },
+            "description": {
+              "ru": "",
+              "uz": "",
+              "en": ""
+            },
+            "price": 35000,
+            "imageUrl": "",
+            "available": true
+          },
+          {
+            "id": "tea-berry",
+            "name": {
+              "ru": "Ягодный чай",
+              "uz": "Rezavorli choy",
+              "en": "Berry Tea"
+            },
+            "description": {
+              "ru": "",
+              "uz": "",
+              "en": ""
+            },
+            "price": 35000,
+            "imageUrl": "",
+            "available": true
+          },
+          {
+            "id": "tea-ginger",
+            "name": {
+              "ru": "Имбирный чай",
+              "uz": "Zanjabilli choy",
+              "en": "Ginger Tea"
+            },
+            "description": {
+              "ru": "",
+              "uz": "",
+              "en": ""
+            },
+            "price": 35000,
+            "imageUrl": "",
+            "available": true
+          },
+          {
+            "id": "tea-calm",
+            "name": {
+              "ru": "Успокаивающий чай",
+              "uz": "Tinchlantiruvchi choy",
+              "en": "Calming Tea"
+            },
+            "description": {
+              "ru": "",
+              "uz": "",
+              "en": ""
+            },
+            "price": 38000,
+            "imageUrl": "",
+            "available": true
+          },
+          {
+            "id": "tea-ginger-raspberry",
+            "name": {
+              "ru": "Имбирь + малина",
+              "uz": "Zanjabil + malina",
+              "en": "Ginger + Raspberry"
+            },
+            "description": {
+              "ru": "",
+              "uz": "",
+              "en": ""
+            },
+            "price": 38000,
+            "imageUrl": "",
+            "available": true
+          },
+          {
+            "id": "tea-moroccan",
+            "name": {
+              "ru": "Марокканский чай",
+              "uz": "Marokash choyi",
+              "en": "Moroccan Tea"
+            },
+            "description": {
+              "ru": "",
+              "uz": "",
+              "en": ""
+            },
+            "price": 38000,
+            "imageUrl": "",
+            "available": true
+          },
+          {
+            "id": "tea-mango-raspberry",
+            "name": {
+              "ru": "Манго + малина",
+              "uz": "Mango + malina",
+              "en": "Mango + Raspberry"
+            },
+            "description": {
+              "ru": "",
+              "uz": "",
+              "en": ""
+            },
+            "price": 38000,
+            "imageUrl": "",
+            "available": true
+          }
+        ]
+      },
+      {
+        "id": "icetea",
+        "name": {
+          "ru": "Айсти",
+          "uz": "Aysti",
+          "en": "Iced Tea"
+        },
+        "items": [
+          {
+            "id": "icetea-berry",
+            "name": {
+              "ru": "Ягодный",
+              "uz": "Rezavorli",
+              "en": "Berry"
+            },
+            "description": {
+              "ru": "В графине — 95 000",
+              "uz": "Grafinda — 95 000",
+              "en": "Pitcher — 95,000"
+            },
+            "price": 35000,
+            "imageUrl": "",
+            "available": true
+          },
+          {
+            "id": "icetea-strawberry",
+            "name": {
+              "ru": "Клубничный",
+              "uz": "Qulupnayli",
+              "en": "Strawberry"
+            },
+            "description": {
+              "ru": "В графине — 95 000",
+              "uz": "Grafinda — 95 000",
+              "en": "Pitcher — 95,000"
+            },
+            "price": 35000,
+            "imageUrl": "",
+            "available": true
+          },
+          {
+            "id": "icetea-raspberry",
+            "name": {
+              "ru": "Малиновый",
+              "uz": "Malinali",
+              "en": "Raspberry"
+            },
+            "description": {
+              "ru": "В графине — 95 000",
+              "uz": "Grafinda — 95 000",
+              "en": "Pitcher — 95,000"
+            },
+            "price": 35000,
+            "imageUrl": "",
+            "available": true
+          }
+        ]
+      },
+      {
+        "id": "fresh",
+        "name": {
+          "ru": "Фреш",
+          "uz": "Fresh",
+          "en": "Fresh Juice"
+        },
+        "items": [
+          {
+            "id": "fresh-carrot",
+            "name": {
+              "ru": "Морковный",
+              "uz": "Sabzili",
+              "en": "Carrot"
+            },
+            "description": {
+              "ru": "",
+              "uz": "",
+              "en": ""
+            },
+            "price": 35000,
+            "imageUrl": "",
+            "available": true
+          },
+          {
+            "id": "fresh-apple",
+            "name": {
+              "ru": "Яблочный",
+              "uz": "Olmali",
+              "en": "Apple"
+            },
+            "description": {
+              "ru": "",
+              "uz": "",
+              "en": ""
+            },
+            "price": 35000,
+            "imageUrl": "",
+            "available": true
+          },
+          {
+            "id": "fresh-carrot-apple",
+            "name": {
+              "ru": "Морковь + яблоко",
+              "uz": "Sabzi + olma",
+              "en": "Carrot + Apple"
+            },
+            "description": {
+              "ru": "",
+              "uz": "",
+              "en": ""
+            },
+            "price": 35000,
+            "imageUrl": "",
+            "available": true
+          },
+          {
+            "id": "fresh-orange",
+            "name": {
+              "ru": "Апельсиновый",
+              "uz": "Apelsinli",
+              "en": "Orange"
+            },
+            "description": {
+              "ru": "",
+              "uz": "",
+              "en": ""
+            },
+            "price": 68000,
+            "imageUrl": "/uploads/fresh-orange.jpg",
+            "available": true
+          },
+          {
+            "id": "fresh-orange-apple",
+            "name": {
+              "ru": "Апельсин + яблоко",
+              "uz": "Apelsin + olma",
+              "en": "Orange + Apple"
+            },
+            "description": {
+              "ru": "",
+              "uz": "",
+              "en": ""
+            },
+            "price": 55000,
+            "imageUrl": "",
+            "available": true
+          },
+          {
+            "id": "fresh-orange-lemon",
+            "name": {
+              "ru": "Апельсин + лимон",
+              "uz": "Apelsin + limon",
+              "en": "Orange + Lemon"
+            },
+            "description": {
+              "ru": "",
+              "uz": "",
+              "en": ""
+            },
+            "price": 68000,
+            "imageUrl": "",
+            "available": true
+          }
+        ]
+      },
+      {
+        "id": "smoothie",
+        "name": {
+          "ru": "Смузи",
+          "uz": "Smuzi",
+          "en": "Smoothies"
+        },
+        "items": [
+          {
+            "id": "smoothie-kiwi-apple",
+            "name": {
+              "ru": "Киви-яблоко",
+              "uz": "Kivi-olma",
+              "en": "Kiwi & Apple"
+            },
+            "description": {
+              "ru": "Киви, яблоко, сироп киви, яблочный сок, лимонный фреш",
+              "uz": "Kivi, olma, kivi siropi, olma sharbati, limon fresh",
+              "en": "Kiwi, apple, kiwi syrup, apple juice, fresh lemon"
+            },
+            "price": 45000,
+            "imageUrl": "",
+            "available": true
+          },
+          {
+            "id": "smoothie-strawberry-banana",
+            "name": {
+              "ru": "Клубника-банан",
+              "uz": "Qulupnay-banan",
+              "en": "Strawberry & Banana"
+            },
+            "description": {
+              "ru": "Банан, сироп дыни, ванильный сироп, апельсиновый сок, лимонный фреш",
+              "uz": "Banan, qovun siropi, vanil siropi, apelsin sharbati, limon fresh",
+              "en": "Banana, melon syrup, vanilla syrup, orange juice, fresh lemon"
+            },
+            "price": 45000,
+            "imageUrl": "",
+            "available": true
+          },
+          {
+            "id": "smoothie-mango-passion",
+            "name": {
+              "ru": "Манго-маракуйя",
+              "uz": "Mango-marakuya",
+              "en": "Mango & Passion Fruit"
+            },
+            "description": {
+              "ru": "Банан, апельсин, яблочный сок, сироп манго, сироп маракуйи, лимонный фреш",
+              "uz": "Banan, apelsin, olma sharbati, mango va marakuya siroplari, limon fresh",
+              "en": "Banana, orange, apple juice, mango & passion fruit syrups, fresh lemon"
+            },
+            "price": 45000,
+            "imageUrl": "",
+            "available": true
+          },
+          {
+            "id": "smoothie-berry",
+            "name": {
+              "ru": "Ягодный",
+              "uz": "Rezavorli",
+              "en": "Berry"
+            },
+            "description": {
+              "ru": "Ягодное пюре, малина, клубника, яблочный сок, ягодный сироп, колотый лёд",
+              "uz": "Rezavor pyuresi, malina, qulupnay, olma sharbati, rezavor siropi, muz",
+              "en": "Berry purée, raspberry, strawberry, apple juice, berry syrup, crushed ice"
+            },
+            "price": 45000,
+            "imageUrl": "",
+            "available": true
+          }
+        ]
+      },
+      {
+        "id": "milkshake",
+        "name": {
+          "ru": "Милкшейк",
+          "uz": "Milksheyk",
+          "en": "Milkshakes"
+        },
+        "items": [
+          {
+            "id": "shake-vanilla",
+            "name": {
+              "ru": "Ванильный",
+              "uz": "Vanilli",
+              "en": "Vanilla"
+            },
+            "description": {
+              "ru": "",
+              "uz": "",
+              "en": ""
+            },
+            "price": 38000,
+            "imageUrl": "",
+            "available": true
+          },
+          {
+            "id": "shake-choco",
+            "name": {
+              "ru": "Шоколадный",
+              "uz": "Shokoladli",
+              "en": "Chocolate"
+            },
+            "description": {
+              "ru": "",
+              "uz": "",
+              "en": ""
+            },
+            "price": 38000,
+            "imageUrl": "",
+            "available": true
+          },
+          {
+            "id": "shake-strawberry",
+            "name": {
+              "ru": "Клубничный",
+              "uz": "Qulupnayli",
+              "en": "Strawberry"
+            },
+            "description": {
+              "ru": "",
+              "uz": "",
+              "en": ""
+            },
+            "price": 38000,
+            "imageUrl": "",
+            "available": true
+          },
+          {
+            "id": "shake-kiwi",
+            "name": {
+              "ru": "Киви",
+              "uz": "Kivi",
+              "en": "Kiwi"
+            },
+            "description": {
+              "ru": "",
+              "uz": "",
+              "en": ""
+            },
+            "price": 38000,
+            "imageUrl": "",
+            "available": true
+          },
+          {
+            "id": "shake-raspberry",
+            "name": {
+              "ru": "Малиновый",
+              "uz": "Malinali",
+              "en": "Raspberry"
+            },
+            "description": {
+              "ru": "",
+              "uz": "",
+              "en": ""
+            },
+            "price": 38000,
+            "imageUrl": "",
+            "available": true
+          },
+          {
+            "id": "shake-banana",
+            "name": {
+              "ru": "Банановый",
+              "uz": "Bananli",
+              "en": "Banana"
+            },
+            "description": {
+              "ru": "",
+              "uz": "",
+              "en": ""
+            },
+            "price": 38000,
+            "imageUrl": "",
+            "available": true
+          },
+          {
+            "id": "shake-strawberry-banana",
+            "name": {
+              "ru": "Клубника + банан",
+              "uz": "Qulupnay + banan",
+              "en": "Strawberry + Banana"
+            },
+            "description": {
+              "ru": "",
+              "uz": "",
+              "en": ""
+            },
+            "price": 45000,
+            "imageUrl": "",
+            "available": true
+          },
+          {
+            "id": "shake-choco-banana",
+            "name": {
+              "ru": "Шоколад + банан",
+              "uz": "Shokolad + banan",
+              "en": "Chocolate + Banana"
+            },
+            "description": {
+              "ru": "",
+              "uz": "",
+              "en": ""
+            },
+            "price": 45000,
+            "imageUrl": "",
+            "available": true
+          }
+        ]
+      },
+      {
+        "id": "mojito",
+        "name": {
+          "ru": "Мохито",
+          "uz": "Moxito",
+          "en": "Mojito"
+        },
+        "items": [
+          {
+            "id": "mojito-classic",
+            "name": {
+              "ru": "Классический",
+              "uz": "Klassik",
+              "en": "Classic"
+            },
+            "description": {
+              "ru": "В графине — 80 000",
+              "uz": "Grafinda — 80 000",
+              "en": "Pitcher — 80,000"
+            },
+            "price": 28000,
+            "imageUrl": "/uploads/mojito-classic.jpg",
+            "available": true
+          },
+          {
+            "id": "mojito-strawberry",
+            "name": {
+              "ru": "Клубничный",
+              "uz": "Qulupnayli",
+              "en": "Strawberry"
+            },
+            "description": {
+              "ru": "В графине — 95 000",
+              "uz": "Grafinda — 95 000",
+              "en": "Pitcher — 95,000"
+            },
+            "price": 34000,
+            "imageUrl": "/uploads/mojito-strawberry.jpg",
+            "available": true
+          },
+          {
+            "id": "mojito-berry",
+            "name": {
+              "ru": "Ягодный",
+              "uz": "Rezavorli",
+              "en": "Berry"
+            },
+            "description": {
+              "ru": "В графине — 95 000",
+              "uz": "Grafinda — 95 000",
+              "en": "Pitcher — 95,000"
+            },
+            "price": 34000,
+            "imageUrl": "",
+            "available": true
+          },
+          {
+            "id": "mojito-kiwi",
+            "name": {
+              "ru": "Киви",
+              "uz": "Kivi",
+              "en": "Kiwi"
+            },
+            "description": {
+              "ru": "В графине — 95 000",
+              "uz": "Grafinda — 95 000",
+              "en": "Pitcher — 95,000"
+            },
+            "price": 34000,
+            "imageUrl": "/uploads/mojito-kiwi.jpg",
+            "available": true
+          },
+          {
+            "id": "mojito-raspberry",
+            "name": {
+              "ru": "Малиновый",
+              "uz": "Malinali",
+              "en": "Raspberry"
+            },
+            "description": {
+              "ru": "В графине — 95 000",
+              "uz": "Grafinda — 95 000",
+              "en": "Pitcher — 95,000"
+            },
+            "price": 34000,
+            "imageUrl": "",
+            "available": true
+          },
+          {
+            "id": "mojito-redbull",
+            "name": {
+              "ru": "Red Bull",
+              "uz": "Red Bull",
+              "en": "Red Bull"
+            },
+            "description": {
+              "ru": "В графине — 100 000",
+              "uz": "Grafinda — 100 000",
+              "en": "Pitcher — 100,000"
+            },
+            "price": 40000,
+            "imageUrl": "",
+            "available": true
+          }
+        ]
+      },
+      {
+        "id": "bubbletea",
+        "name": {
+          "ru": "Бабл ти",
+          "uz": "Babl ti",
+          "en": "Bubble Tea"
+        },
+        "items": [
+          {
+            "id": "bubble-lost-cherry",
+            "name": {
+              "ru": "Lost Cherry",
+              "uz": "Lost Cherry",
+              "en": "Lost Cherry"
+            },
+            "description": {
+              "ru": "Вишнёвый сироп, малиновый сироп, малиновое пюре, лимонный фреш",
+              "uz": "Olcha siropi, malina siropi, malina pyuresi, limon fresh",
+              "en": "Cherry syrup, raspberry syrup, raspberry purée, fresh lemon"
+            },
+            "price": 48000,
+            "imageUrl": "",
+            "available": true
+          },
+          {
+            "id": "bubble-lokmaco",
+            "name": {
+              "ru": "The Lokmaco",
+              "uz": "The Lokmaco",
+              "en": "The Lokmaco"
+            },
+            "description": {
+              "ru": "Клубничный сироп, клубничное пюре, тапиока, молоко, сливки",
+              "uz": "Qulupnay siropi, qulupnay pyuresi, tapioka, sut, qaymoq",
+              "en": "Strawberry syrup & purée, tapioca, milk, cream"
+            },
+            "price": 45000,
+            "imageUrl": "",
+            "available": true
+          },
+          {
+            "id": "bubble-coffee",
+            "name": {
+              "ru": "Аромат кофе",
+              "uz": "Qahva atri",
+              "en": "Coffee Aroma"
+            },
+            "description": {
+              "ru": "Ванильный сироп, эспрессо, тапиока, молоко, сливки",
+              "uz": "Vanil siropi, espresso, tapioka, sut, qaymoq",
+              "en": "Vanilla syrup, espresso, tapioca, milk, cream"
+            },
+            "price": 40000,
+            "imageUrl": "/uploads/bubbletea-coffee.jpg",
+            "available": true
+          },
+          {
+            "id": "bubble-peach-passion",
+            "name": {
+              "ru": "Персик-маракуйя",
+              "uz": "Shaftoli-marakuya",
+              "en": "Peach & Passion Fruit"
+            },
+            "description": {
+              "ru": "Персиковый сироп, сироп маракуйи, лимонный фреш, айсти, анчан",
+              "uz": "Shaftoli va marakuya siroplari, limon fresh, aysti, anchan",
+              "en": "Peach & passion fruit syrups, fresh lemon, iced tea, butterfly pea"
+            },
+            "price": 48000,
+            "imageUrl": "",
+            "available": true
+          }
+        ]
+      },
+      {
+        "id": "cocktails",
+        "name": {
+          "ru": "Коктейли",
+          "uz": "Kokteyllar",
+          "en": "Mocktails"
+        },
+        "items": [
+          {
+            "id": "cocktail-gangster",
+            "name": {
+              "ru": "Гангстер",
+              "uz": "Gangster",
+              "en": "Gangster"
+            },
+            "description": {
+              "ru": "Клубничный сироп, сироп маракуйи, апельсиновый сок, Red Bull",
+              "uz": "Qulupnay va marakuya siroplari, apelsin sharbati, Red Bull",
+              "en": "Strawberry & passion fruit syrups, orange juice, Red Bull"
+            },
+            "price": 34000,
+            "imageUrl": "",
+            "available": true
+          },
+          {
+            "id": "cocktail-maldives",
+            "name": {
+              "ru": "Мальдивы",
+              "uz": "Maldiv",
+              "en": "Maldives"
+            },
+            "description": {
+              "ru": "Сироп Blue Curacao, ванильный сироп, ананасовый сок, Sprite",
+              "uz": "Blue Curacao siropi, vanil siropi, ananas sharbati, Sprite",
+              "en": "Blue Curacao syrup, vanilla syrup, pineapple juice, Sprite"
+            },
+            "price": 34000,
+            "imageUrl": "",
+            "available": true
+          },
+          {
+            "id": "cocktail-sunset",
+            "name": {
+              "ru": "Sunset",
+              "uz": "Sunset",
+              "en": "Sunset"
+            },
+            "description": {
+              "ru": "Ванильный сироп, сироп маракуйи, яблочный сок, айсти, анчан",
+              "uz": "Vanil va marakuya siroplari, olma sharbati, aysti, anchan",
+              "en": "Vanilla & passion fruit syrups, apple juice, iced tea, butterfly pea"
+            },
+            "price": 34000,
+            "imageUrl": "",
+            "available": true
+          },
+          {
+            "id": "cocktail-mclaren",
+            "name": {
+              "ru": "McLaren",
+              "uz": "McLaren",
+              "en": "McLaren"
+            },
+            "description": {
+              "ru": "Гранатовый сироп, клубничный сироп, клубника, Red Bull",
+              "uz": "Anor va qulupnay siroplari, qulupnay, Red Bull",
+              "en": "Pomegranate & strawberry syrups, strawberry, Red Bull"
+            },
+            "price": 38000,
+            "imageUrl": "",
             "available": true
           }
         ]
