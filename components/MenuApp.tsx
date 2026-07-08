@@ -194,6 +194,12 @@ export default function MenuApp({ menu }: { menu: MenuData }) {
           {menu.brand.info && (
             <div className="info-block">
               {menu.brand.info.address && <div className="info-row">📍 {menu.brand.info.address}</div>}
+              {menu.brand.info.hours && (
+                <div className="info-row">🕙 {t.hours_label}: {menu.brand.info.hours}</div>
+              )}
+              {menu.brand.info.service && (
+                <div className="info-row">{t.service_label}: {menu.brand.info.service}</div>
+              )}
               {menu.brand.info.phone && (
                 <div className="info-row">
                   ☎ <a href={`tel:${menu.brand.info.phone.replace(/[^+\d]/g, "")}`}>{menu.brand.info.phone}</a>

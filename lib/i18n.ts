@@ -17,6 +17,8 @@ export const UI: Record<Lang, Record<string, string>> = {
     carbs: "углеводы",
     items: "поз.",
     qr_menu: "МЕНЮ",
+    hours_label: "Режим работы",
+    service_label: "Обслуживание",
   },
   uz: {
     menu_title: "Menyu",
@@ -32,6 +34,8 @@ export const UI: Record<Lang, Record<string, string>> = {
     carbs: "uglevod",
     items: "ta",
     qr_menu: "MENYU",
+    hours_label: "Ish vaqti",
+    service_label: "Xizmat haqi",
   },
   en: {
     menu_title: "Menu",
@@ -47,6 +51,8 @@ export const UI: Record<Lang, Record<string, string>> = {
     carbs: "carbs",
     items: "items",
     qr_menu: "MENU",
+    hours_label: "Opening hours",
+    service_label: "Service charge",
   },
 };
 

@@ -173,6 +173,16 @@ export default function AdminApp() {
             <input className="admin-input" value={menu.brand.info?.wifi ?? ""}
               onChange={(e) => update((m) => { m.brand.info = { ...m.brand.info, wifi: e.target.value }; })} />
           </div>
+          <div className="admin-field">
+            <label>Режим работы</label>
+            <input className="admin-input" value={menu.brand.info?.hours ?? ""}
+              onChange={(e) => update((m) => { m.brand.info = { ...m.brand.info, hours: e.target.value }; })} />
+          </div>
+          <div className="admin-field">
+            <label>Обслуживание (напр. 10%)</label>
+            <input className="admin-input" value={menu.brand.info?.service ?? ""}
+              onChange={(e) => update((m) => { m.brand.info = { ...m.brand.info, service: e.target.value }; })} />
+          </div>
         </div>
         <div className="admin-field" style={{ marginTop: 10 }}>
           <label>Адрес / филиалы</label>

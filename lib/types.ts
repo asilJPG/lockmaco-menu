@@ -44,6 +44,8 @@ export interface MenuData {
       phone?: string;
       instagram?: string;
       address?: string;
+      hours?: string;
+      service?: string;
     };
   };
   sections: Record<SectionKey, Category[]>;
