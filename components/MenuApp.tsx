@@ -189,6 +189,12 @@ export default function MenuApp({ menu }: { menu: MenuData }) {
           ))}
         </section>
 
+        <a className="card-banner" href="/card">
+          <span className="card-banner__star" aria-hidden>✦</span>
+          <span className="card-banner__text">{t.card_link}</span>
+          <span className="card-banner__arrow" aria-hidden>→</span>
+        </a>
+
         <footer className="qr-footer">
           <div className="footer-logo">{menu.brand.name}</div>
           {menu.brand.info && (

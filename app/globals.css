@@ -560,3 +560,326 @@ button {
   text-decoration: none;
 }
 
+/* ---------- Loyalty card ---------- */
+.card-banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 34px;
+  padding: 16px 20px;
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, #57381f 0%, var(--brand-primary) 55%, var(--brand-dark) 100%);
+  border: 1px solid rgba(224, 168, 62, 0.4);
+  color: var(--brand-cream);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 15px;
+  box-shadow: 0 12px 26px rgba(62, 32, 16, 0.22);
+  transition: transform 0.15s ease;
+}
+
+.card-banner:active {
+  transform: scale(0.985);
+}
+
+.card-banner__star {
+  color: var(--brand-gold);
+  font-size: 18px;
+}
+
+.card-banner__arrow {
+  margin-left: auto;
+  color: var(--brand-gold);
+}
+
+.card-shell {
+  max-width: 560px;
+}
+
+.card-back {
+  display: inline-block;
+  margin: 2px 0 14px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--brand-primary);
+  text-decoration: none;
+}
+
+.card-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.loyalty-card__scene {
+  perspective: 1100px;
+  width: 100%;
+  max-width: 420px;
+}
+
+.loyalty-card {
+  position: relative;
+  aspect-ratio: 1.586;
+  border-radius: 22px;
+  padding: clamp(18px, 5vw, 26px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: var(--brand-cream);
+  background:
+    radial-gradient(130% 160% at 15% -10%, #5c3a1f 0%, transparent 55%),
+    linear-gradient(135deg, #462b17 0%, var(--brand-primary) 45%, var(--brand-dark) 100%);
+  border: 1px solid rgba(224, 168, 62, 0.45);
+  box-shadow:
+    0 24px 50px rgba(43, 24, 16, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  transition: transform 0.25s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+  overflow: hidden;
+}
+
+.loyalty-card__shine {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    60% 90% at var(--shine-x, 70%) 0%,
+    rgba(255, 233, 191, 0.16) 0%,
+    transparent 65%
+  );
+}
+
+.loyalty-card__top {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.loyalty-card__eyebrow {
+  font-size: 9px;
+  letter-spacing: 0.38em;
+  font-weight: 700;
+  color: var(--brand-gold);
+}
+
+.loyalty-card__logo {
+  font-family: var(--font-serif), serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: clamp(22px, 6vw, 30px);
+  color: #fff;
+}
+
+.loyalty-card__balance-label {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(246, 237, 223, 0.6);
+  margin-bottom: 2px;
+}
+
+.loyalty-card__balance-value {
+  font-size: clamp(26px, 7vw, 34px);
+  font-weight: 800;
+  color: var(--brand-gold);
+  line-height: 1;
+}
+
+.loyalty-card__balance-value small {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(246, 237, 223, 0.75);
+}
+
+.loyalty-card__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.loyalty-card__label {
+  display: block;
+  font-size: 8px;
+  letter-spacing: 0.24em;
+  color: rgba(246, 237, 223, 0.55);
+  margin-bottom: 3px;
+}
+
+.loyalty-card__value {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+.loyalty-card__value--num {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.14em;
+}
+
+.card-qr-panel {
+  width: 100%;
+  max-width: 420px;
+  background: var(--brand-card);
+  border: 1px solid rgba(92, 51, 23, 0.12);
+  border-radius: var(--radius);
+  box-shadow: 0 10px 26px rgba(62, 32, 16, 0.1);
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.card-qr-canvas {
+  border-radius: 12px;
+}
+
+.card-qr-hint {
+  font-size: 12px;
+  color: var(--muted);
+  text-align: center;
+  max-width: 260px;
+  line-height: 1.5;
+}
+
+.wallet-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  border-radius: 14px;
+  background: #000;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 13px 22px;
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.wallet-btn__icon {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.wallet-btn__soon {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: var(--brand-gold);
+  color: var(--brand-dark);
+  border-radius: 999px;
+  padding: 3px 8px;
+}
+
+.card-logout {
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.card-form {
+  max-width: 420px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.card-intro {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.card-field span {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.card-field input {
+  width: 100%;
+  border: 1px solid rgba(92, 51, 23, 0.16);
+  border-radius: 14px;
+  background: var(--brand-card);
+  padding: 13px 16px;
+  font-family: inherit;
+  font-size: 16px;
+  color: var(--text);
+  outline: none;
+}
+
+.card-field input:focus {
+  border-color: var(--brand-gold);
+}
+
+.card-phone {
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(92, 51, 23, 0.16);
+  border-radius: 14px;
+  background: var(--brand-card);
+  overflow: hidden;
+}
+
+.card-phone:focus-within {
+  border-color: var(--brand-gold);
+}
+
+.card-phone__prefix {
+  padding: 13px 0 13px 16px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.card-phone input {
+  border: none;
+  border-radius: 0;
+  background: transparent;
+}
+
+.card-phone input:focus {
+  border: none;
+}
+
+.card-error {
+  font-size: 13px;
+  color: #c0392b;
+  font-weight: 600;
+}
+
+.card-submit {
+  border: none;
+  border-radius: 14px;
+  background: var(--brand-gold);
+  color: var(--brand-dark);
+  font-size: 16px;
+  font-weight: 800;
+  padding: 14px;
+  box-shadow: 0 10px 24px rgba(224, 168, 62, 0.35);
+  transition: transform 0.15s ease;
+}
+
+.card-submit:active {
+  transform: scale(0.98);
+}
+
+.card-submit:disabled {
+  opacity: 0.6;
+}
+

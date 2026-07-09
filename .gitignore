@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# мок гостей бонусной программы (локально, вместо iiko)
+/data/customers.json
