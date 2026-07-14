@@ -122,25 +122,6 @@ export default function MenuApp({ menu }: { menu: MenuData }) {
         </header>
 
         <section className="menu-controls">
-          <div className="menu-snapshot" aria-label={t.menu_snapshot}>
-            <div>
-              <span>{t.menu_count}</span>
-              <b>{availableItems.length}</b>
-            </div>
-            {menu.brand.info?.hours ? (
-              <div>
-                <span>{t.menu_until}</span>
-                <b>{menu.brand.info.hours}</b>
-              </div>
-            ) : null}
-            {menu.brand.info?.service ? (
-              <div>
-                <span>{t.service_label}</span>
-                <b>{menu.brand.info.service}</b>
-              </div>
-            ) : null}
-          </div>
-
           <div className="section-tabs" role="tablist">
             {(["food", "drinks"] as SectionKey[]).map((s) => (
               <button
