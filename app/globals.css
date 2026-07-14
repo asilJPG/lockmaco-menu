@@ -30,18 +30,6 @@ body {
   transition: background-color 0.3s ease;
 }
 
-/* Динамический фон всей страницы на ПК в зависимости от выбранной темы */
-body:has([data-theme="burgundy"]) {
-  background: #0c0000 !important;
-}
-
-body:has([data-theme="noir"]) {
-  background: #080808 !important;
-}
-
-body:has([data-theme="matcha"]) {
-  background: #030804 !important;
-}
 
 button {
   font-family: inherit;
@@ -1285,7 +1273,15 @@ button {
    ========================================================================== */
 
 /* ---------- 1. Бордовая тема (Burgundy) ---------- */
-.qr-shell[data-theme="burgundy"],
+body:has([data-theme="burgundy"]) {
+  background: radial-gradient(120% 120% at 50% 10px, #3e0404 0%, #200202 60%, #0c0000 100%) !important;
+}
+
+.qr-shell[data-theme="burgundy"] {
+  background: transparent !important;
+  color: #faf3e7 !important;
+}
+
 .welcome-loader[data-theme="burgundy"] {
   background: radial-gradient(130% 130% at 25% 10%, #3e0404 0%, #200202 60%, #0c0000 100%) !important;
   color: #faf3e7 !important;
@@ -1386,7 +1382,15 @@ button {
 }
 
 /* ---------- 2. Монохромная тема (Noir) ---------- */
-.qr-shell[data-theme="noir"],
+body:has([data-theme="noir"]) {
+  background: #080808 !important;
+}
+
+.qr-shell[data-theme="noir"] {
+  background: transparent !important;
+  color: #ffffff !important;
+}
+
 .welcome-loader[data-theme="noir"] {
   background: #080808 !important;
   color: #ffffff !important;
@@ -1487,7 +1491,15 @@ button {
 }
 
 /* ---------- 3. Изумрудная тема (Matcha) ---------- */
-.qr-shell[data-theme="matcha"],
+body:has([data-theme="matcha"]) {
+  background: radial-gradient(120% 120% at 50% 10px, #152d19 0%, #0a170c 60%, #030804 100%) !important;
+}
+
+.qr-shell[data-theme="matcha"] {
+  background: transparent !important;
+  color: #faf3e7 !important;
+}
+
 .welcome-loader[data-theme="matcha"] {
   background: radial-gradient(130% 130% at 20% 0%, #152d19 0%, #0a170c 60%, #030804 100%) !important;
   color: #faf3e7 !important;
