@@ -6,6 +6,6 @@ export const metadata: Metadata = {
   description: "Бонусная карта The Lokmaco — копите бонусы с каждой покупкой.",
 };
 
-export default function Page() {
-  return <CardApp />;
+export default function Page({ searchParams }: { searchParams: { theme?: string } }) {
+  return <CardApp theme={searchParams.theme || "classic"} />;
 }

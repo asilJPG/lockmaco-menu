@@ -1381,6 +1381,39 @@ body:has([data-theme="burgundy"]) {
   color: #d4a843 !important;
 }
 
+/* Страница лояльности (Card page overrides) */
+.qr-shell[data-theme="burgundy"] .card-back {
+  color: #d4a843 !important;
+}
+.qr-shell[data-theme="burgundy"] .card-intro,
+.qr-shell[data-theme="burgundy"] .card-qr-hint,
+.qr-shell[data-theme="burgundy"] .card-rules-block li,
+.qr-shell[data-theme="burgundy"] .card-pwa-block p {
+  color: #faf3e7 !important;
+}
+.qr-shell[data-theme="burgundy"] .card-pwa-block {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border-color: rgba(212, 168, 67, 0.2) !important;
+}
+.qr-shell[data-theme="burgundy"] .card-field input {
+  background: rgba(0, 0, 0, 0.25) !important;
+  border: 1px solid rgba(212, 168, 67, 0.2) !important;
+  color: #faf3e7 !important;
+  border-radius: 12px !important;
+}
+.qr-shell[data-theme="burgundy"] .card-phone__prefix {
+  color: #d4a843 !important;
+  border-right-color: rgba(212, 168, 67, 0.2) !important;
+}
+.qr-shell[data-theme="burgundy"] .card-submit {
+  background: linear-gradient(135deg, #d4a843 0%, #bca13a 100%) !important;
+  color: #200202 !important;
+  box-shadow: 0 10px 22px rgba(212, 168, 67, 0.25) !important;
+}
+.qr-shell[data-theme="burgundy"] .card-logout {
+  color: rgba(250, 243, 231, 0.5) !important;
+}
+
 /* ---------- 2. Монохромная тема (Noir) ---------- */
 body:has([data-theme="noir"]) {
   background: #080808 !important;
@@ -1488,6 +1521,39 @@ body:has([data-theme="noir"]) {
 }
 .qr-shell[data-theme="noir"] .dish-card__price {
   color: #ffffff !important;
+}
+
+/* Страница лояльности (Card page overrides) */
+.qr-shell[data-theme="noir"] .card-back {
+  color: #ffffff !important;
+}
+.qr-shell[data-theme="noir"] .card-intro,
+.qr-shell[data-theme="noir"] .card-qr-hint,
+.qr-shell[data-theme="noir"] .card-rules-block li,
+.qr-shell[data-theme="noir"] .card-pwa-block p {
+  color: #ffffff !important;
+}
+.qr-shell[data-theme="noir"] .card-pwa-block {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+.qr-shell[data-theme="noir"] .card-field input {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  color: #ffffff !important;
+  border-radius: 12px !important;
+}
+.qr-shell[data-theme="noir"] .card-phone__prefix {
+  color: #ffffff !important;
+  border-right-color: rgba(255, 255, 255, 0.15) !important;
+}
+.qr-shell[data-theme="noir"] .card-submit {
+  background: #ffffff !important;
+  color: #000000 !important;
+  box-shadow: 0 10px 22px rgba(255, 255, 255, 0.15) !important;
+}
+.qr-shell[data-theme="noir"] .card-logout {
+  color: rgba(255, 255, 255, 0.5) !important;
 }
 
 /* ---------- 3. Изумрудная тема (Matcha) ---------- */
@@ -1714,6 +1780,40 @@ body:has([data-theme="matcha"]) {
 .dish-dialog[data-theme="matcha"] .related-item b {
   color: #e0a83e !important;
 }
+
+/* Страница лояльности (Card page overrides) */
+.qr-shell[data-theme="matcha"] .card-back {
+  color: #e0a83e !important;
+}
+.qr-shell[data-theme="matcha"] .card-intro,
+.qr-shell[data-theme="matcha"] .card-qr-hint,
+.qr-shell[data-theme="matcha"] .card-rules-block li,
+.qr-shell[data-theme="matcha"] .card-pwa-block p {
+  color: #faf3e7 !important;
+}
+.qr-shell[data-theme="matcha"] .card-pwa-block {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border-color: rgba(224, 168, 62, 0.2) !important;
+}
+.qr-shell[data-theme="matcha"] .card-field input {
+  background: rgba(0, 0, 0, 0.25) !important;
+  border: 1px solid rgba(224, 168, 62, 0.2) !important;
+  color: #faf3e7 !important;
+  border-radius: 12px !important;
+}
+.qr-shell[data-theme="matcha"] .card-phone__prefix {
+  color: #e0a83e !important;
+  border-right-color: rgba(224, 168, 62, 0.2) !important;
+}
+.qr-shell[data-theme="matcha"] .card-submit {
+  background: linear-gradient(135deg, #e0a83e 0%, #c59230 100%) !important;
+  color: #030804 !important;
+  box-shadow: 0 10px 22px rgba(224, 168, 62, 0.25) !important;
+}
+.qr-shell[data-theme="matcha"] .card-logout {
+  color: rgba(250, 243, 231, 0.5) !important;
+}
+
 
 
 

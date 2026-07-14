@@ -68,7 +68,7 @@ function LoyaltyCard({ customer, lang }: { customer: Customer; lang: Lang }) {
   );
 }
 
-export default function CardApp() {
+export default function CardApp({ theme = "classic" }: { theme?: string }) {
   const [lang, setLang] = useState<Lang>("ru");
   const [customer, setCustomer] = useState<Customer | null>(null);
   const [checking, setChecking] = useState(true);
@@ -143,7 +143,7 @@ export default function CardApp() {
   };
 
   return (
-    <div className="qr-shell card-shell">
+    <div className="qr-shell card-shell" data-theme={theme}>
       <header className="qr-header">
         <div className="brand-lockup">
           <span className="brand-lockup__eyebrow">{t.card_eyebrow}</span>

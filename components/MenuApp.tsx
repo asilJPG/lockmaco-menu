@@ -246,7 +246,7 @@ export default function MenuApp({ menu, theme = "classic" }: { menu: MenuData; t
           ))}
         </section>
 
-        <a className="card-banner" href="/card">
+        <a className="card-banner" href={theme === "classic" ? "/card" : `/card?theme=${theme}`}>
           <span className="card-banner__star" aria-hidden>✦</span>
           <span className="card-banner__text">{t.card_link}</span>
           <span className="card-banner__arrow" aria-hidden>→</span>
