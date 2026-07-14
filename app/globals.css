@@ -27,6 +27,20 @@ body {
     var(--brand-cream);
   color: var(--text);
   min-height: 100dvh;
+  transition: background-color 0.3s ease;
+}
+
+/* Динамический фон всей страницы на ПК в зависимости от выбранной темы */
+body:has([data-theme="burgundy"]) {
+  background: #0c0000 !important;
+}
+
+body:has([data-theme="noir"]) {
+  background: #080808 !important;
+}
+
+body:has([data-theme="matcha"]) {
+  background: #030804 !important;
 }
 
 button {
