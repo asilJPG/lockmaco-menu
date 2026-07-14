@@ -15,7 +15,7 @@ function DishBadges({ badges, lang }: { badges?: string[]; lang: Lang }) {
   );
 }
 
-export default function MenuApp({ menu }: { menu: MenuData }) {
+export default function MenuApp({ menu, theme = "classic" }: { menu: MenuData; theme?: "classic" | "burgundy" | "noir" | "matcha" }) {
   const [lang, setLang] = useState<Lang>("ru");
   const [section, setSection] = useState<SectionKey>("food");
   const [query, setQuery] = useState("");
@@ -92,7 +92,7 @@ export default function MenuApp({ menu }: { menu: MenuData }) {
 
   return (
     <>
-      <div className={`welcome-loader ${loading ? "" : "hidden"}`} role="status">
+      <div className={`welcome-loader ${loading ? "" : "hidden"}`} data-theme={theme} role="status">
         <div className="welcome-card">
           <span className="welcome-kicker">{t.qr_menu}</span>
           <div className="welcome-logo">{menu.brand.welcomeTitle}</div>
@@ -101,7 +101,7 @@ export default function MenuApp({ menu }: { menu: MenuData }) {
         </div>
       </div>
 
-      <main className="qr-shell">
+      <main className="qr-shell" data-theme={theme}>
         <header className="qr-header">
           <div className="brand-lockup">
             <span className="brand-lockup__eyebrow">{t.qr_menu}</span>
@@ -284,6 +284,7 @@ export default function MenuApp({ menu }: { menu: MenuData }) {
       <dialog
         ref={dialogRef}
         className="dish-dialog"
+        data-theme={theme}
         onClose={() => setSelected(null)}
         onClick={(e) => {
           if (e.target === dialogRef.current) setSelected(null);

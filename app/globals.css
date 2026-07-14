@@ -1266,4 +1266,222 @@ button {
   flex-shrink: 0;
 }
 
+/* ==========================================================================
+   Визуальные темы (Themes)
+   ========================================================================== */
+
+/* ---------- 1. Бордовая тема (Burgundy) ---------- */
+.qr-shell[data-theme="burgundy"],
+.welcome-loader[data-theme="burgundy"] {
+  background: radial-gradient(130% 130% at 25% 10%, #3e0404 0%, #200202 60%, #0c0000 100%) !important;
+}
+
+.qr-shell[data-theme="burgundy"] h1,
+.qr-shell[data-theme="burgundy"] .category-title h2,
+.qr-shell[data-theme="burgundy"] .dialog-body h3 {
+  color: #d4a843 !important;
+}
+
+.qr-shell[data-theme="burgundy"] .brand-lockup__eyebrow,
+.qr-shell[data-theme="burgundy"] .welcome-kicker {
+  color: #c0392b !important;
+}
+
+.qr-shell[data-theme="burgundy"] .welcome-logo,
+.qr-shell[data-theme="burgundy"] .welcome-line {
+  color: #f0e8e0 !important;
+}
+
+.qr-shell[data-theme="burgundy"] .dish-card {
+  background: rgba(28, 2, 2, 0.75) !important;
+  border: 1px solid rgba(212, 168, 67, 0.22) !important;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45) !important;
+}
+
+.qr-shell[data-theme="burgundy"] .dish-card__name,
+.qr-shell[data-theme="burgundy"] .dish-card__weight {
+  color: #f0e8e0 !important;
+}
+
+.qr-shell[data-theme="burgundy"] .dish-card__desc {
+  color: rgba(240, 232, 224, 0.65) !important;
+}
+
+.qr-shell[data-theme="burgundy"] .dish-card__price {
+  color: #d4a843 !important;
+}
+
+.qr-shell[data-theme="burgundy"] .quick-filter {
+  background: rgba(212, 168, 67, 0.08) !important;
+  color: #d4a843 !important;
+  border-color: rgba(212, 168, 67, 0.22) !important;
+}
+
+.qr-shell[data-theme="burgundy"] .quick-filter.active {
+  background: #d4a843 !important;
+  color: #200202 !important;
+  border-color: #d4a843 !important;
+}
+
+.qr-shell[data-theme="burgundy"] .chip {
+  background: rgba(240, 232, 224, 0.06) !important;
+  color: #faf3e7 !important;
+  border-color: rgba(240, 232, 224, 0.12) !important;
+}
+
+.qr-shell[data-theme="burgundy"] .chip.active {
+  background: #d4a843 !important;
+  color: #200202 !important;
+  border-color: #d4a843 !important;
+}
+
+.qr-shell[data-theme="burgundy"] .search-input {
+  background: rgba(240, 232, 224, 0.05) !important;
+  border-color: rgba(240, 232, 224, 0.15) !important;
+  color: #faf3e7 !important;
+}
+
+/* ---------- 2. Монохромная тема (Noir) ---------- */
+.qr-shell[data-theme="noir"],
+.welcome-loader[data-theme="noir"] {
+  background: #0a0a0a !important;
+}
+
+.qr-shell[data-theme="noir"] h1,
+.qr-shell[data-theme="noir"] .category-title h2,
+.qr-shell[data-theme="noir"] .dialog-body h3 {
+  color: #ffffff !important;
+}
+
+.qr-shell[data-theme="noir"] .brand-lockup__eyebrow,
+.qr-shell[data-theme="noir"] .welcome-kicker {
+  color: #888888 !important;
+}
+
+.qr-shell[data-theme="noir"] .welcome-logo,
+.qr-shell[data-theme="noir"] .welcome-line {
+  color: #ffffff !important;
+}
+
+.qr-shell[data-theme="noir"] .dish-card {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6) !important;
+}
+
+.qr-shell[data-theme="noir"] .dish-card__name,
+.qr-shell[data-theme="noir"] .dish-card__weight {
+  color: #ffffff !important;
+}
+
+.qr-shell[data-theme="noir"] .dish-card__desc {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.qr-shell[data-theme="noir"] .dish-card__price {
+  color: #ffffff !important;
+}
+
+.qr-shell[data-theme="noir"] .quick-filter {
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: #aaaaaa !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.qr-shell[data-theme="noir"] .quick-filter.active {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border-color: #ffffff !important;
+}
+
+.qr-shell[data-theme="noir"] .chip {
+  background: rgba(255, 255, 255, 0.04) !important;
+  color: #cccccc !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.qr-shell[data-theme="noir"] .chip.active {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border-color: #ffffff !important;
+}
+
+.qr-shell[data-theme="noir"] .search-input {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
+}
+
+/* ---------- 3. Изумрудная тема (Matcha) ---------- */
+.qr-shell[data-theme="matcha"],
+.welcome-loader[data-theme="matcha"] {
+  background: radial-gradient(130% 130% at 20% 0%, #152d19 0%, #0a170c 60%, #030804 100%) !important;
+}
+
+.qr-shell[data-theme="matcha"] h1,
+.qr-shell[data-theme="matcha"] .category-title h2,
+.qr-shell[data-theme="matcha"] .dialog-body h3 {
+  color: #e0a83e !important;
+}
+
+.qr-shell[data-theme="matcha"] .brand-lockup__eyebrow,
+.qr-shell[data-theme="matcha"] .welcome-kicker {
+  color: #7fa653 !important;
+}
+
+.qr-shell[data-theme="matcha"] .welcome-logo,
+.qr-shell[data-theme="matcha"] .welcome-line {
+  color: #faf3e7 !important;
+}
+
+.qr-shell[data-theme="matcha"] .dish-card {
+  background: rgba(10, 23, 12, 0.8) !important;
+  border: 1px solid rgba(224, 168, 62, 0.22) !important;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.5) !important;
+}
+
+.qr-shell[data-theme="matcha"] .dish-card__name,
+.qr-shell[data-theme="matcha"] .dish-card__weight {
+  color: #faf3e7 !important;
+}
+
+.qr-shell[data-theme="matcha"] .dish-card__desc {
+  color: rgba(250, 243, 231, 0.65) !important;
+}
+
+.qr-shell[data-theme="matcha"] .dish-card__price {
+  color: #e0a83e !important;
+}
+
+.qr-shell[data-theme="matcha"] .quick-filter {
+  background: rgba(224, 168, 62, 0.08) !important;
+  color: #e0a83e !important;
+  border-color: rgba(224, 168, 62, 0.2) !important;
+}
+
+.qr-shell[data-theme="matcha"] .quick-filter.active {
+  background: #e0a83e !important;
+  color: #0a170c !important;
+  border-color: #e0a83e !important;
+}
+
+.qr-shell[data-theme="matcha"] .chip {
+  background: rgba(250, 243, 231, 0.05) !important;
+  color: #faf3e7 !important;
+  border-color: rgba(250, 243, 231, 0.1) !important;
+}
+
+.qr-shell[data-theme="matcha"] .chip.active {
+  background: #e0a83e !important;
+  color: #0a170c !important;
+  border-color: #e0a83e !important;
+}
+
+.qr-shell[data-theme="matcha"] .search-input {
+  background: rgba(250, 243, 231, 0.05) !important;
+  border-color: rgba(250, 243, 231, 0.12) !important;
+  color: #faf3e7 !important;
+}
+
+
 
