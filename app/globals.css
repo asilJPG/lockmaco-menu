@@ -1274,6 +1274,7 @@ button {
 .qr-shell[data-theme="burgundy"],
 .welcome-loader[data-theme="burgundy"] {
   background: radial-gradient(130% 130% at 25% 10%, #3e0404 0%, #200202 60%, #0c0000 100%) !important;
+  color: #faf3e7 !important;
 }
 
 .qr-shell[data-theme="burgundy"] h1,
@@ -1284,67 +1285,97 @@ button {
 
 .qr-shell[data-theme="burgundy"] .brand-lockup__eyebrow,
 .qr-shell[data-theme="burgundy"] .welcome-kicker {
-  color: #c0392b !important;
+  color: #e0a83e !important;
 }
 
 .qr-shell[data-theme="burgundy"] .welcome-logo,
 .qr-shell[data-theme="burgundy"] .welcome-line {
-  color: #f0e8e0 !important;
+  color: #faf3e7 !important;
 }
 
-.qr-shell[data-theme="burgundy"] .dish-card {
-  background: rgba(28, 2, 2, 0.75) !important;
-  border: 1px solid rgba(212, 168, 67, 0.22) !important;
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45) !important;
+/* Липкая панель управления */
+.qr-shell[data-theme="burgundy"] .menu-controls {
+  background: rgba(32, 2, 2, 0.85) !important;
+  border-bottom: 1px solid rgba(212, 168, 67, 0.15) !important;
 }
 
-.qr-shell[data-theme="burgundy"] .dish-card__name,
-.qr-shell[data-theme="burgundy"] .dish-card__weight {
-  color: #f0e8e0 !important;
+/* Вкладки Еда / Напитки */
+.qr-shell[data-theme="burgundy"] .section-tabs {
+  background: rgba(0, 0, 0, 0.25) !important;
+}
+.qr-shell[data-theme="burgundy"] .section-tab {
+  color: rgba(250, 243, 231, 0.6) !important;
+}
+.qr-shell[data-theme="burgundy"] .section-tab.active {
+  background: #d4a843 !important;
+  color: #200202 !important;
+  border-bottom-color: #ffffff !important;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3) !important;
 }
 
-.qr-shell[data-theme="burgundy"] .dish-card__desc {
-  color: rgba(240, 232, 224, 0.65) !important;
+/* Поле поиска */
+.qr-shell[data-theme="burgundy"] .search-field {
+  background: rgba(0, 0, 0, 0.25) !important;
+  border: 1px solid rgba(212, 168, 67, 0.2) !important;
 }
-
-.qr-shell[data-theme="burgundy"] .dish-card__price {
+.qr-shell[data-theme="burgundy"] .search-field input {
+  color: #faf3e7 !important;
+}
+.qr-shell[data-theme="burgundy"] .search-field input::placeholder {
+  color: rgba(250, 243, 231, 0.4) !important;
+}
+.qr-shell[data-theme="burgundy"] .search-field svg {
+  fill: #d4a843 !important;
   color: #d4a843 !important;
 }
 
+/* Кнопки Хит / Новинка */
 .qr-shell[data-theme="burgundy"] .quick-filter {
   background: rgba(212, 168, 67, 0.08) !important;
-  color: #d4a843 !important;
+  color: rgba(250, 243, 231, 0.7) !important;
   border-color: rgba(212, 168, 67, 0.22) !important;
 }
-
 .qr-shell[data-theme="burgundy"] .quick-filter.active {
   background: #d4a843 !important;
   color: #200202 !important;
   border-color: #d4a843 !important;
+  box-shadow: 0 8px 18px rgba(212, 168, 67, 0.25) !important;
 }
 
+/* Фильтры категорий */
 .qr-shell[data-theme="burgundy"] .chip {
-  background: rgba(240, 232, 224, 0.06) !important;
-  color: #faf3e7 !important;
-  border-color: rgba(240, 232, 224, 0.12) !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+  color: rgba(250, 243, 231, 0.65) !important;
+  border-color: rgba(250, 243, 231, 0.12) !important;
 }
-
 .qr-shell[data-theme="burgundy"] .chip.active {
   background: #d4a843 !important;
   color: #200202 !important;
   border-color: #d4a843 !important;
 }
 
-.qr-shell[data-theme="burgundy"] .search-input {
-  background: rgba(240, 232, 224, 0.05) !important;
-  border-color: rgba(240, 232, 224, 0.15) !important;
+/* Карточки блюд */
+.qr-shell[data-theme="burgundy"] .dish-card {
+  background: rgba(28, 2, 2, 0.75) !important;
+  border: 1px solid rgba(212, 168, 67, 0.22) !important;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45) !important;
+}
+.qr-shell[data-theme="burgundy"] .dish-card__name,
+.qr-shell[data-theme="burgundy"] .dish-card__weight {
   color: #faf3e7 !important;
+}
+.qr-shell[data-theme="burgundy"] .dish-card__desc {
+  color: rgba(250, 243, 231, 0.6) !important;
+}
+.qr-shell[data-theme="burgundy"] .dish-card__price {
+  color: #d4a843 !important;
 }
 
 /* ---------- 2. Монохромная тема (Noir) ---------- */
 .qr-shell[data-theme="noir"],
 .welcome-loader[data-theme="noir"] {
-  background: #0a0a0a !important;
+  background: #080808 !important;
+  color: #ffffff !important;
 }
 
 .qr-shell[data-theme="noir"] h1,
@@ -1355,7 +1386,7 @@ button {
 
 .qr-shell[data-theme="noir"] .brand-lockup__eyebrow,
 .qr-shell[data-theme="noir"] .welcome-kicker {
-  color: #888888 !important;
+  color: #aaaaaa !important;
 }
 
 .qr-shell[data-theme="noir"] .welcome-logo,
@@ -1363,52 +1394,81 @@ button {
   color: #ffffff !important;
 }
 
-.qr-shell[data-theme="noir"] .dish-card {
-  background: rgba(255, 255, 255, 0.03) !important;
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6) !important;
+/* Липкая панель управления */
+.qr-shell[data-theme="noir"] .menu-controls {
+  background: rgba(10, 10, 10, 0.9) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
 }
 
-.qr-shell[data-theme="noir"] .dish-card__name,
-.qr-shell[data-theme="noir"] .dish-card__weight {
-  color: #ffffff !important;
-}
-
-.qr-shell[data-theme="noir"] .dish-card__desc {
-  color: rgba(255, 255, 255, 0.6) !important;
-}
-
-.qr-shell[data-theme="noir"] .dish-card__price {
-  color: #ffffff !important;
-}
-
-.qr-shell[data-theme="noir"] .quick-filter {
+/* Вкладки Еда / Напитки */
+.qr-shell[data-theme="noir"] .section-tabs {
   background: rgba(255, 255, 255, 0.05) !important;
-  color: #aaaaaa !important;
+}
+.qr-shell[data-theme="noir"] .section-tab {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+.qr-shell[data-theme="noir"] .section-tab.active {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border-bottom-color: #888888 !important;
+  box-shadow: 0 8px 18px rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Поле поиска */
+.qr-shell[data-theme="noir"] .search-field {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+.qr-shell[data-theme="noir"] .search-field input {
+  color: #ffffff !important;
+}
+.qr-shell[data-theme="noir"] .search-field input::placeholder {
+  color: rgba(255, 255, 255, 0.35) !important;
+}
+.qr-shell[data-theme="noir"] .search-field svg {
+  fill: #ffffff !important;
+  color: #ffffff !important;
+}
+
+/* Кнопки Хит / Новинка */
+.qr-shell[data-theme="noir"] .quick-filter {
+  background: rgba(255, 255, 255, 0.04) !important;
+  color: rgba(255, 255, 255, 0.6) !important;
   border-color: rgba(255, 255, 255, 0.1) !important;
 }
-
 .qr-shell[data-theme="noir"] .quick-filter.active {
   background: #ffffff !important;
   color: #000000 !important;
   border-color: #ffffff !important;
+  box-shadow: 0 8px 18px rgba(255, 255, 255, 0.15) !important;
 }
 
+/* Фильтры категорий */
 .qr-shell[data-theme="noir"] .chip {
-  background: rgba(255, 255, 255, 0.04) !important;
-  color: #cccccc !important;
-  border-color: rgba(255, 255, 255, 0.08) !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
 }
-
 .qr-shell[data-theme="noir"] .chip.active {
   background: #ffffff !important;
   color: #000000 !important;
   border-color: #ffffff !important;
 }
 
-.qr-shell[data-theme="noir"] .search-input {
-  background: rgba(255, 255, 255, 0.05) !important;
-  border-color: rgba(255, 255, 255, 0.1) !important;
+/* Карточки блюд */
+.qr-shell[data-theme="noir"] .dish-card {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6) !important;
+}
+.qr-shell[data-theme="noir"] .dish-card__name,
+.qr-shell[data-theme="noir"] .dish-card__weight {
+  color: #ffffff !important;
+}
+.qr-shell[data-theme="noir"] .dish-card__desc {
+  color: rgba(255, 255, 255, 0.55) !important;
+}
+.qr-shell[data-theme="noir"] .dish-card__price {
   color: #ffffff !important;
 }
 
@@ -1416,6 +1476,7 @@ button {
 .qr-shell[data-theme="matcha"],
 .welcome-loader[data-theme="matcha"] {
   background: radial-gradient(130% 130% at 20% 0%, #152d19 0%, #0a170c 60%, #030804 100%) !important;
+  color: #faf3e7 !important;
 }
 
 .qr-shell[data-theme="matcha"] h1,
@@ -1434,53 +1495,82 @@ button {
   color: #faf3e7 !important;
 }
 
-.qr-shell[data-theme="matcha"] .dish-card {
-  background: rgba(10, 23, 12, 0.8) !important;
-  border: 1px solid rgba(224, 168, 62, 0.22) !important;
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.5) !important;
+/* Липкая панель управления */
+.qr-shell[data-theme="matcha"] .menu-controls {
+  background: rgba(10, 23, 12, 0.85) !important;
+  border-bottom: 1px solid rgba(224, 168, 62, 0.15) !important;
 }
 
-.qr-shell[data-theme="matcha"] .dish-card__name,
-.qr-shell[data-theme="matcha"] .dish-card__weight {
+/* Вкладки Еда / Напитки */
+.qr-shell[data-theme="matcha"] .section-tabs {
+  background: rgba(0, 0, 0, 0.25) !important;
+}
+.qr-shell[data-theme="matcha"] .section-tab {
+  color: rgba(250, 243, 231, 0.6) !important;
+}
+.qr-shell[data-theme="matcha"] .section-tab.active {
+  background: #e0a83e !important;
+  color: #0a170c !important;
+  border-bottom-color: #ffffff !important;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Поле поиска */
+.qr-shell[data-theme="matcha"] .search-field {
+  background: rgba(0, 0, 0, 0.25) !important;
+  border: 1px solid rgba(224, 168, 62, 0.2) !important;
+}
+.qr-shell[data-theme="matcha"] .search-field input {
   color: #faf3e7 !important;
 }
-
-.qr-shell[data-theme="matcha"] .dish-card__desc {
-  color: rgba(250, 243, 231, 0.65) !important;
+.qr-shell[data-theme="matcha"] .search-field input::placeholder {
+  color: rgba(250, 243, 231, 0.4) !important;
 }
-
-.qr-shell[data-theme="matcha"] .dish-card__price {
+.qr-shell[data-theme="matcha"] .search-field svg {
+  fill: #e0a83e !important;
   color: #e0a83e !important;
 }
 
+/* Кнопки Хит / Новинка */
 .qr-shell[data-theme="matcha"] .quick-filter {
   background: rgba(224, 168, 62, 0.08) !important;
-  color: #e0a83e !important;
+  color: rgba(250, 243, 231, 0.7) !important;
   border-color: rgba(224, 168, 62, 0.2) !important;
 }
-
 .qr-shell[data-theme="matcha"] .quick-filter.active {
   background: #e0a83e !important;
   color: #0a170c !important;
   border-color: #e0a83e !important;
+  box-shadow: 0 8px 18px rgba(224, 168, 62, 0.25) !important;
 }
 
+/* Фильтры категорий */
 .qr-shell[data-theme="matcha"] .chip {
-  background: rgba(250, 243, 231, 0.05) !important;
-  color: #faf3e7 !important;
-  border-color: rgba(250, 243, 231, 0.1) !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+  color: rgba(250, 243, 231, 0.65) !important;
+  border-color: rgba(250, 243, 231, 0.12) !important;
 }
-
 .qr-shell[data-theme="matcha"] .chip.active {
   background: #e0a83e !important;
   color: #0a170c !important;
   border-color: #e0a83e !important;
 }
 
-.qr-shell[data-theme="matcha"] .search-input {
-  background: rgba(250, 243, 231, 0.05) !important;
-  border-color: rgba(250, 243, 231, 0.12) !important;
+/* Карточки блюд */
+.qr-shell[data-theme="matcha"] .dish-card {
+  background: rgba(10, 23, 12, 0.8) !important;
+  border: 1px solid rgba(224, 168, 62, 0.22) !important;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.5) !important;
+}
+.qr-shell[data-theme="matcha"] .dish-card__name,
+.qr-shell[data-theme="matcha"] .dish-card__weight {
   color: #faf3e7 !important;
+}
+.qr-shell[data-theme="matcha"] .dish-card__desc {
+  color: rgba(250, 243, 231, 0.6) !important;
+}
+.qr-shell[data-theme="matcha"] .dish-card__price {
+  color: #e0a83e !important;
 }
 
 
