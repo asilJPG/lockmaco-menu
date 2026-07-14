@@ -1148,8 +1148,8 @@ button {
 .card-rules-block {
   width: 100%;
   max-width: 420px;
-  background: rgba(224, 168, 62, 0.05);
-  border: 1px solid rgba(224, 168, 62, 0.15);
+  background: rgba(224, 168, 62, 0.07);
+  border: 1px solid rgba(224, 168, 62, 0.25);
   border-radius: var(--radius);
   padding: 18px;
   display: flex;
@@ -1176,9 +1176,9 @@ button {
 }
 
 .card-rules-block li {
-  font-size: 13px;
-  color: var(--brand-cream);
-  opacity: 0.9;
+  font-size: 13.5px;
+  color: var(--brand-primary);
+  opacity: 0.95;
   display: flex;
   gap: 8px;
   line-height: 1.4;
@@ -1192,17 +1192,17 @@ button {
 .card-pwa-block {
   width: 100%;
   max-width: 420px;
-  background: rgba(250, 243, 231, 0.03);
-  border: 1px dashed rgba(250, 243, 231, 0.15);
+  background: rgba(92, 58, 31, 0.04);
+  border: 1px dashed rgba(92, 58, 31, 0.18);
   border-radius: var(--radius);
   padding: 14px 18px;
   box-sizing: border-box;
 }
 
 .card-pwa-block p {
-  font-size: 13px;
-  color: var(--brand-cream);
-  opacity: 0.8;
+  font-size: 13.5px;
+  color: var(--brand-primary);
+  opacity: 0.9;
   margin: 0;
   display: flex;
   gap: 8px;
@@ -1213,4 +1213,5 @@ button {
 .card-pwa-block .bullet {
   flex-shrink: 0;
 }
+
 
