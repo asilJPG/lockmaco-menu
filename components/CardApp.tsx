@@ -75,12 +75,18 @@ export default function CardApp() {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [busy, setBusy] = useState(false);
+  const [walletBusy, setWalletBusy] = useState(false);
   const [error, setError] = useState(false);
+  const [walletError, setWalletError] = useState<string | null>(null);
+  const [isIos, setIsIos] = useState(false);
   const qrRef = useRef<HTMLCanvasElement>(null);
 
   const t = UI[lang];
 
   useEffect(() => {
+    if (typeof window !== "undefined") {
+      setIsIos(/iPad|iPhone|iPod/.test(navigator.userAgent) && !(window as any).MSStream);
+    }
     const saved = localStorage.getItem("lokmaco-lang");
     if (saved && LANGS.includes(saved as Lang)) setLang(saved as Lang);
     fetch("/api/card/me")
@@ -126,6 +132,16 @@ export default function CardApp() {
     setPhone("");
   };
 
+  const addToWallet = async () => {
+    setWalletBusy(true);
+    setWalletError(null);
+    const res = await fetch("/api/card/wallet", { method: "POST" });
+    const data = await res.json().catch(() => null);
+    if (res.ok && data?.url) window.location.href = data.url;
+    else setWalletError(data?.error === "wallet_not_configured" ? t.card_wallet_setup : t.card_wallet_error);
+    setWalletBusy(false);
+  };
+
   return (
     <div className="qr-shell card-shell">
       <header className="qr-header">
@@ -157,11 +173,36 @@ export default function CardApp() {
             <p className="card-qr-hint">{t.card_qr_hint}</p>
           </div>
 
-          <button className="wallet-btn" disabled>
-            <span className="wallet-btn__icon"></span>
-            {t.card_wallet}
-            <span className="wallet-btn__soon">{t.card_wallet_soon}</span>
-          </button>
+          <div className="card-rules-block">
+            <h3>{t.card_rules_title}</h3>
+            <ul>
+              <li>
+                <span className="bullet">⚡</span>
+                <span>{t.card_rule_cashback}</span>
+              </li>
+              <li>
+                <span className="bullet">💳</span>
+                <span>{t.card_rule_spend}</span>
+              </li>
+            </ul>
+          </div>
+
+          <div className="card-pwa-block">
+            <p>
+              <span className="bullet">📱</span>
+              <span>{isIos ? t.card_pwa_ios : t.card_pwa_android}</span>
+            </p>
+          </div>
+
+          {!isIos && (
+            <>
+              <button className="wallet-btn" onClick={addToWallet} disabled={walletBusy}>
+                <span className="wallet-btn__icon">G</span>
+                {walletBusy ? t.card_wallet_loading : t.card_wallet}
+              </button>
+              {walletError && <p className="card-error">{walletError}</p>}
+            </>
+          )}
 
           <button className="card-logout" onClick={logout}>{t.card_logout}</button>
         </div>

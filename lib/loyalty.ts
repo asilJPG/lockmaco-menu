@@ -1,8 +1,8 @@
 import { promises as fs } from "fs";
 import path from "path";
+import { randomUUID } from "crypto";
 
-// Гость программы лояльности. Источник данных — iiko (когда есть
-// IIKO_API_LOGIN + IIKO_ORG_ID), иначе локальный мок в data/customers.json.
+// Гость программы лояльности.
 export interface LoyaltyCustomer {
   id: string;
   name: string;
@@ -12,11 +12,13 @@ export interface LoyaltyCustomer {
   createdAt: string;
 }
 
-const IIKO_LOGIN = process.env.IIKO_API_LOGIN;
-const IIKO_ORG = process.env.IIKO_ORG_ID;
-const IIKO_BASE = process.env.IIKO_BASE_URL || "https://api-ru.iiko.services";
+const IIKO_API_KEY = process.env.IIKO_API_KEY || "7f566138b9ca4f81b53c1f5a09fbce81";
+const IIKO_APP_ID = process.env.IIKO_APP_ID || "f6cc41b8-32cf-4d35-8bb2-39a30587e88f";
+const IIKO_CLIENT_SECRET = process.env.IIKO_CLIENT_SECRET || "uNYLVrv9bDgntag8TwOKbZNiZeDPHKuZ88xZc_EGaCE=";
+const IIKO_ORGANIZATION_ID = process.env.IIKO_ORGANIZATION_ID || "3a964cc2-50a3-41e7-9231-b69453f4fc24";
 
-export const usingIiko = !!(IIKO_LOGIN && IIKO_ORG);
+// Проверяем, заданы ли все параметры авторизации iiko API v2
+export const usingIiko = !!(IIKO_API_KEY && IIKO_APP_ID && IIKO_CLIENT_SECRET);
 
 export function normalizePhone(raw: string): string | null {
   const digits = raw.replace(/\D/g, "");
@@ -33,107 +35,162 @@ function makeCardNumber(): string {
   return n;
 }
 
-/* ---------- iiko client ---------- */
+/* ---------- iiko API v2 client ---------- */
 
-let iikoToken: { value: string; expires: number } | null = null;
+let cachedToken: string | null = null;
+let tokenExpiresAt = 0;
 
-async function iikoFetch<T>(endpoint: string, body: object): Promise<T> {
-  if (!iikoToken || iikoToken.expires < Date.now()) {
-    const res = await fetch(`${IIKO_BASE}/api/1/access_token`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ apiLogin: IIKO_LOGIN }),
-    });
-    if (!res.ok) throw new Error(`iiko access_token: ${res.status}`);
-    const { token } = await res.json();
-    iikoToken = { value: token, expires: Date.now() + 50 * 60 * 1000 };
+async function getIikoToken(): Promise<string> {
+  const now = Date.now();
+  if (cachedToken && now < tokenExpiresAt - 60000) {
+    return cachedToken;
   }
-  const res = await fetch(`${IIKO_BASE}${endpoint}`, {
+
+  const res = await fetch("https://api-ru.iiko.services/api/v2/access_token", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      apiKey: IIKO_API_KEY,
+      appId: IIKO_APP_ID,
+      clientSecret: IIKO_CLIENT_SECRET,
+    }),
+  });
+
+  if (!res.ok) {
+    throw new Error(`Failed to authenticate with iiko API v2: ${res.status} ${await res.text()}`);
+  }
+
+  const data = await res.json();
+  cachedToken = data.token;
+  tokenExpiresAt = Date.now() + 3600 * 1000; // Токен действует 1 час
+  return cachedToken!;
+}
+
+async function iikoFetch<T>(endpoint: string, body: any): Promise<T> {
+  const token = await getIikoToken();
+  const res = await fetch(`https://api-ru.iiko.services/api/1/${endpoint}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${iikoToken.value}`,
+      Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify(body),
   });
-  if (!res.ok) throw new Error(`iiko ${endpoint}: ${res.status} ${await res.text()}`);
+
+  if (!res.ok) {
+    throw new Error(`iiko API error on ${endpoint}: ${res.status} ${await res.text()}`);
+  }
+
   return res.json();
 }
 
-interface IikoCustomer {
-  id: string;
-  name: string | null;
-  phone: string | null;
-  cards: { number: string }[];
-  walletBalances: { balance: number }[];
-  whenRegistered?: string;
-}
-
-function fromIiko(c: IikoCustomer): LoyaltyCustomer {
-  return {
-    id: c.id,
-    name: c.name ?? "",
-    phone: c.phone ?? "",
-    cardNumber: c.cards[0]?.number ?? "",
-    balance: c.walletBalances.reduce((sum, w) => sum + w.balance, 0),
-    createdAt: c.whenRegistered ?? new Date().toISOString(),
-  };
-}
-
-async function iikoFindByPhone(phone: string): Promise<LoyaltyCustomer | null> {
+async function iikoGetCustomer(type: "phone" | "id", value: string): Promise<LoyaltyCustomer | null> {
   try {
-    const c = await iikoFetch<IikoCustomer>("/api/1/loyalty/iiko/customer/info", {
-      organizationId: IIKO_ORG,
-      type: "phone",
-      phone,
+    const data = await iikoFetch<any>("loyalty/iiko/customer/info", {
+      type,
+      [type]: value,
+      organizationId: IIKO_ORGANIZATION_ID,
     });
-    return fromIiko(c);
-  } catch {
-    return null; // iiko отвечает 400, если гость не найден
+
+    if (!data || !data.id) return null;
+
+    // Ищем первую активную карту лояльности
+    const cardNumber = data.cards && data.cards[0] ? data.cards[0].number : "";
+
+    // Суммируем баланс всех кошельков
+    let balance = 0;
+    if (data.walletBalances && data.walletBalances.length > 0) {
+      for (const w of data.walletBalances) {
+        if (w.balance) balance += w.balance;
+      }
+    }
+
+    return {
+      id: data.id,
+      name: data.name || "",
+      phone: data.phone || "",
+      cardNumber,
+      balance: Math.round(balance),
+      createdAt: data.whenRegistered || new Date().toISOString(),
+    };
+  } catch (err: any) {
+    // Если клиент не найден, iiko вернет ошибку Transport_WrongCustomerNumber
+    if (err.message && (err.message.includes("Transport_WrongCustomerNumber") || err.message.includes("Validation_IncorrectPhone"))) {
+      return null;
+    }
+    throw err;
   }
 }
 
 async function iikoGetOrCreate(phone: string, name: string): Promise<LoyaltyCustomer> {
-  const existing = await iikoFindByPhone(phone);
-  if (existing) return existing;
-  const { id } = await iikoFetch<{ id: string }>(
-    "/api/1/loyalty/iiko/customer/create_or_update",
-    { organizationId: IIKO_ORG, phone, name }
-  );
-  const cardNumber = makeCardNumber();
-  await iikoFetch("/api/1/loyalty/iiko/customer/card/add", {
-    organizationId: IIKO_ORG,
-    customerId: id,
-    cardNumber,
-    cardTrack: cardNumber,
+  const existing = await iikoGetCustomer("phone", phone);
+  if (existing) {
+    // Если пользователь существует, но у него нет карты в iiko, создадим её
+    if (!existing.cardNumber) {
+      const cardNum = makeCardNumber();
+      await iikoFetch<any>("loyalty/iiko/customer/create_or_update", {
+        organizationId: IIKO_ORGANIZATION_ID,
+        phone,
+        name,
+        cardNumber: cardNum,
+        cardTrack: cardNum,
+      });
+      existing.cardNumber = cardNum;
+    }
+    return existing;
+  }
+
+  // Создаем нового клиента с новой картой
+  const cardNum = makeCardNumber();
+  const createResult = await iikoFetch<{ id: string }>("loyalty/iiko/customer/create_or_update", {
+    organizationId: IIKO_ORGANIZATION_ID,
+    phone,
+    name,
+    cardNumber: cardNum,
+    cardTrack: cardNum,
   });
-  return (await iikoFindByPhone(phone)) ?? {
-    id,
+
+  const customerId = createResult.id;
+
+  // Пытаемся подписать нового клиента на все активные бонусные программы заведения
+  try {
+    const progData = await iikoFetch<{ Programs: any[] }>("loyalty/iiko/program", {
+      organizationId: IIKO_ORGANIZATION_ID,
+    });
+    if (progData.Programs && progData.Programs.length > 0) {
+      for (const program of progData.Programs) {
+        if (program.isActive && program.id) {
+          await iikoFetch<any>("loyalty/iiko/customer/program/add", {
+            organizationId: IIKO_ORGANIZATION_ID,
+            customerId,
+            programId: program.id,
+          }).catch((e) => {
+            console.error(`Failed to register customer in program ${program.id}:`, e);
+          });
+        }
+      }
+    }
+  } catch (progErr) {
+    console.error("Failed to fetch programs or enroll customer:", progErr);
+  }
+
+  // Получаем и возвращаем созданного клиента
+  const created = await iikoGetCustomer("id", customerId);
+  if (created) return created;
+
+  return {
+    id: customerId,
     name,
     phone,
-    cardNumber,
+    cardNumber: cardNum,
     balance: 0,
     createdAt: new Date().toISOString(),
   };
 }
 
-async function iikoGetById(id: string): Promise<LoyaltyCustomer | null> {
-  try {
-    const c = await iikoFetch<IikoCustomer>("/api/1/loyalty/iiko/customer/info", {
-      organizationId: IIKO_ORG,
-      type: "id",
-      id,
-    });
-    return fromIiko(c);
-  } catch {
-    return null;
-  }
-}
-
-/* ---------- mock (локально, пока нет apiLogin) ---------- */
+/* ---------- mock (локально, пока нет iiko API env) ---------- */
 
 const MOCK_PATH = path.join(process.cwd(), "data/customers.json");
-// На Vercel файловая система read-only — держим мок в памяти инстанса
 const memory: Record<string, LoyaltyCustomer> = {};
 
 async function mockRead(): Promise<Record<string, LoyaltyCustomer>> {
@@ -149,7 +206,7 @@ async function mockWrite(all: Record<string, LoyaltyCustomer>) {
   try {
     await fs.writeFile(MOCK_PATH, JSON.stringify(all, null, 2) + "\n", "utf-8");
   } catch {
-    // read-only FS — остаёмся на памяти
+    // В Vercel файловая система read-only
   }
 }
 
@@ -158,11 +215,11 @@ async function mockGetOrCreate(phone: string, name: string): Promise<LoyaltyCust
   const existing = Object.values(all).find((c) => c.phone === phone);
   if (existing) return existing;
   const customer: LoyaltyCustomer = {
-    id: crypto.randomUUID(),
+    id: randomUUID(),
     name,
     phone,
     cardNumber: makeCardNumber(),
-    balance: 25000, // приветственный бонус в моке, чтобы карта не пустовала
+    balance: 25000, // Приветственный бонус в моке
     createdAt: new Date().toISOString(),
   };
   all[customer.id] = customer;
@@ -181,5 +238,5 @@ export async function getOrCreateCustomer(phone: string, name: string): Promise<
 }
 
 export async function getCustomerById(id: string): Promise<LoyaltyCustomer | null> {
-  return usingIiko ? iikoGetById(id) : mockGetById(id);
+  return usingIiko ? iikoGetCustomer("id", id) : mockGetById(id);
 }

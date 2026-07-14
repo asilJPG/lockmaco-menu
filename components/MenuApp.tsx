@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useDeferredValue, useEffect, useMemo, useRef, useState } from "react";
 import type { Lang, MenuData, MenuItem, SectionKey } from "@/lib/types";
 import { BADGES, LANGS, UI, formatPrice, unitLabel } from "@/lib/i18n";
 
@@ -19,7 +19,9 @@ export default function MenuApp({ menu }: { menu: MenuData }) {
   const [lang, setLang] = useState<Lang>("ru");
   const [section, setSection] = useState<SectionKey>("food");
   const [query, setQuery] = useState("");
+  const deferredQuery = useDeferredValue(query);
   const [activeCat, setActiveCat] = useState<string>("all");
+  const [quickFilter, setQuickFilter] = useState<"all" | "hit" | "new">("all");
   const [loading, setLoading] = useState(true);
   const [selected, setSelected] = useState<MenuItem | null>(null);
   const dialogRef = useRef<HTMLDialogElement>(null);
@@ -35,14 +37,31 @@ export default function MenuApp({ menu }: { menu: MenuData }) {
   }, []);
 
   useEffect(() => {
-    if (selected) dialogRef.current?.showModal();
-    else dialogRef.current?.close();
+    const dialog = dialogRef.current;
+    if (selected && !dialog?.open) dialog?.showModal();
+    else if (!selected && dialog?.open) dialog.close();
   }, [selected]);
 
   const categories = menu.sections[section];
+  const availableItems = useMemo(
+    () => categories.flatMap((c) => c.items.filter((i) => i.available)),
+    [categories]
+  );
+  const featuredItems = useMemo(() => {
+    const picked = availableItems.filter((i) => i.badges?.some((b) => b === "hit" || b === "new"));
+    return (picked.length ? picked : availableItems).slice(0, 4);
+  }, [availableItems]);
+  const selectedCategory = useMemo(
+    () => categories.find((c) => c.items.some((i) => i.id === selected?.id)),
+    [categories, selected]
+  );
+  const relatedItems = useMemo(() => {
+    if (!selected || !selectedCategory) return [];
+    return selectedCategory.items.filter((i) => i.available && i.id !== selected.id).slice(0, 3);
+  }, [selected, selectedCategory]);
 
   const filtered = useMemo(() => {
-    const q = query.trim().toLowerCase();
+    const q = deferredQuery.trim().toLowerCase();
     return categories
       .filter((c) => activeCat === "all" || c.id === activeCat)
       .map((c) => ({
@@ -50,13 +69,14 @@ export default function MenuApp({ menu }: { menu: MenuData }) {
         items: c.items.filter(
           (i) =>
             i.available &&
+            (quickFilter === "all" || i.badges?.includes(quickFilter)) &&
             (!q ||
               i.name[lang].toLowerCase().includes(q) ||
               i.description[lang].toLowerCase().includes(q))
         ),
       }))
       .filter((c) => c.items.length > 0);
-  }, [categories, activeCat, query, lang]);
+  }, [categories, activeCat, deferredQuery, lang, quickFilter]);
 
   const switchLang = (l: Lang) => {
     setLang(l);
@@ -66,6 +86,7 @@ export default function MenuApp({ menu }: { menu: MenuData }) {
   const switchSection = (s: SectionKey) => {
     setSection(s);
     setActiveCat("all");
+    setQuickFilter("all");
     setQuery("");
   };
 
@@ -101,6 +122,25 @@ export default function MenuApp({ menu }: { menu: MenuData }) {
         </header>
 
         <section className="menu-controls">
+          <div className="menu-snapshot" aria-label={t.menu_snapshot}>
+            <div>
+              <span>{t.menu_count}</span>
+              <b>{availableItems.length}</b>
+            </div>
+            {menu.brand.info?.hours ? (
+              <div>
+                <span>{t.menu_until}</span>
+                <b>{menu.brand.info.hours}</b>
+              </div>
+            ) : null}
+            {menu.brand.info?.service ? (
+              <div>
+                <span>{t.service_label}</span>
+                <b>{menu.brand.info.service}</b>
+              </div>
+            ) : null}
+          </div>
+
           <div className="section-tabs" role="tablist">
             {(["food", "drinks"] as SectionKey[]).map((s) => (
               <button
@@ -126,6 +166,19 @@ export default function MenuApp({ menu }: { menu: MenuData }) {
             />
           </label>
 
+          <div className="quick-filters" role="group" aria-label={t.quick_filters}>
+            {(["all", "hit", "new"] as const).map((filter) => (
+              <button
+                key={filter}
+                type="button"
+                className={`quick-filter ${quickFilter === filter ? "active" : ""}`}
+                onClick={() => setQuickFilter(filter)}
+              >
+                {filter === "all" ? t.all_tastes : BADGES[filter][lang]}
+              </button>
+            ))}
+          </div>
+
           <div className="category-chips">
             <button
               type="button"
@@ -146,6 +199,29 @@ export default function MenuApp({ menu }: { menu: MenuData }) {
             ))}
           </div>
         </section>
+
+        {featuredItems.length > 0 && !deferredQuery.trim() && activeCat === "all" && (
+          <section className="chef-strip" aria-labelledby="chef-strip-title">
+            <div className="chef-strip__head">
+              <span>{t.chef_kicker}</span>
+              <h2 id="chef-strip-title">{t.chef_title}</h2>
+            </div>
+            <div className="chef-picks">
+              {featuredItems.map((item, index) => (
+                <button
+                  key={item.id}
+                  type="button"
+                  className="chef-pick"
+                  onClick={() => setSelected(item)}
+                >
+                  <span className="chef-pick__num">{String(index + 1).padStart(2, "0")}</span>
+                  <span className="chef-pick__name">{item.name[lang]}</span>
+                  <span className="chef-pick__price">{formatPrice(item.price)} {cur}</span>
+                </button>
+              ))}
+            </div>
+          </section>
+        )}
 
         <section className="guest-menu">
           {filtered.length === 0 && <div className="no-results">{t.no_results}</div>}
@@ -261,6 +337,24 @@ export default function MenuApp({ menu }: { menu: MenuData }) {
                     <div><b>{selected.nutrition.proteins ?? "—"}</b><span>{t.proteins}</span></div>
                     <div><b>{selected.nutrition.fats ?? "—"}</b><span>{t.fats}</span></div>
                     <div><b>{selected.nutrition.carbs ?? "—"}</b><span>{t.carbs}</span></div>
+                  </div>
+                </div>
+              ) : null}
+              {relatedItems.length > 0 ? (
+                <div className="related-block">
+                  <h4>{t.related_title}</h4>
+                  <div className="related-list">
+                    {relatedItems.map((item) => (
+                      <button
+                        key={item.id}
+                        type="button"
+                        className="related-item"
+                        onClick={() => setSelected(item)}
+                      >
+                        <span>{item.name[lang]}</span>
+                        <b>{formatPrice(item.price)} {cur}</b>
+                      </button>
+                    ))}
                   </div>
                 </div>
               ) : null}
