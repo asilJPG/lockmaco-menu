@@ -479,47 +479,68 @@ button {
 .dish-card {
   position: relative;
   background: var(--brand-card);
-  border: 1px solid rgba(92, 51, 23, 0.09);
-  border-radius: var(--radius);
+  border: 1px solid rgba(92, 51, 23, 0.08);
+  border-radius: 20px;
   overflow: hidden;
   text-align: left;
   padding: 0;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 6px 16px rgba(62, 32, 16, 0.07);
-  transition: transform 0.15s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  box-shadow: 0 8px 22px rgba(62, 32, 16, 0.04);
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), 
+              box-shadow 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), 
+              border-color 0.25s ease;
+  animation: dishCardFadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes dishCardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .dish-card:active {
-  transform: scale(0.98);
+  transform: scale(0.96);
+  box-shadow: 0 4px 12px rgba(62, 32, 16, 0.04);
 }
 
 @media (hover: hover) {
-  .dish-card:hover,
-  .chef-pick:hover {
-    border-color: rgba(224, 168, 62, 0.42);
-    box-shadow: 0 14px 26px rgba(62, 32, 16, 0.13);
-    transform: translateY(-2px);
+  .dish-card:hover {
+    border-color: rgba(224, 168, 62, 0.45);
+    box-shadow: 0 16px 32px rgba(62, 32, 16, 0.12);
+    transform: translateY(-4px);
   }
 }
 
 .dish-card__img {
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 1 / 1;
   width: 100%;
   object-fit: cover;
   display: block;
   background: var(--brand-cream);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (hover: hover) {
+  .dish-card:hover .dish-card__img {
+    transform: scale(1.05);
+  }
 }
 
 .dish-card__placeholder {
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 1 / 1;
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: var(--font-serif), serif;
   font-style: italic;
-  font-size: 34px;
-  color: rgba(92, 51, 23, 0.35);
+  font-size: 38px;
+  color: rgba(92, 51, 23, 0.3);
   background: linear-gradient(135deg, #f2e5d0, #ecd9bb);
 }
 
@@ -593,9 +614,34 @@ button {
   margin: auto;
 }
 
-.dish-dialog::backdrop {
+.dish-dialog[open] {
+  animation: dialogScaleIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes dialogScaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.dish-dialog[open]::backdrop {
   background: rgba(43, 24, 16, 0.55);
   backdrop-filter: blur(3px);
+  animation: backdropFadeIn 0.3s ease both;
+}
+
+@keyframes backdropFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .dialog-close {
@@ -730,7 +776,13 @@ button {
   background: var(--brand-cream);
   padding: 10px 12px;
   text-align: left;
+  transition: transform 0.15s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
+
+.related-item:active {
+  transform: scale(0.96);
+}
+
 
 .related-item span {
   min-width: 0;
