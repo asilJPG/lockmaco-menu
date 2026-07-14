@@ -20,6 +20,8 @@ QR-меню для кофейни-кондитерской The Lokmaco (Ферг
 - Google Wallet: пока отложен (на iOS нет Google Wallet; Apple Wallet — платный $99/год). Бесплатная альтернатива — PWA «Добавить на экран».
 - Force-push `qr-menu` в `origin/main` для деплоя на Vercel. Добавлен `vercel.json` с `framework: nextjs`.
 - Старое фото-меню (`components/OldMenu.tsx`) на `/`, новое QR-меню перенесено на `/test-menu`.
+- Убран блок с количеством позиций, временем работы и обслуживания из нового меню `MenuApp` по просьбе Асиля.
+
 
 ## Сделано 2026-07-11
 
