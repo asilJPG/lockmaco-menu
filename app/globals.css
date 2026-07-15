@@ -706,6 +706,11 @@ button {
   overflow: hidden;
 }
 
+html:has(dialog[open]),
+body:has(dialog[open]) {
+  overflow: hidden !important;
+}
+
 .dish-dialog[open] {
   animation: dialogScaleIn 0.28s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
