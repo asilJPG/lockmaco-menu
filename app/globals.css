@@ -2316,16 +2316,16 @@ body:has([data-theme="matcha"]) {
   padding: 6px 14px;
   border-radius: 99px;
   text-decoration: none;
-  border: 1px solid rgba(92, 51, 23, 0.15);
-  color: var(--brand-primary);
-  background: transparent;
+  border: 1px solid rgba(92, 51, 23, 0.3) !important;
+  color: var(--brand-primary) !important;
+  background: rgba(92, 51, 23, 0.04) !important;
   transition: all 0.2s ease;
 }
 
 .theme-link-pill.active {
-  background: var(--brand-primary);
-  color: var(--brand-cream);
-  border-color: var(--brand-primary);
+  background: var(--brand-primary) !important;
+  color: var(--brand-cream) !important;
+  border-color: var(--brand-primary) !important;
 }
 
 .theme-link-pill:active {
@@ -2334,8 +2334,9 @@ body:has([data-theme="matcha"]) {
 
 /* Переопределения для темных тем */
 .qr-shell[data-theme="matcha"] .theme-link-pill {
-  border-color: rgba(224, 168, 62, 0.25) !important;
+  border-color: rgba(224, 168, 62, 0.35) !important;
   color: #faf3e7 !important;
+  background: rgba(255, 255, 255, 0.04) !important;
 }
 .qr-shell[data-theme="matcha"] .theme-link-pill.active {
   background: #e0a83e !important;
@@ -2344,8 +2345,9 @@ body:has([data-theme="matcha"]) {
 }
 
 .qr-shell[data-theme="burgundy"] .theme-link-pill {
-  border-color: rgba(212, 168, 67, 0.25) !important;
+  border-color: rgba(212, 168, 67, 0.35) !important;
   color: #faf3e7 !important;
+  background: rgba(255, 255, 255, 0.04) !important;
 }
 .qr-shell[data-theme="burgundy"] .theme-link-pill.active {
   background: #d4a843 !important;
@@ -2354,8 +2356,9 @@ body:has([data-theme="matcha"]) {
 }
 
 .qr-shell[data-theme="noir"] .theme-link-pill {
-  border-color: rgba(255, 255, 255, 0.2) !important;
+  border-color: rgba(255, 255, 255, 0.35) !important;
   color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.04) !important;
 }
 .qr-shell[data-theme="noir"] .theme-link-pill.active {
   background: #ffffff !important;
