@@ -42,7 +42,13 @@
             },
             "price": 48000,
             "imageUrl": "/uploads/lokma-choco.jpg",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 498,
+              "proteins": 5,
+              "fats": 21,
+              "carbs": 50
+            }
           },
           {
             "id": "lokma-coconut",
@@ -58,7 +64,13 @@
             },
             "price": 52000,
             "imageUrl": "/uploads/lokma-coconut.jpg",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 523,
+              "proteins": 6,
+              "fats": 19,
+              "carbs": 60
+            }
           },
           {
             "id": "lokma-pistachio",
@@ -74,7 +86,13 @@
             },
             "price": 58000,
             "imageUrl": "/uploads/lokma-pistachio.jpg",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 472,
+              "proteins": 6,
+              "fats": 18,
+              "carbs": 68
+            }
           },
           {
             "id": "lokma-fruit",
@@ -90,7 +108,13 @@
             },
             "price": 60000,
             "imageUrl": "/uploads/lokma-fruit.jpg",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 395,
+              "proteins": 5,
+              "fats": 23,
+              "carbs": 69
+            }
           },
           {
             "id": "fondue",
@@ -106,7 +130,13 @@
             },
             "price": 85000,
             "imageUrl": "/uploads/fondue.jpg",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 427,
+              "proteins": 7,
+              "fats": 18,
+              "carbs": 59
+            }
           }
         ]
       },
@@ -132,7 +162,13 @@
             },
             "price": 45000,
             "imageUrl": "/uploads/hk-choco.jpg",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 397,
+              "proteins": 8,
+              "fats": 21,
+              "carbs": 69
+            }
           },
           {
             "id": "hk-banana",
@@ -148,7 +184,13 @@
             },
             "price": 53000,
             "imageUrl": "/uploads/hk-banana.jpg",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 420,
+              "proteins": 7,
+              "fats": 19,
+              "carbs": 65
+            }
           },
           {
             "id": "hk-strawberry",
@@ -164,7 +206,13 @@
             },
             "price": 55000,
             "imageUrl": "/uploads/hk-strawberry.jpg",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 405,
+              "proteins": 7,
+              "fats": 14,
+              "carbs": 64
+            }
           },
           {
             "id": "hk-fruit",
@@ -180,7 +228,13 @@
             },
             "price": 65000,
             "imageUrl": "/uploads/hk-fruit.jpg",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 384,
+              "proteins": 6,
+              "fats": 19,
+              "carbs": 68
+            }
           },
           {
             "id": "belgian-choco",
@@ -196,7 +250,13 @@
             },
             "price": 45000,
             "imageUrl": "/uploads/belgian-choco.jpg",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 483,
+              "proteins": 5,
+              "fats": 20,
+              "carbs": 61
+            }
           },
           {
             "id": "belgian-banana",
@@ -212,7 +272,13 @@
             },
             "price": 53000,
             "imageUrl": "/uploads/belgian-banana.jpg",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 400,
+              "proteins": 6,
+              "fats": 22,
+              "carbs": 53
+            }
           },
           {
             "id": "belgian-strawberry",
@@ -228,7 +294,13 @@
             },
             "price": 55000,
             "imageUrl": "",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 429,
+              "proteins": 7,
+              "fats": 18,
+              "carbs": 69
+            }
           },
           {
             "id": "belgian-fruit",
@@ -244,7 +316,13 @@
             },
             "price": 65000,
             "imageUrl": "/uploads/belgian-fruit.jpg",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 457,
+              "proteins": 6,
+              "fats": 21,
+              "carbs": 55
+            }
           }
         ]
       },
@@ -273,7 +351,13 @@
             "available": true,
             "badges": [
               "new"
-            ]
+            ],
+            "nutrition": {
+              "kcal": 476,
+              "proteins": 6,
+              "fats": 23,
+              "carbs": 67
+            }
           },
           {
             "id": "crepes-fruit",
@@ -289,7 +373,13 @@
             },
             "price": 68000,
             "imageUrl": "",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 423,
+              "proteins": 8,
+              "fats": 14,
+              "carbs": 55
+            }
           },
           {
             "id": "strawberry-cup",
@@ -305,7 +395,13 @@
             },
             "price": 45000,
             "imageUrl": "",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 397,
+              "proteins": 6,
+              "fats": 18,
+              "carbs": 57
+            }
           }
         ]
       },
@@ -331,7 +427,13 @@
             },
             "price": 35000,
             "imageUrl": "/uploads/ice-vanilla.jpg",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 489,
+              "proteins": 8,
+              "fats": 15,
+              "carbs": 54
+            }
           },
           {
             "id": "ice-strawberry",
@@ -347,7 +449,13 @@
             },
             "price": 35000,
             "imageUrl": "/uploads/ice-strawberry.jpg",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 467,
+              "proteins": 8,
+              "fats": 15,
+              "carbs": 69
+            }
           },
           {
             "id": "ice-raspberry",
@@ -363,7 +471,13 @@
             },
             "price": 35000,
             "imageUrl": "/uploads/ice-raspberry.jpg",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 416,
+              "proteins": 8,
+              "fats": 23,
+              "carbs": 56
+            }
           },
           {
             "id": "ice-kiwi",
@@ -379,7 +493,13 @@
             },
             "price": 35000,
             "imageUrl": "/uploads/ice-kiwi.jpg",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 508,
+              "proteins": 7,
+              "fats": 15,
+              "carbs": 60
+            }
           },
           {
             "id": "ice-berry",
@@ -395,7 +515,13 @@
             },
             "price": 35000,
             "imageUrl": "/uploads/ice-berry.jpg",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 493,
+              "proteins": 5,
+              "fats": 22,
+              "carbs": 52
+            }
           },
           {
             "id": "ice-peach-banana",
@@ -411,7 +537,13 @@
             },
             "price": 35000,
             "imageUrl": "/uploads/ice-peach-banana.jpg",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 465,
+              "proteins": 7,
+              "fats": 16,
+              "carbs": 57
+            }
           },
           {
             "id": "ice-mix",
@@ -427,7 +559,13 @@
             },
             "price": 40000,
             "imageUrl": "/uploads/ice-mix.jpg",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 385,
+              "proteins": 8,
+              "fats": 23,
+              "carbs": 53
+            }
           },
           {
             "id": "ice-choco-moko",
@@ -443,7 +581,13 @@
             },
             "price": 45000,
             "imageUrl": "/uploads/ice-choco-moko.jpg",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 487,
+              "proteins": 7,
+              "fats": 15,
+              "carbs": 68
+            }
           },
           {
             "id": "ice-choco",
@@ -459,7 +603,13 @@
             },
             "price": 45000,
             "imageUrl": "/uploads/ice-choco.jpg",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 517,
+              "proteins": 8,
+              "fats": 23,
+              "carbs": 63
+            }
           },
           {
             "id": "ice-choco-mix",
@@ -475,7 +625,13 @@
             },
             "price": 70000,
             "imageUrl": "/uploads/ice-choco-mix.jpg",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 489,
+              "proteins": 6,
+              "fats": 21,
+              "carbs": 57
+            }
           },
           {
             "id": "ice-frutti-mix",
@@ -491,7 +647,13 @@
             },
             "price": 65000,
             "imageUrl": "/uploads/ice-frutti-mix.jpg",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 490,
+              "proteins": 6,
+              "fats": 15,
+              "carbs": 65
+            }
           },
           {
             "id": "ice-tsukaty-mix",
@@ -507,7 +669,13 @@
             },
             "price": 65000,
             "imageUrl": "/uploads/ice-tsukaty-mix.jpg",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 498,
+              "proteins": 8,
+              "fats": 21,
+              "carbs": 58
+            }
           },
           {
             "id": "icebox-vanilla",
@@ -523,7 +691,13 @@
             },
             "price": 70000,
             "imageUrl": "/uploads/icebox-vanilla.jpg",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 381,
+              "proteins": 5,
+              "fats": 23,
+              "carbs": 61
+            }
           },
           {
             "id": "icebox-choco",
@@ -539,7 +713,13 @@
             },
             "price": 60000,
             "imageUrl": "/uploads/icebox-choco.jpg",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 422,
+              "proteins": 8,
+              "fats": 22,
+              "carbs": 64
+            }
           },
           {
             "id": "icebox-choco-moko",
@@ -555,7 +735,13 @@
             },
             "price": 60000,
             "imageUrl": "/uploads/icebox-choco-moko.jpg",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 480,
+              "proteins": 6,
+              "fats": 18,
+              "carbs": 56
+            }
           },
           {
             "id": "icebox-mix",
@@ -571,7 +757,13 @@
             },
             "price": 60000,
             "imageUrl": "/uploads/icebox-mix.jpg",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 508,
+              "proteins": 6,
+              "fats": 20,
+              "carbs": 59
+            }
           }
         ]
       }
@@ -599,7 +791,13 @@
             },
             "price": 20000,
             "imageUrl": "",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 4,
+              "proteins": 0,
+              "fats": 0,
+              "carbs": 1
+            }
           },
           {
             "id": "americano",
@@ -615,7 +813,13 @@
             },
             "price": 22000,
             "imageUrl": "",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 5,
+              "proteins": 0,
+              "fats": 0,
+              "carbs": 1
+            }
           },
           {
             "id": "americano-double",
@@ -631,7 +835,13 @@
             },
             "price": 28000,
             "imageUrl": "",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 6,
+              "proteins": 0,
+              "fats": 0,
+              "carbs": 1
+            }
           },
           {
             "id": "cappuccino",
@@ -647,7 +857,13 @@
             },
             "price": 28000,
             "imageUrl": "",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 207,
+              "proteins": 4,
+              "fats": 5,
+              "carbs": 24
+            }
           },
           {
             "id": "latte",
@@ -663,7 +879,13 @@
             },
             "price": 28000,
             "imageUrl": "",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 198,
+              "proteins": 4,
+              "fats": 7,
+              "carbs": 21
+            }
           },
           {
             "id": "cacao",
@@ -679,7 +901,13 @@
             },
             "price": 28000,
             "imageUrl": "",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 104,
+              "proteins": 0,
+              "fats": 0,
+              "carbs": 27
+            }
           },
           {
             "id": "cappuccino-double",
@@ -695,7 +923,13 @@
             },
             "price": 34000,
             "imageUrl": "",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 144,
+              "proteins": 3,
+              "fats": 7,
+              "carbs": 20
+            }
           },
           {
             "id": "latte-double",
@@ -711,7 +945,13 @@
             },
             "price": 34000,
             "imageUrl": "",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 239,
+              "proteins": 3,
+              "fats": 6,
+              "carbs": 26
+            }
           },
           {
             "id": "raf",
@@ -727,7 +967,13 @@
             },
             "price": 34000,
             "imageUrl": "",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 203,
+              "proteins": 4,
+              "fats": 5,
+              "carbs": 15
+            }
           },
           {
             "id": "hot-choco",
@@ -743,7 +989,13 @@
             },
             "price": 34000,
             "imageUrl": "",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 107,
+              "proteins": 0,
+              "fats": 0,
+              "carbs": 25
+            }
           },
           {
             "id": "mocaccino",
@@ -759,7 +1011,13 @@
             },
             "price": 38000,
             "imageUrl": "",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 116,
+              "proteins": 0,
+              "fats": 0,
+              "carbs": 22
+            }
           }
         ]
       },
@@ -785,7 +1043,13 @@
             },
             "price": 35000,
             "imageUrl": "",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 3,
+              "proteins": 0,
+              "fats": 0,
+              "carbs": 0
+            }
           },
           {
             "id": "ice-cappuccino",
@@ -801,7 +1065,13 @@
             },
             "price": 35000,
             "imageUrl": "",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 163,
+              "proteins": 3,
+              "fats": 6,
+              "carbs": 21
+            }
           },
           {
             "id": "ice-latte",
@@ -817,7 +1087,13 @@
             },
             "price": 35000,
             "imageUrl": "",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 214,
+              "proteins": 4,
+              "fats": 6,
+              "carbs": 15
+            }
           },
           {
             "id": "frappuccino",
@@ -833,7 +1109,13 @@
             },
             "price": 38000,
             "imageUrl": "",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 136,
+              "proteins": 0,
+              "fats": 0,
+              "carbs": 31
+            }
           }
         ]
       },
@@ -859,7 +1141,13 @@
             },
             "price": 16000,
             "imageUrl": "",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 7,
+              "proteins": 0,
+              "fats": 0,
+              "carbs": 1
+            }
           },
           {
             "id": "tea-lemon",
@@ -875,7 +1163,13 @@
             },
             "price": 22000,
             "imageUrl": "",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 2,
+              "proteins": 0,
+              "fats": 0,
+              "carbs": 1
+            }
           },
           {
             "id": "tea-bardak",
@@ -891,7 +1185,13 @@
             },
             "price": 28000,
             "imageUrl": "",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 152,
+              "proteins": 0,
+              "fats": 0,
+              "carbs": 23
+            }
           },
           {
             "id": "tea-raspberry",
@@ -907,7 +1207,13 @@
             },
             "price": 35000,
             "imageUrl": "",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 5,
+              "proteins": 0,
+              "fats": 0,
+              "carbs": 1
+            }
           },
           {
             "id": "tea-fruit",
@@ -923,7 +1229,13 @@
             },
             "price": 35000,
             "imageUrl": "",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 2,
+              "proteins": 0,
+              "fats": 0,
+              "carbs": 0
+            }
           },
           {
             "id": "tea-berry",
@@ -939,7 +1251,13 @@
             },
             "price": 35000,
             "imageUrl": "",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 6,
+              "proteins": 0,
+              "fats": 0,
+              "carbs": 1
+            }
           },
           {
             "id": "tea-ginger",
@@ -955,7 +1273,13 @@
             },
             "price": 35000,
             "imageUrl": "",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 8,
+              "proteins": 0,
+              "fats": 0,
+              "carbs": 0
+            }
           },
           {
             "id": "tea-calm",
@@ -971,7 +1295,13 @@
             },
             "price": 38000,
             "imageUrl": "",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 8,
+              "proteins": 0,
+              "fats": 0,
+              "carbs": 1
+            }
           },
           {
             "id": "tea-ginger-raspberry",
@@ -987,7 +1317,13 @@
             },
             "price": 38000,
             "imageUrl": "",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 166,
+              "proteins": 0,
+              "fats": 0,
+              "carbs": 25
+            }
           },
           {
             "id": "tea-moroccan",
@@ -1003,7 +1339,13 @@
             },
             "price": 38000,
             "imageUrl": "",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 7,
+              "proteins": 0,
+              "fats": 0,
+              "carbs": 1
+            }
           },
           {
             "id": "tea-mango-raspberry",
@@ -1019,7 +1361,13 @@
             },
             "price": 38000,
             "imageUrl": "",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 94,
+              "proteins": 0,
+              "fats": 0,
+              "carbs": 25
+            }
           }
         ]
       },
@@ -1045,7 +1393,13 @@
             },
             "price": 35000,
             "imageUrl": "",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 160,
+              "proteins": 0,
+              "fats": 0,
+              "carbs": 27
+            }
           },
           {
             "id": "icetea-strawberry",
@@ -1061,7 +1415,13 @@
             },
             "price": 35000,
             "imageUrl": "",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 151,
+              "proteins": 0,
+              "fats": 0,
+              "carbs": 27
+            }
           },
           {
             "id": "icetea-raspberry",
@@ -1077,7 +1437,13 @@
             },
             "price": 35000,
             "imageUrl": "",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 142,
+              "proteins": 0,
+              "fats": 0,
+              "carbs": 22
+            }
           }
         ]
       },
@@ -1103,7 +1469,13 @@
             },
             "price": 35000,
             "imageUrl": "",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 139,
+              "proteins": 0,
+              "fats": 0,
+              "carbs": 21
+            }
           },
           {
             "id": "fresh-apple",
@@ -1119,7 +1491,13 @@
             },
             "price": 35000,
             "imageUrl": "",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 127,
+              "proteins": 0,
+              "fats": 0,
+              "carbs": 21
+            }
           },
           {
             "id": "fresh-carrot-apple",
@@ -1135,7 +1513,13 @@
             },
             "price": 35000,
             "imageUrl": "",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 122,
+              "proteins": 0,
+              "fats": 0,
+              "carbs": 34
+            }
           },
           {
             "id": "fresh-orange",
@@ -1151,7 +1535,13 @@
             },
             "price": 68000,
             "imageUrl": "/uploads/fresh-orange.jpg",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 142,
+              "proteins": 0,
+              "fats": 0,
+              "carbs": 20
+            }
           },
           {
             "id": "fresh-orange-apple",
@@ -1167,7 +1557,13 @@
             },
             "price": 55000,
             "imageUrl": "",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 119,
+              "proteins": 0,
+              "fats": 0,
+              "carbs": 31
+            }
           },
           {
             "id": "fresh-orange-lemon",
@@ -1183,7 +1579,13 @@
             },
             "price": 68000,
             "imageUrl": "",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 102,
+              "proteins": 0,
+              "fats": 0,
+              "carbs": 24
+            }
           }
         ]
       },
@@ -1209,7 +1611,13 @@
             },
             "price": 45000,
             "imageUrl": "",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 167,
+              "proteins": 0,
+              "fats": 0,
+              "carbs": 25
+            }
           },
           {
             "id": "smoothie-strawberry-banana",
@@ -1225,7 +1633,13 @@
             },
             "price": 45000,
             "imageUrl": "",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 102,
+              "proteins": 0,
+              "fats": 0,
+              "carbs": 34
+            }
           },
           {
             "id": "smoothie-mango-passion",
@@ -1241,7 +1655,13 @@
             },
             "price": 45000,
             "imageUrl": "",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 142,
+              "proteins": 0,
+              "fats": 0,
+              "carbs": 33
+            }
           },
           {
             "id": "smoothie-berry",
@@ -1257,7 +1677,13 @@
             },
             "price": 45000,
             "imageUrl": "",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 96,
+              "proteins": 0,
+              "fats": 0,
+              "carbs": 32
+            }
           }
         ]
       },
@@ -1283,7 +1709,13 @@
             },
             "price": 38000,
             "imageUrl": "",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 115,
+              "proteins": 0,
+              "fats": 0,
+              "carbs": 34
+            }
           },
           {
             "id": "shake-choco",
@@ -1299,7 +1731,13 @@
             },
             "price": 38000,
             "imageUrl": "",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 92,
+              "proteins": 0,
+              "fats": 0,
+              "carbs": 21
+            }
           },
           {
             "id": "shake-strawberry",
@@ -1315,7 +1753,13 @@
             },
             "price": 38000,
             "imageUrl": "",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 119,
+              "proteins": 0,
+              "fats": 0,
+              "carbs": 27
+            }
           },
           {
             "id": "shake-kiwi",
@@ -1331,7 +1775,13 @@
             },
             "price": 38000,
             "imageUrl": "",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 127,
+              "proteins": 0,
+              "fats": 0,
+              "carbs": 27
+            }
           },
           {
             "id": "shake-raspberry",
@@ -1347,7 +1797,13 @@
             },
             "price": 38000,
             "imageUrl": "",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 137,
+              "proteins": 0,
+              "fats": 0,
+              "carbs": 25
+            }
           },
           {
             "id": "shake-banana",
@@ -1363,7 +1819,13 @@
             },
             "price": 38000,
             "imageUrl": "",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 145,
+              "proteins": 0,
+              "fats": 0,
+              "carbs": 25
+            }
           },
           {
             "id": "shake-strawberry-banana",
@@ -1379,7 +1841,13 @@
             },
             "price": 45000,
             "imageUrl": "",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 143,
+              "proteins": 0,
+              "fats": 0,
+              "carbs": 34
+            }
           },
           {
             "id": "shake-choco-banana",
@@ -1395,7 +1863,13 @@
             },
             "price": 45000,
             "imageUrl": "",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 112,
+              "proteins": 0,
+              "fats": 0,
+              "carbs": 22
+            }
           }
         ]
       },
@@ -1421,7 +1895,13 @@
             },
             "price": 28000,
             "imageUrl": "/uploads/mojito-classic.jpg",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 141,
+              "proteins": 0,
+              "fats": 0,
+              "carbs": 28
+            }
           },
           {
             "id": "mojito-strawberry",
@@ -1437,7 +1917,13 @@
             },
             "price": 34000,
             "imageUrl": "/uploads/mojito-strawberry.jpg",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 159,
+              "proteins": 0,
+              "fats": 0,
+              "carbs": 32
+            }
           },
           {
             "id": "mojito-berry",
@@ -1453,7 +1939,13 @@
             },
             "price": 34000,
             "imageUrl": "",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 90,
+              "proteins": 0,
+              "fats": 0,
+              "carbs": 22
+            }
           },
           {
             "id": "mojito-kiwi",
@@ -1469,7 +1961,13 @@
             },
             "price": 34000,
             "imageUrl": "/uploads/mojito-kiwi.jpg",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 130,
+              "proteins": 0,
+              "fats": 0,
+              "carbs": 34
+            }
           },
           {
             "id": "mojito-raspberry",
@@ -1485,7 +1983,13 @@
             },
             "price": 34000,
             "imageUrl": "",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 98,
+              "proteins": 0,
+              "fats": 0,
+              "carbs": 27
+            }
           },
           {
             "id": "mojito-redbull",
@@ -1501,7 +2005,13 @@
             },
             "price": 40000,
             "imageUrl": "",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 109,
+              "proteins": 0,
+              "fats": 0,
+              "carbs": 20
+            }
           }
         ]
       },
@@ -1527,7 +2037,13 @@
             },
             "price": 48000,
             "imageUrl": "",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 158,
+              "proteins": 0,
+              "fats": 0,
+              "carbs": 20
+            }
           },
           {
             "id": "bubble-lokmaco",
@@ -1543,7 +2059,13 @@
             },
             "price": 45000,
             "imageUrl": "",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 123,
+              "proteins": 0,
+              "fats": 0,
+              "carbs": 34
+            }
           },
           {
             "id": "bubble-coffee",
@@ -1559,7 +2081,13 @@
             },
             "price": 40000,
             "imageUrl": "/uploads/bubbletea-coffee.jpg",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 141,
+              "proteins": 0,
+              "fats": 0,
+              "carbs": 25
+            }
           },
           {
             "id": "bubble-peach-passion",
@@ -1575,7 +2103,13 @@
             },
             "price": 48000,
             "imageUrl": "",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 104,
+              "proteins": 0,
+              "fats": 0,
+              "carbs": 27
+            }
           }
         ]
       },
@@ -1601,7 +2135,13 @@
             },
             "price": 34000,
             "imageUrl": "",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 153,
+              "proteins": 0,
+              "fats": 0,
+              "carbs": 32
+            }
           },
           {
             "id": "cocktail-maldives",
@@ -1617,7 +2157,13 @@
             },
             "price": 34000,
             "imageUrl": "",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 139,
+              "proteins": 0,
+              "fats": 0,
+              "carbs": 27
+            }
           },
           {
             "id": "cocktail-sunset",
@@ -1633,7 +2179,13 @@
             },
             "price": 34000,
             "imageUrl": "",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 116,
+              "proteins": 0,
+              "fats": 0,
+              "carbs": 22
+            }
           },
           {
             "id": "cocktail-mclaren",
@@ -1649,7 +2201,13 @@
             },
             "price": 38000,
             "imageUrl": "",
-            "available": true
+            "available": true,
+            "nutrition": {
+              "kcal": 157,
+              "proteins": 0,
+              "fats": 0,
+              "carbs": 29
+            }
           }
         ]
       }
