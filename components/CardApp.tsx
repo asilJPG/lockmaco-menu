@@ -97,13 +97,18 @@ export default function CardApp({ theme = "classic" }: { theme?: string }) {
 
   useEffect(() => {
     if (customer && qrRef.current) {
+      let darkColor = "#241611";
+      if (theme === "matcha") darkColor = "#030804";
+      else if (theme === "burgundy") darkColor = "#0c0000";
+      else if (theme === "noir") darkColor = "#000000";
+
       QRCode.toCanvas(qrRef.current, customer.cardNumber, {
         width: 208,
         margin: 1,
-        color: { dark: "#241611", light: "#ffffff" },
+        color: { dark: darkColor, light: "#ffffff" },
       });
     }
-  }, [customer]);
+  }, [customer, theme]);
 
   const switchLang = (l: Lang) => {
     setLang(l);

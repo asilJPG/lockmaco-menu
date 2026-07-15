@@ -24,6 +24,9 @@ export default function MenuApp({ menu, theme = "classic" }: { menu: MenuData; t
   const [quickFilter, setQuickFilter] = useState<"all" | "hit" | "new">("all");
   const [loading, setLoading] = useState(true);
   const [selected, setSelected] = useState<MenuItem | null>(null);
+  const [copied, setCopied] = useState(false);
+  const [closing, setClosing] = useState(false);
+  const [showScrollTop, setShowScrollTop] = useState(false);
   const dialogRef = useRef<HTMLDialogElement>(null);
 
   const t = UI[lang];
@@ -32,15 +35,49 @@ export default function MenuApp({ menu, theme = "classic" }: { menu: MenuData; t
   useEffect(() => {
     const saved = localStorage.getItem("lokmaco-lang");
     if (saved && LANGS.includes(saved as Lang)) setLang(saved as Lang);
+    
+    // Auto-open item if passed in URL
+    const params = new URLSearchParams(window.location.search);
+    const itemId = params.get("item");
+    if (itemId) {
+      for (const sectionKey of ["food", "drinks"] as const) {
+        for (const cat of menu.sections[sectionKey]) {
+          const found = cat.items.find(i => i.id === itemId);
+          if (found) {
+            setSelected(found);
+            setSection(sectionKey);
+            break;
+          }
+        }
+      }
+    }
+
     const timer = setTimeout(() => setLoading(false), 1600);
     return () => clearTimeout(timer);
-  }, []);
+  }, [menu]);
 
   useEffect(() => {
     const dialog = dialogRef.current;
-    if (selected && !dialog?.open) dialog?.showModal();
-    else if (!selected && dialog?.open) dialog.close();
+    if (selected) {
+      if (!dialog?.open) dialog?.showModal();
+      const newUrl = `${window.location.pathname}?item=${selected.id}`;
+      window.history.replaceState({ itemId: selected.id }, "", newUrl);
+    } else {
+      if (dialog?.open) dialog.close();
+      window.history.replaceState({}, "", window.location.pathname);
+    }
   }, [selected]);
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 350);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   const categories = menu.sections[section];
   const availableItems = useMemo(
@@ -90,6 +127,22 @@ export default function MenuApp({ menu, theme = "classic" }: { menu: MenuData; t
     setQuery("");
   };
 
+  const shareItem = (item: MenuItem) => {
+    const shareUrl = `${window.location.origin}${window.location.pathname}?item=${item.id}`;
+    navigator.clipboard.writeText(shareUrl).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  };
+
+  const closeDialog = () => {
+    setClosing(true);
+    setTimeout(() => {
+      setSelected(null);
+      setClosing(false);
+    }, 200);
+  };
+
   return (
     <>
       <div className={`welcome-loader ${loading ? "" : "hidden"}`} data-theme={theme} role="status">
@@ -137,15 +190,25 @@ export default function MenuApp({ menu, theme = "classic" }: { menu: MenuData; t
             ))}
           </div>
 
-          <label className="search-field">
+          <div className="search-field">
             <span className="search-field__icon" aria-hidden>⌕</span>
             <input
-              type="search"
+              type="text"
               placeholder={t.search}
               value={query}
               onChange={(e) => setQuery(e.target.value)}
             />
-          </label>
+            {query && (
+              <button
+                type="button"
+                className="search-field__clear"
+                onClick={() => setQuery("")}
+                aria-label="Clear search"
+              >
+                ×
+              </button>
+            )}
+          </div>
 
           <div className="quick-filters" role="group" aria-label={t.quick_filters}>
             {(["all", "hit", "new"] as const).map((filter) => (
@@ -204,7 +267,7 @@ export default function MenuApp({ menu, theme = "classic" }: { menu: MenuData; t
           </section>
         )}
 
-        <section className="guest-menu">
+        <section className="guest-menu" key={`${section}-${activeCat}-${quickFilter}-${deferredQuery}`}>
           {filtered.length === 0 && <div className="no-results">{t.no_results}</div>}
           {filtered.map((c) => (
             <div key={c.id} className="category-block">
@@ -222,8 +285,7 @@ export default function MenuApp({ menu, theme = "classic" }: { menu: MenuData; t
                   >
                     <DishBadges badges={item.badges} lang={lang} />
                     {item.imageUrl ? (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img className="dish-card__img" src={item.imageUrl} alt={item.name[lang]} loading="lazy" />
+                      <img className="dish-card__img" src={item.imageUrl} alt={item.name[lang]} loading="lazy" onLoad={(e) => e.currentTarget.classList.add("loaded")} />
                     ) : (
                       <div className="dish-card__placeholder" aria-hidden>{menu.brand.name[0]}</div>
                     )}
@@ -279,24 +341,38 @@ export default function MenuApp({ menu, theme = "classic" }: { menu: MenuData; t
             </div>
           )}
         </footer>
+
+        {showScrollTop && (
+          <button
+            type="button"
+            className="scroll-top-btn"
+            onClick={scrollToTop}
+            aria-label="Scroll to top"
+          >
+            ↑
+          </button>
+        )}
       </main>
 
       <dialog
         ref={dialogRef}
-        className="dish-dialog"
+        className={`dish-dialog ${closing ? "closing" : ""}`}
         data-theme={theme}
+        onCancel={(e) => {
+          e.preventDefault();
+          closeDialog();
+        }}
         onClose={() => setSelected(null)}
         onClick={(e) => {
-          if (e.target === dialogRef.current) setSelected(null);
+          if (e.target === dialogRef.current) closeDialog();
         }}
       >
         {selected && (
           <div style={{ position: "relative" }}>
-            <button type="button" className="dialog-close" onClick={() => setSelected(null)} aria-label="Close">×</button>
+            <button type="button" className="dialog-close" onClick={closeDialog} aria-label="Close">×</button>
             <DishBadges badges={selected.badges} lang={lang} />
             {selected.imageUrl ? (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img className="dialog-img" src={selected.imageUrl} alt={selected.name[lang]} />
+              <img className="dialog-img" src={selected.imageUrl} alt={selected.name[lang]} onLoad={(e) => e.currentTarget.classList.add("loaded")} />
             ) : (
               <div className="dish-card__placeholder" aria-hidden>{menu.brand.name[0]}</div>
             )}
@@ -304,12 +380,22 @@ export default function MenuApp({ menu, theme = "classic" }: { menu: MenuData; t
               <h3>{selected.name[lang]}</h3>
               <p className="dialog-desc">{selected.description[lang]}</p>
               <div className="dialog-meta">
-                <span className="dialog-price">
-                  {formatPrice(selected.price)}<small>{cur}</small>
-                </span>
-                {selected.weight ? (
-                  <span className="dialog-weight">{selected.weight} {unitLabel(selected.measureUnit, lang)}</span>
-                ) : null}
+                <div className="dialog-meta__left">
+                  <span className="dialog-price">
+                    {formatPrice(selected.price)}<small>{cur}</small>
+                  </span>
+                  {selected.weight ? (
+                    <span className="dialog-weight">{selected.weight} {unitLabel(selected.measureUnit, lang)}</span>
+                  ) : null}
+                </div>
+                <button
+                  type="button"
+                  className={`dialog-share-btn ${copied ? "copied" : ""}`}
+                  onClick={() => shareItem(selected)}
+                  aria-label="Share dish"
+                >
+                  {copied ? (lang === "ru" ? "Ссылка скопирована!" : lang === "uz" ? "Havola nusxalandi!" : "Copied!") : (lang === "ru" ? "Поделиться" : lang === "uz" ? "Ulashish" : "Share")}
+                </button>
               </div>
               {selected.nutrition?.kcal ? (
                 <div className="nutrition-block">
