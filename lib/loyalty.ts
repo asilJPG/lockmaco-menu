@@ -130,10 +130,17 @@ async function iikoGetOrCreate(phone: string, name: string): Promise<LoyaltyCust
       const cardNum = makeCardNumber();
       await iikoFetch<any>("loyalty/iiko/customer/create_or_update", {
         organizationId: IIKO_ORGANIZATION_ID,
-        phone,
-        name,
-        cardNumber: cardNum,
-        cardTrack: cardNum,
+        customer: {
+          id: existing.id,
+          phone,
+          name,
+          cards: [
+            {
+              number: cardNum,
+              track: cardNum,
+            }
+          ]
+        }
       });
       existing.cardNumber = cardNum;
     }
@@ -144,10 +151,16 @@ async function iikoGetOrCreate(phone: string, name: string): Promise<LoyaltyCust
   const cardNum = makeCardNumber();
   const createResult = await iikoFetch<{ id: string }>("loyalty/iiko/customer/create_or_update", {
     organizationId: IIKO_ORGANIZATION_ID,
-    phone,
-    name,
-    cardNumber: cardNum,
-    cardTrack: cardNum,
+    customer: {
+      phone,
+      name,
+      cards: [
+        {
+          number: cardNum,
+          track: cardNum,
+        }
+      ]
+    }
   });
 
   const customerId = createResult.id;
