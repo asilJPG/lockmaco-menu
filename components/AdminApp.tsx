@@ -28,6 +28,7 @@ async function resizeImage(file: File, maxSide = 900): Promise<string> {
   canvas.height = Math.round(bitmap.height * scale);
   canvas.getContext("2d")!.drawImage(bitmap, 0, 0, canvas.width, canvas.height);
   const dataUrl = canvas.toDataURL("image/jpeg", 0.82);
+  bitmap.close();
   return dataUrl.split(",")[1];
 }
 
@@ -85,23 +86,32 @@ export default function AdminApp() {
     if (!menu) return;
     setSaving(true);
     setStatus(null);
-    const res = await api("/api/admin/menu", { method: "PUT", body: JSON.stringify({ menu }) });
-    const json = await res.json().catch(() => ({}));
-    if (res.ok) {
-      setDirty(false);
-      setStatus({ ok: true, text: "Сохранено. На проде сайт обновится через ~1 минуту после пересборки." });
-    } else {
-      setStatus({ ok: false, text: `Ошибка сохранения: ${json.error || res.status}` });
+    try {
+      const res = await api("/api/admin/menu", { method: "PUT", body: JSON.stringify({ menu }) });
+      const json = await res.json().catch(() => ({}));
+      if (res.ok) {
+        setDirty(false);
+        setStatus({ ok: true, text: "Сохранено. На проде сайт обновится через ~1 минуту после пересборки." });
+      } else {
+        setStatus({ ok: false, text: `Ошибка сохранения: ${json.error || res.status}` });
+      }
+    } catch (err) {
+      setStatus({ ok: false, text: "Сетевая ошибка при сохранении" });
+    } finally {
+      setSaving(false);
     }
-    setSaving(false);
   }
 
   async function uploadImage(file: File): Promise<string | null> {
-    const base64 = await resizeImage(file);
-    const res = await api("/api/admin/upload", { method: "POST", body: JSON.stringify({ base64 }) });
-    const json = await res.json().catch(() => ({}));
-    if (res.ok) return json.url;
-    setStatus({ ok: false, text: `Ошибка загрузки фото: ${json.error || res.status}` });
+    try {
+      const base64 = await resizeImage(file);
+      const res = await api("/api/admin/upload", { method: "POST", body: JSON.stringify({ base64 }) });
+      const json = await res.json().catch(() => ({}));
+      if (res.ok) return json.url;
+      setStatus({ ok: false, text: `Ошибка загрузки фото: ${json.error || res.status}` });
+    } catch (err) {
+      setStatus({ ok: false, text: "Сетевая ошибка при загрузке фото" });
+    }
     return null;
   }
 
