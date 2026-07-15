@@ -340,6 +340,13 @@ export default function MenuApp({ menu, theme = "classic" }: { menu: MenuData; t
               {menu.brand.info.wifi && <div className="info-row">Wi-Fi: {menu.brand.info.wifi}</div>}
             </div>
           )}
+
+          <div className="theme-selector-links" style={{ marginTop: "24px", display: "flex", gap: "10px", justifyContent: "center", flexWrap: "wrap" }}>
+            <a href="/test-menu" className={`theme-link-pill ${theme === "classic" ? "active" : ""}`}>Classic</a>
+            <a href="/test-menu/matcha" className={`theme-link-pill ${theme === "matcha" ? "active" : ""}`}>Matcha</a>
+            <a href="/test-menu/burgundy" className={`theme-link-pill ${theme === "burgundy" ? "active" : ""}`}>Burgundy</a>
+            <a href="/test-menu/noir" className={`theme-link-pill ${theme === "noir" ? "active" : ""}`}>Noir</a>
+          </div>
         </footer>
 
         {showScrollTop && (

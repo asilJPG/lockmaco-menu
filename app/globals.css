@@ -2308,6 +2308,61 @@ body:has([data-theme="matcha"]) {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4) !important;
 }
 
+.theme-link-pill {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 99px;
+  text-decoration: none;
+  border: 1px solid rgba(92, 51, 23, 0.15);
+  color: var(--brand-primary);
+  background: transparent;
+  transition: all 0.2s ease;
+}
+
+.theme-link-pill.active {
+  background: var(--brand-primary);
+  color: var(--brand-cream);
+  border-color: var(--brand-primary);
+}
+
+.theme-link-pill:active {
+  transform: scale(0.95);
+}
+
+/* Переопределения для темных тем */
+.qr-shell[data-theme="matcha"] .theme-link-pill {
+  border-color: rgba(224, 168, 62, 0.25) !important;
+  color: #faf3e7 !important;
+}
+.qr-shell[data-theme="matcha"] .theme-link-pill.active {
+  background: #e0a83e !important;
+  color: #030804 !important;
+  border-color: #e0a83e !important;
+}
+
+.qr-shell[data-theme="burgundy"] .theme-link-pill {
+  border-color: rgba(212, 168, 67, 0.25) !important;
+  color: #faf3e7 !important;
+}
+.qr-shell[data-theme="burgundy"] .theme-link-pill.active {
+  background: #d4a843 !important;
+  color: #200202 !important;
+  border-color: #d4a843 !important;
+}
+
+.qr-shell[data-theme="noir"] .theme-link-pill {
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  color: #ffffff !important;
+}
+.qr-shell[data-theme="noir"] .theme-link-pill.active {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border-color: #ffffff !important;
+}
+
 
 
 
