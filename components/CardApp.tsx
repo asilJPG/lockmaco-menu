@@ -215,15 +215,11 @@ export default function CardApp({ theme = "classic" }: { theme?: string }) {
             </p>
           </div>
 
-          {!isIos && (
-            <>
-              <button className="wallet-btn" onClick={addToWallet} disabled={walletBusy}>
-                <span className="wallet-btn__icon">G</span>
-                {walletBusy ? t.card_wallet_loading : t.card_wallet}
-              </button>
-              {walletError && <p className="card-error">{walletError}</p>}
-            </>
-          )}
+          <button className="wallet-btn" onClick={addToWallet} disabled={walletBusy}>
+            <span className="wallet-btn__icon">G</span>
+            {walletBusy ? t.card_wallet_loading : t.card_wallet}
+          </button>
+          {walletError && <p className="card-error">{walletError}</p>}
 
           <button className="card-logout" onClick={logout}>{t.card_logout}</button>
         </div>
