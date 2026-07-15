@@ -170,7 +170,11 @@ button {
   font-weight: 700;
   padding: 6px 10px;
   border-radius: 999px;
-  transition: 0.2s;
+  transition: transform 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+
+.lang-switcher__btn:active {
+  transform: scale(0.92);
 }
 
 .lang-switcher__btn.active {
@@ -247,7 +251,11 @@ button {
   letter-spacing: 0.12em;
   color: rgba(92, 51, 23, 0.5);
   border-bottom: 2px solid transparent;
-  transition: 0.2s;
+  transition: transform 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.section-tab:active {
+  transform: scale(0.95);
 }
 
 .section-tab.active {
@@ -362,7 +370,11 @@ button {
   font-weight: 500;
   padding: 6px 14px;
   border-radius: 999px;
-  transition: 0.2s;
+  transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.chip:active {
+  transform: scale(0.94);
 }
 
 .chip.active {
