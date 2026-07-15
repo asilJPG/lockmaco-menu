@@ -69,6 +69,7 @@ function LoyaltyCard({ customer, lang }: { customer: Customer; lang: Lang }) {
 }
 
 export default function CardApp({ theme = "classic" }: { theme?: string }) {
+  const [activeTheme, setActiveTheme] = useState(theme);
   const [lang, setLang] = useState<Lang>("ru");
   const [customer, setCustomer] = useState<Customer | null>(null);
   const [checking, setChecking] = useState(true);
@@ -86,6 +87,9 @@ export default function CardApp({ theme = "classic" }: { theme?: string }) {
   useEffect(() => {
     if (typeof window !== "undefined") {
       setIsIos(/iPad|iPhone|iPod/.test(navigator.userAgent) && !(window as any).MSStream);
+      const params = new URLSearchParams(window.location.search);
+      const t = params.get("theme");
+      if (t) setActiveTheme(t);
     }
     const saved = localStorage.getItem("lokmaco-lang");
     if (saved && LANGS.includes(saved as Lang)) setLang(saved as Lang);
@@ -98,9 +102,9 @@ export default function CardApp({ theme = "classic" }: { theme?: string }) {
   useEffect(() => {
     if (customer && qrRef.current) {
       let darkColor = "#241611";
-      if (theme === "matcha") darkColor = "#030804";
-      else if (theme === "burgundy") darkColor = "#0c0000";
-      else if (theme === "noir") darkColor = "#000000";
+      if (activeTheme === "matcha") darkColor = "#030804";
+      else if (activeTheme === "burgundy") darkColor = "#0c0000";
+      else if (activeTheme === "noir") darkColor = "#000000";
 
       QRCode.toCanvas(qrRef.current, customer.cardNumber, {
         width: 208,
@@ -108,7 +112,7 @@ export default function CardApp({ theme = "classic" }: { theme?: string }) {
         color: { dark: darkColor, light: "#ffffff" },
       });
     }
-  }, [customer, theme]);
+  }, [customer, activeTheme]);
 
   const switchLang = (l: Lang) => {
     setLang(l);
@@ -148,7 +152,7 @@ export default function CardApp({ theme = "classic" }: { theme?: string }) {
   };
 
   return (
-    <div className="qr-shell card-shell" data-theme={theme}>
+    <div className="qr-shell card-shell" data-theme={activeTheme}>
       <header className="qr-header">
         <div className="brand-lockup">
           <span className="brand-lockup__eyebrow">{t.card_eyebrow}</span>
