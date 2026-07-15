@@ -123,19 +123,26 @@ export default function CardApp({ theme = "classic" }: { theme?: string }) {
     e.preventDefault();
     setBusy(true);
     setError(false);
-    const res = await fetch("/api/card/register", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, phone }),
-    });
-    const data = await res.json().catch(() => null);
-    if (res.ok && data?.customer) setCustomer(data.customer);
-    else setError(true);
-    setBusy(false);
+    try {
+      const res = await fetch("/api/card/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, phone }),
+      });
+      const data = await res.json().catch(() => null);
+      if (res.ok && data?.customer) setCustomer(data.customer);
+      else setError(true);
+    } catch (err) {
+      setError(true);
+    } finally {
+      setBusy(false);
+    }
   };
 
   const logout = async () => {
-    await fetch("/api/card/me", { method: "DELETE" });
+    try {
+      await fetch("/api/card/me", { method: "DELETE" });
+    } catch (err) {}
     setCustomer(null);
     setName("");
     setPhone("");
@@ -144,11 +151,16 @@ export default function CardApp({ theme = "classic" }: { theme?: string }) {
   const addToWallet = async () => {
     setWalletBusy(true);
     setWalletError(null);
-    const res = await fetch("/api/card/wallet", { method: "POST" });
-    const data = await res.json().catch(() => null);
-    if (res.ok && data?.url) window.location.href = data.url;
-    else setWalletError(data?.error === "wallet_not_configured" ? t.card_wallet_setup : t.card_wallet_error);
-    setWalletBusy(false);
+    try {
+      const res = await fetch("/api/card/wallet", { method: "POST" });
+      const data = await res.json().catch(() => null);
+      if (res.ok && data?.url) window.location.href = data.url;
+      else setWalletError(data?.error === "wallet_not_configured" ? t.card_wallet_setup : t.card_wallet_error);
+    } catch (err) {
+      setWalletError(t.card_wallet_error);
+    } finally {
+      setWalletBusy(false);
+    }
   };
 
   return (

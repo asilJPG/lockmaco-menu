@@ -129,10 +129,14 @@ export default function MenuApp({ menu, theme = "classic" }: { menu: MenuData; t
 
   const shareItem = (item: MenuItem) => {
     const shareUrl = `${window.location.origin}${window.location.pathname}?item=${item.id}`;
-    navigator.clipboard.writeText(shareUrl).then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    });
+    if (typeof navigator !== "undefined" && navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(shareUrl)
+        .then(() => {
+          setCopied(true);
+          setTimeout(() => setCopied(false), 2000);
+        })
+        .catch(() => {});
+    }
   };
 
   const closeDialog = () => {

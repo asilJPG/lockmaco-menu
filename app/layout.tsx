@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Playfair_Display, Manrope, Raleway } from "next/font/google";
+import { Playfair_Display, Manrope } from "next/font/google";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -15,15 +15,15 @@ const manrope = Manrope({
   variable: "--font-sans",
 });
 
-const raleway = Raleway({
-  subsets: ["latin", "cyrillic"],
-  weight: ["300", "400", "500"],
-  variable: "--font-raleway",
-});
-
 export const metadata: Metadata = {
   title: "The Lokmaco · QR Menu",
   description: "The Lokmaco — Your Personal Confectioner. Меню кофейни-кондитерской.",
+  formatDetection: {
+    telephone: false,
+    date: false,
+    address: false,
+    email: false,
+  },
 };
 
 export const viewport: Viewport = {
@@ -36,7 +36,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ru">
-      <body className={`${playfair.variable} ${manrope.variable} ${raleway.variable}`}>{children}</body>
+      <body className={`${playfair.variable} ${manrope.variable}`}>{children}</body>
     </html>
   );
 }
