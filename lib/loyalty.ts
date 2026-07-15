@@ -12,13 +12,13 @@ export interface LoyaltyCustomer {
   createdAt: string;
 }
 
-const IIKO_API_KEY = process.env.IIKO_API_KEY || "7f566138b9ca4f81b53c1f5a09fbce81";
-const IIKO_APP_ID = process.env.IIKO_APP_ID || "f6cc41b8-32cf-4d35-8bb2-39a30587e88f";
-const IIKO_CLIENT_SECRET = process.env.IIKO_CLIENT_SECRET || "uNYLVrv9bDgntag8TwOKbZNiZeDPHKuZ88xZc_EGaCE=";
-const IIKO_ORGANIZATION_ID = process.env.IIKO_ORGANIZATION_ID || "3a964cc2-50a3-41e7-9231-b69453f4fc24";
+const IIKO_API_KEY = process.env.IIKO_API_KEY;
+const IIKO_APP_ID = process.env.IIKO_APP_ID;
+const IIKO_CLIENT_SECRET = process.env.IIKO_CLIENT_SECRET;
+const IIKO_ORGANIZATION_ID = process.env.IIKO_ORGANIZATION_ID;
 
 // Проверяем, заданы ли все параметры авторизации iiko API v2
-export const usingIiko = !!(IIKO_API_KEY && IIKO_APP_ID && IIKO_CLIENT_SECRET);
+export const usingIiko = !!(IIKO_API_KEY && IIKO_APP_ID && IIKO_CLIENT_SECRET && IIKO_ORGANIZATION_ID);
 
 export function normalizePhone(raw: string): string | null {
   const digits = raw.replace(/\D/g, "");
