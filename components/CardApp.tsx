@@ -198,12 +198,20 @@ export default function CardApp({ theme = "classic" }: { theme?: string }) {
             <h3>{t.card_rules_title}</h3>
             <ul>
               <li>
+                <span className="bullet">🎁</span>
+                <span>{t.card_rule_welcome}</span>
+              </li>
+              <li>
                 <span className="bullet">⚡</span>
                 <span>{t.card_rule_cashback}</span>
               </li>
               <li>
                 <span className="bullet">💳</span>
                 <span>{t.card_rule_spend}</span>
+              </li>
+              <li>
+                <span className="bullet">🎂</span>
+                <span>{t.card_rule_birthday}</span>
               </li>
             </ul>
           </div>
