@@ -122,50 +122,7 @@ async function iikoGetCustomer(type: "phone" | "id", value: string): Promise<Loy
   }
 }
 
-async function iikoGetOrCreate(phone: string, name: string): Promise<LoyaltyCustomer> {
-  const existing = await iikoGetCustomer("phone", phone);
-  if (existing) {
-    // Если пользователь существует, но у него нет карты в iiko, создадим её
-    if (!existing.cardNumber) {
-      const cardNum = makeCardNumber();
-      await iikoFetch<any>("loyalty/iiko/customer/create_or_update", {
-        organizationId: IIKO_ORGANIZATION_ID,
-        customer: {
-          id: existing.id,
-          phone,
-          name,
-          cards: [
-            {
-              number: cardNum,
-              track: cardNum,
-            }
-          ]
-        }
-      });
-      existing.cardNumber = cardNum;
-    }
-    return existing;
-  }
-
-  // Создаем нового клиента с новой картой
-  const cardNum = makeCardNumber();
-  const createResult = await iikoFetch<{ id: string }>("loyalty/iiko/customer/create_or_update", {
-    organizationId: IIKO_ORGANIZATION_ID,
-    customer: {
-      phone,
-      name,
-      cards: [
-        {
-          number: cardNum,
-          track: cardNum,
-        }
-      ]
-    }
-  });
-
-  const customerId = createResult.id;
-
-  // Пытаемся подписать нового клиента на все активные бонусные программы заведения
+async function enrollInActivePrograms(customerId: string) {
   try {
     const progData = await iikoFetch<{ Programs: any[] }>("loyalty/iiko/program", {
       organizationId: IIKO_ORGANIZATION_ID,
@@ -178,7 +135,8 @@ async function iikoGetOrCreate(phone: string, name: string): Promise<LoyaltyCust
             customerId,
             programId: program.id,
           }).catch((e) => {
-            console.error(`Failed to register customer in program ${program.id}:`, e);
+            // Игнорируем ошибку, если пользователь уже добавлен в программу
+            console.warn(`Program enrollment notice for ${program.id}:`, e.message || e);
           });
         }
       }
@@ -186,6 +144,44 @@ async function iikoGetOrCreate(phone: string, name: string): Promise<LoyaltyCust
   } catch (progErr) {
     console.error("Failed to fetch programs or enroll customer:", progErr);
   }
+}
+
+async function iikoGetOrCreate(phone: string, name: string): Promise<LoyaltyCustomer> {
+  const existing = await iikoGetCustomer("phone", phone);
+  if (existing) {
+    // Если пользователь существует, но у него нет карты в iiko, создадим её
+    if (!existing.cardNumber) {
+      const cardNum = makeCardNumber();
+      await iikoFetch<any>("loyalty/iiko/customer/create_or_update", {
+        organizationId: IIKO_ORGANIZATION_ID,
+        id: existing.id,
+        phone,
+        name,
+        cardNumber: cardNum,
+        cardTrack: cardNum,
+      });
+      existing.cardNumber = cardNum;
+    }
+    // Всегда проверяем и подключаем бонусные программы для существующих
+    await enrollInActivePrograms(existing.id);
+    const updated = await iikoGetCustomer("id", existing.id);
+    return updated || existing;
+  }
+
+  // Создаем нового клиента с новой картой
+  const cardNum = makeCardNumber();
+  const createResult = await iikoFetch<{ id: string }>("loyalty/iiko/customer/create_or_update", {
+    organizationId: IIKO_ORGANIZATION_ID,
+    phone,
+    name,
+    cardNumber: cardNum,
+    cardTrack: cardNum,
+  });
+
+  const customerId = createResult.id;
+
+  // Подписываем нового гостя на бонусные программы
+  await enrollInActivePrograms(customerId);
 
   // Получаем и возвращаем созданного клиента
   const created = await iikoGetCustomer("id", customerId);
@@ -232,7 +228,7 @@ async function mockGetOrCreate(phone: string, name: string): Promise<LoyaltyCust
     name,
     phone,
     cardNumber: makeCardNumber(),
-    balance: 25000, // Приветственный бонус в моке
+    balance: 0, // Без приветственного бонуса
     createdAt: new Date().toISOString(),
   };
   all[customer.id] = customer;

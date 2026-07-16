@@ -15,7 +15,7 @@
       "instagram": "thelokmaco.uz_fergana",
       "address": "Фергана, Комус 4а",
       "hours": "10:00 – 01:00",
-      "service": "10%"
+      "service": "13%"
     }
   },
   "sections": {
@@ -349,9 +349,7 @@
             "price": 70000,
             "imageUrl": "",
             "available": true,
-            "badges": [
-              "new"
-            ],
+            "badges": ["new"],
             "nutrition": {
               "kcal": 476,
               "proteins": 6,

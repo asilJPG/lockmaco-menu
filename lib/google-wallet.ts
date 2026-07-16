@@ -102,6 +102,11 @@ export function createGoogleWalletLink(customer: LoyaltyCustomer): string {
     },
     textModulesData: [
       {
+        id: "RULES",
+        header: "Правила накопления",
+        body: "Начисление: 3% от чека. Если чек от 400 000 сум — 5%.\n1 бонус = 1 сум. Оплата бонусами до 50% чека.\nДень рождения: 15% кэшбэк за 5 дней до и 10 дней после.",
+      },
+      {
         id: "PHONE",
         header: "Телефон",
         body: customer.phone,

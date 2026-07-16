@@ -21,7 +21,7 @@ export default function MenuApp({ menu, theme = "classic" }: { menu: MenuData; t
   const [query, setQuery] = useState("");
   const deferredQuery = useDeferredValue(query);
   const [activeCat, setActiveCat] = useState<string>("all");
-  const [quickFilter, setQuickFilter] = useState<"all" | "hit" | "new">("all");
+  const quickFilter = "all";
   const [loading, setLoading] = useState(true);
   const [selected, setSelected] = useState<MenuItem | null>(null);
   const [copied, setCopied] = useState(false);
@@ -123,7 +123,6 @@ export default function MenuApp({ menu, theme = "classic" }: { menu: MenuData; t
   const switchSection = (s: SectionKey) => {
     setSection(s);
     setActiveCat("all");
-    setQuickFilter("all");
     setQuery("");
   };
 
@@ -212,19 +211,6 @@ export default function MenuApp({ menu, theme = "classic" }: { menu: MenuData; t
                 ×
               </button>
             )}
-          </div>
-
-          <div className="quick-filters" role="group" aria-label={t.quick_filters}>
-            {(["all", "hit", "new"] as const).map((filter) => (
-              <button
-                key={filter}
-                type="button"
-                className={`quick-filter ${quickFilter === filter ? "active" : ""}`}
-                onClick={() => setQuickFilter(filter)}
-              >
-                {filter === "all" ? t.all_tastes : BADGES[filter][lang]}
-              </button>
-            ))}
           </div>
 
           <div className="category-chips">
@@ -376,9 +362,13 @@ export default function MenuApp({ menu, theme = "classic" }: { menu: MenuData; t
             <button type="button" className="dialog-close" onClick={closeDialog} aria-label="Close">×</button>
             <DishBadges badges={selected.badges} lang={lang} />
             {selected.imageUrl ? (
-              <img className="dialog-img" src={selected.imageUrl} alt={selected.name[lang]} onLoad={(e) => e.currentTarget.classList.add("loaded")} />
+              <div className="dialog-img-wrapper">
+                <img className="dialog-img" src={selected.imageUrl} alt={selected.name[lang]} onLoad={(e) => e.currentTarget.classList.add("loaded")} />
+              </div>
             ) : (
-              <div className="dish-card__placeholder" aria-hidden>{menu.brand.name[0]}</div>
+              <div className="dialog-img-wrapper">
+                <div className="dish-card__placeholder" aria-hidden>{menu.brand.name[0]}</div>
+              </div>
             )}
             <div className="dialog-body">
               <h3>{selected.name[lang]}</h3>
