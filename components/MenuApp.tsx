@@ -515,12 +515,13 @@ export default function MenuApp({ menu, theme = "classic" }: { menu: MenuData; t
                         height: "100%",
                         objectFit: "cover",
                         opacity: videoEnded ? 1 : 0,
-                        transition: "opacity 0.6s ease"
+                        transition: "opacity 0.8s ease"
                       }}
                     />
                     <video
                       className="dialog-img loaded"
                       src="/uploads/meat-wings.mp4"
+                      poster={selected.imageUrl}
                       autoPlay
                       muted
                       playsInline
@@ -534,7 +535,7 @@ export default function MenuApp({ menu, theme = "classic" }: { menu: MenuData; t
                         objectFit: "cover",
                         zIndex: 2,
                         opacity: videoEnded ? 0 : 1,
-                        transition: "opacity 0.6s ease"
+                        transition: "opacity 0.8s ease"
                       }}
                     />
                   </>
