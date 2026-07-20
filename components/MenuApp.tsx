@@ -492,11 +492,18 @@ export default function MenuApp({ menu, theme = "classic" }: { menu: MenuData; t
                 {selected.id === "meat-wings" ? (
                   <>
                     <img
-                      className="dialog-img"
                       src={selected.imageUrl}
                       alt={selected.name[lang]}
-                      onLoad={(e) => e.currentTarget.classList.add("loaded")}
-                      style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", objectFit: "cover" }}
+                      style={{
+                        position: "absolute",
+                        top: 0,
+                        left: 0,
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                        opacity: videoEnded ? 1 : 0,
+                        transition: "opacity 0.6s ease"
+                      }}
                     />
                     <video
                       className="dialog-img loaded"
