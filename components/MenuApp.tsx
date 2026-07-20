@@ -48,13 +48,15 @@ function SesameEffect() {
 
     for (let i = 0; i < numSeeds; i++) {
       const isBlack = Math.random() < 0.2;
+      // Spawn seeds only over the central food zone (40% width in the center)
+      const x = Math.random() * (canvas.width * 0.4) + canvas.width * 0.3;
       seeds.push({
-        x: Math.random() * canvas.width,
+        x: x,
         y: -Math.random() * 150 - 10,
-        vy: Math.random() * 2 + 2,
-        vx: Math.random() * 1 - 0.5,
-        rX: Math.random() * 1.5 + 2,
-        rY: Math.random() * 2.5 + 4,
+        vy: Math.random() * 1.5 + 2,
+        vx: Math.random() * 0.4 - 0.2,
+        rX: Math.random() * 1.5 + 1.8,
+        rY: Math.random() * 2.5 + 3.5,
         angle: Math.random() * Math.PI * 2,
         vAngle: Math.random() * 0.08 - 0.04,
         color: isBlack ? "#221a15" : "#f1e5d7",
@@ -92,7 +94,15 @@ function SesameEffect() {
         seed.x += seed.vx;
         seed.angle += seed.vAngle;
 
-        const plateY = canvas.height * 0.72 + (seed.x % 30) - 15;
+        // Calculate parabolic shape for the chicken wings pile in the center
+        const distFromCenter = Math.abs(seed.x - canvas.width / 2);
+        const normDist = distFromCenter / (canvas.width * 0.25); // 0 at center, 1 at edge of the pile
+        const basePlateY = canvas.height * 0.64;
+        const pileHeight = canvas.height * 0.16;
+        
+        // Parabolic height + small random offset for uneven surface
+        const plateY = basePlateY - pileHeight * Math.max(0, 1 - normDist * normDist) + (seed.x % 14) - 7;
+
         if (seed.y >= plateY && seed.bounceCount < 1) {
           seed.vy = 0;
           seed.vx = 0;
