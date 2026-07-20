@@ -487,8 +487,18 @@ export default function MenuApp({ menu, theme = "classic" }: { menu: MenuData; t
             <DishBadges badges={selected.badges} lang={lang} />
             {selected.imageUrl ? (
               <div className="dialog-img-wrapper">
-                <img className="dialog-img" src={selected.imageUrl} alt={selected.name[lang]} onLoad={(e) => e.currentTarget.classList.add("loaded")} />
-                {selected.id === "meat-wings" && <SesameEffect />}
+                {selected.id === "meat-wings" ? (
+                  <video
+                    className="dialog-img loaded"
+                    src="/uploads/meat-wings.mp4"
+                    autoPlay
+                    muted
+                    playsInline
+                    style={{ objectFit: "cover", width: "100%", height: "100%", display: "block" }}
+                  />
+                ) : (
+                  <img className="dialog-img" src={selected.imageUrl} alt={selected.name[lang]} onLoad={(e) => e.currentTarget.classList.add("loaded")} />
+                )}
               </div>
             ) : (
               <div className="dialog-img-wrapper">
