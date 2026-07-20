@@ -150,6 +150,7 @@ export default function MenuApp({ menu, theme = "classic" }: { menu: MenuData; t
   const [selected, setSelected] = useState<MenuItem | null>(null);
   const [copied, setCopied] = useState(false);
   const [closing, setClosing] = useState(false);
+  const [videoEnded, setVideoEnded] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const dialogRef = useRef<HTMLDialogElement>(null);
 
@@ -183,6 +184,7 @@ export default function MenuApp({ menu, theme = "classic" }: { menu: MenuData; t
   useEffect(() => {
     const dialog = dialogRef.current;
     if (selected) {
+      setVideoEnded(false);
       if (!dialog?.open) dialog?.showModal();
       const newUrl = `${window.location.pathname}?item=${selected.id}`;
       window.history.replaceState({ itemId: selected.id }, "", newUrl);
@@ -486,16 +488,36 @@ export default function MenuApp({ menu, theme = "classic" }: { menu: MenuData; t
             <button type="button" className="dialog-close" onClick={closeDialog} aria-label="Close">×</button>
             <DishBadges badges={selected.badges} lang={lang} />
             {selected.imageUrl ? (
-              <div className="dialog-img-wrapper">
+              <div className="dialog-img-wrapper" style={{ position: "relative" }}>
                 {selected.id === "meat-wings" ? (
-                  <video
-                    className="dialog-img loaded"
-                    src="/uploads/meat-wings.mp4"
-                    autoPlay
-                    muted
-                    playsInline
-                    style={{ objectFit: "cover", width: "100%", height: "100%", display: "block" }}
-                  />
+                  <>
+                    <img
+                      className="dialog-img"
+                      src={selected.imageUrl}
+                      alt={selected.name[lang]}
+                      onLoad={(e) => e.currentTarget.classList.add("loaded")}
+                      style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", objectFit: "cover" }}
+                    />
+                    <video
+                      className="dialog-img loaded"
+                      src="/uploads/meat-wings.mp4"
+                      autoPlay
+                      muted
+                      playsInline
+                      onEnded={() => setVideoEnded(true)}
+                      style={{
+                        position: "absolute",
+                        top: 0,
+                        left: 0,
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                        zIndex: 2,
+                        opacity: videoEnded ? 0 : 1,
+                        transition: "opacity 0.6s ease"
+                      }}
+                    />
+                  </>
                 ) : (
                   <img className="dialog-img" src={selected.imageUrl} alt={selected.name[lang]} onLoad={(e) => e.currentTarget.classList.add("loaded")} />
                 )}
