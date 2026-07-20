@@ -486,6 +486,19 @@ export default function MenuApp({ menu, theme = "classic" }: { menu: MenuData; t
         {selected && (
           <div style={{ position: "relative" }}>
             <button type="button" className="dialog-close" onClick={closeDialog} aria-label="Close">×</button>
+            <div
+              onClick={closeDialog}
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "100%",
+                height: "36px",
+                zIndex: 15,
+                cursor: "pointer"
+              }}
+              aria-hidden="true"
+            />
             <DishBadges badges={selected.badges} lang={lang} />
             {selected.imageUrl ? (
               <div className="dialog-img-wrapper" style={{ position: "relative" }}>
