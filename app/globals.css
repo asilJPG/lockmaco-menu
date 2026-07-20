@@ -448,7 +448,7 @@ button {
   font-style: italic;
   font-weight: 600;
   line-height: 1;
-  color: var(--brand-primary);
+  color: var(--brand-cream);
 }
 
 .chef-picks {
@@ -462,7 +462,7 @@ button {
   border: 1px solid rgba(92, 51, 23, 0.08);
   border-radius: 16px;
   background: var(--brand-card);
-  color: inherit;
+  color: var(--brand-primary);
   padding: 14px 16px;
   text-align: left;
   box-shadow: 0 4px 10px rgba(92, 51, 23, 0.02);
