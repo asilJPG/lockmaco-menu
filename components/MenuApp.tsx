@@ -15,6 +15,120 @@ function DishBadges({ badges, lang }: { badges?: string[]; lang: Lang }) {
   );
 }
 
+function SesameEffect() {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    const resize = () => {
+      const rect = canvas.parentElement?.getBoundingClientRect();
+      canvas.width = rect?.width || 400;
+      canvas.height = rect?.height || 300;
+    };
+    resize();
+    window.addEventListener("resize", resize);
+
+    const numSeeds = 60;
+    const seeds: Array<{
+      x: number;
+      y: number;
+      vy: number;
+      vx: number;
+      rX: number;
+      rY: number;
+      angle: number;
+      vAngle: number;
+      color: string;
+      bounceCount: number;
+    }> = [];
+
+    for (let i = 0; i < numSeeds; i++) {
+      const isBlack = Math.random() < 0.2;
+      seeds.push({
+        x: Math.random() * canvas.width,
+        y: -Math.random() * 150 - 10,
+        vy: Math.random() * 2 + 2,
+        vx: Math.random() * 1 - 0.5,
+        rX: Math.random() * 1.5 + 2,
+        rY: Math.random() * 2.5 + 4,
+        angle: Math.random() * Math.PI * 2,
+        vAngle: Math.random() * 0.08 - 0.04,
+        color: isBlack ? "#221a15" : "#f1e5d7",
+        bounceCount: 0
+      });
+    }
+
+    let animationId: number;
+    const startTime = Date.now();
+    const duration = 2500;
+
+    const animate = () => {
+      const elapsed = Date.now() - startTime;
+      if (elapsed > duration) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        return;
+      }
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      seeds.forEach((seed) => {
+        ctx.save();
+        ctx.translate(seed.x, seed.y);
+        ctx.rotate(seed.angle);
+        ctx.beginPath();
+        ctx.ellipse(0, 0, seed.rX, seed.rY, 0, 0, Math.PI * 2);
+        ctx.fillStyle = seed.color;
+        ctx.shadowColor = "rgba(0,0,0,0.15)";
+        ctx.shadowBlur = 2;
+        ctx.shadowOffsetY = 1;
+        ctx.fill();
+        ctx.restore();
+
+        seed.y += seed.vy;
+        seed.x += seed.vx;
+        seed.angle += seed.vAngle;
+
+        const plateY = canvas.height * 0.72 + (seed.x % 30) - 15;
+        if (seed.y >= plateY && seed.bounceCount < 1) {
+          seed.vy = 0;
+          seed.vx = 0;
+          seed.vAngle = 0;
+          seed.y = plateY;
+          seed.bounceCount++;
+        }
+      });
+
+      animationId = requestAnimationFrame(animate);
+    };
+
+    animate();
+
+    return () => {
+      window.removeEventListener("resize", resize);
+      cancelAnimationFrame(animationId);
+    };
+  }, []);
+
+  return (
+    <canvas
+      ref={canvasRef}
+      style={{
+        position: "absolute",
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: "100%",
+        pointerEvents: "none",
+        zIndex: 10
+      }}
+    />
+  );
+}
+
 export default function MenuApp({ menu, theme = "classic" }: { menu: MenuData; theme?: "classic" | "burgundy" | "noir" | "matcha" }) {
   const [lang, setLang] = useState<Lang>("ru");
   const [section, setSection] = useState<SectionKey>("food");
@@ -364,6 +478,7 @@ export default function MenuApp({ menu, theme = "classic" }: { menu: MenuData; t
             {selected.imageUrl ? (
               <div className="dialog-img-wrapper">
                 <img className="dialog-img" src={selected.imageUrl} alt={selected.name[lang]} onLoad={(e) => e.currentTarget.classList.add("loaded")} />
+                {selected.id === "meat-wings" && <SesameEffect />}
               </div>
             ) : (
               <div className="dialog-img-wrapper">
