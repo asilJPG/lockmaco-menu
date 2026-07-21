@@ -4,6 +4,27 @@ import { useDeferredValue, useEffect, useMemo, useRef, useState } from "react";
 import type { Lang, MenuData, MenuItem, SectionKey } from "@/lib/types";
 import { BADGES, LANGS, UI, formatPrice, unitLabel } from "@/lib/i18n";
 
+// Пар показываем только для горячих блюд (не для мороженого/холодных напитков)
+const HOT_PREFIXES = ["meat-", "soup-", "pasta-", "pizza-"];
+const HOT_IDS = new Set([
+  "espresso", "americano", "americano-double", "cappuccino", "cappuccino-double",
+  "latte", "latte-double", "cacao", "hot-choco", "mocaccino", "raf",
+  "breakfast-shakshuka", "breakfast-croquet", "breakfast-english", "breakfast-syrniki",
+  "omlet-yaichnica", "omlet-farsh", "omlet-turkey",
+  "bliny-nutella", "bliny-tvorog", "bliny-apple", "bliny-maslo", "bliny-myaso",
+]);
+function isHot(id: string): boolean {
+  return HOT_PREFIXES.some((p) => id.startsWith(p)) || HOT_IDS.has(id);
+}
+
+function Steam() {
+  return (
+    <div className="steam" aria-hidden>
+      <span /><span /><span /><span /><span />
+    </div>
+  );
+}
+
 function DishBadges({ badges, lang }: { badges?: string[]; lang: Lang }) {
   if (!badges?.length) return null;
   return (
@@ -540,7 +561,10 @@ export default function MenuApp({ menu, theme = "classic" }: { menu: MenuData; t
                     />
                   </>
                 ) : (
-                  <img className="dialog-img" src={selected.imageUrl} alt={selected.name[lang]} onLoad={(e) => e.currentTarget.classList.add("loaded")} />
+                  <>
+                    <img className="dialog-img" src={selected.imageUrl} alt={selected.name[lang]} onLoad={(e) => e.currentTarget.classList.add("loaded")} />
+                    {isHot(selected.id) && <Steam />}
+                  </>
                 )}
               </div>
             ) : (
