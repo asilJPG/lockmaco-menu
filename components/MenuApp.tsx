@@ -422,7 +422,7 @@ export default function MenuApp({ menu, theme = "classic" }: { menu: MenuData; t
                   >
                     <DishBadges badges={item.badges} lang={lang} />
                     {item.imageUrl ? (
-                      <img className="dish-card__img" src={item.imageUrl} alt={item.name[lang]} loading="lazy" onLoad={(e) => e.currentTarget.classList.add("loaded")} />
+                      <img className="dish-card__img" src={item.imageUrl} alt={item.name[lang]} loading="lazy" style={{ objectPosition: item.imagePosition }} onLoad={(e) => e.currentTarget.classList.add("loaded")} />
                     ) : (
                       <div className="dish-card__placeholder" aria-hidden>{menu.brand.name[0]}</div>
                     )}
@@ -523,7 +523,7 @@ export default function MenuApp({ menu, theme = "classic" }: { menu: MenuData; t
             <DishBadges badges={selected.badges} lang={lang} />
             {selected.imageUrl ? (
               <div className="dialog-img-wrapper" style={{ position: "relative" }}>
-                {selected.id === "meat-wings" ? (
+                {selected.videoUrl ? (
                   <>
                     <img
                       src={selected.imageUrl}
@@ -535,13 +535,14 @@ export default function MenuApp({ menu, theme = "classic" }: { menu: MenuData; t
                         width: "100%",
                         height: "100%",
                         objectFit: "cover",
+                        objectPosition: selected.imagePosition,
                         opacity: videoEnded ? 1 : 0,
                         transition: "opacity 0.8s ease"
                       }}
                     />
                     <video
                       className="dialog-img loaded"
-                      src="/uploads/meat-wings.mp4"
+                      src={selected.videoUrl}
                       poster={selected.imageUrl}
                       autoPlay
                       muted
@@ -554,6 +555,7 @@ export default function MenuApp({ menu, theme = "classic" }: { menu: MenuData; t
                         width: "100%",
                         height: "100%",
                         objectFit: "cover",
+                        objectPosition: selected.imagePosition,
                         zIndex: 2,
                         opacity: videoEnded ? 0 : 1,
                         transition: "opacity 0.8s ease"
@@ -562,7 +564,7 @@ export default function MenuApp({ menu, theme = "classic" }: { menu: MenuData; t
                   </>
                 ) : (
                   <>
-                    <img className="dialog-img" src={selected.imageUrl} alt={selected.name[lang]} onLoad={(e) => e.currentTarget.classList.add("loaded")} />
+                    <img className="dialog-img" src={selected.imageUrl} alt={selected.name[lang]} style={{ objectPosition: selected.imagePosition }} onLoad={(e) => e.currentTarget.classList.add("loaded")} />
                     {isHot(selected.id) && <Steam />}
                   </>
                 )}

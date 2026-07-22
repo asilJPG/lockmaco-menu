@@ -1247,7 +1247,8 @@
             },
             "price": 52000,
             "imageUrl": "/uploads/meat-wings.jpg",
-            "available": true
+            "available": true,
+            "videoUrl": "/uploads/meat-wings.mp4"
           },
           {
             "id": "meat-cutlet",

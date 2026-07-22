@@ -32,6 +32,15 @@ async function resizeImage(file: File, maxSide = 900): Promise<string> {
   return dataUrl.split(",")[1];
 }
 
+function fileToBase64(file: File): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(String(reader.result).split(",")[1]);
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+}
+
 export default function AdminApp() {
   const [password, setPassword] = useState("");
   const [authed, setAuthed] = useState(false);
@@ -111,6 +120,20 @@ export default function AdminApp() {
       setStatus({ ok: false, text: `Ошибка загрузки фото: ${json.error || res.status}` });
     } catch (err) {
       setStatus({ ok: false, text: "Сетевая ошибка при загрузке фото" });
+    }
+    return null;
+  }
+
+  async function uploadVideo(file: File): Promise<string | null> {
+    try {
+      const ext = file.name.toLowerCase().endsWith(".webm") ? "webm" : "mp4";
+      const base64 = await fileToBase64(file);
+      const res = await api("/api/admin/upload", { method: "POST", body: JSON.stringify({ base64, ext }) });
+      const json = await res.json().catch(() => ({}));
+      if (res.ok) return json.url;
+      setStatus({ ok: false, text: `Ошибка загрузки видео: ${json.error || res.status}` });
+    } catch (err) {
+      setStatus({ ok: false, text: "Сетевая ошибка при загрузке видео" });
     }
     return null;
   }
@@ -308,6 +331,7 @@ export default function AdminApp() {
             key={editing.item.id}
             initial={editing.item}
             uploadImage={uploadImage}
+            uploadVideo={uploadVideo}
             onCancel={() => setEditing(null)}
             onSave={(item) => {
               update((m) => {
@@ -333,16 +357,26 @@ function ItemEditor({
   onSave,
   onCancel,
   uploadImage,
+  uploadVideo,
 }: {
   initial: MenuItem;
   onSave: (item: MenuItem) => void;
   onCancel: () => void;
   uploadImage: (f: File) => Promise<string | null>;
+  uploadVideo: (f: File) => Promise<string | null>;
 }) {
   const [item, setItem] = useState<MenuItem>(initial);
   const [uploading, setUploading] = useState(false);
+  const [uploadingVideo, setUploadingVideo] = useState(false);
 
   const set = (patch: Partial<MenuItem>) => setItem((i) => ({ ...i, ...patch }));
+
+  // Центрирование кадра: object-position "X% Y%"
+  const [posX, posY] = (() => {
+    const parts = (item.imagePosition || "50% 50%").split(" ");
+    return [parseInt(parts[0]) || 50, parseInt(parts[1]) || 50];
+  })();
+  const setPos = (x: number, y: number) => set({ imagePosition: `${x}% ${y}%` });
 
   return (
     <div className="item-editor__body">
@@ -429,10 +463,6 @@ function ItemEditor({
       <div className="admin-field">
         <label>Фото</label>
         <div className="upload-row">
-          {item.imageUrl && (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img src={item.imageUrl} alt="" />
-          )}
           <input type="file" accept="image/*" disabled={uploading}
             onChange={async (e) => {
               const file = e.target.files?.[0];
@@ -444,6 +474,62 @@ function ItemEditor({
             }} />
           {uploading && <span style={{ fontSize: 13, color: "var(--muted)" }}>Загрузка...</span>}
         </div>
+
+        {item.imageUrl && (
+          <div className="media-preview">
+            <div className="media-preview__frame">
+              {item.videoUrl ? (
+                // eslint-disable-next-line jsx-a11y/media-has-caption
+                <video src={item.videoUrl} poster={item.imageUrl} muted loop autoPlay playsInline
+                  style={{ objectPosition: item.imagePosition }} />
+              ) : (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img src={item.imageUrl} alt="" style={{ objectPosition: item.imagePosition }} />
+              )}
+            </div>
+            <div className="media-preview__controls">
+              <span className="media-preview__hint">Центрирование кадра (как в меню — обрезка 4:3)</span>
+              <label className="media-slider">
+                <span>По горизонтали</span>
+                <input type="range" min={0} max={100} value={posX}
+                  onChange={(e) => setPos(Number(e.target.value), posY)} />
+              </label>
+              <label className="media-slider">
+                <span>По вертикали</span>
+                <input type="range" min={0} max={100} value={posY}
+                  onChange={(e) => setPos(posX, Number(e.target.value))} />
+              </label>
+              <button type="button" className="media-reset"
+                onClick={() => set({ imagePosition: undefined })}>
+                Сбросить в центр
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
+
+      <div className="admin-field">
+        <label>Видео блюда (необязательно · MP4/WebM)</label>
+        <div className="upload-row">
+          <input type="file" accept="video/mp4,video/webm" disabled={uploadingVideo}
+            onChange={async (e) => {
+              const file = e.target.files?.[0];
+              if (!file) return;
+              setUploadingVideo(true);
+              const url = await uploadVideo(file);
+              if (url) set({ videoUrl: url });
+              setUploadingVideo(false);
+            }} />
+          {uploadingVideo && <span style={{ fontSize: 13, color: "var(--muted)" }}>Загрузка...</span>}
+          {item.videoUrl && !uploadingVideo && (
+            <button type="button" className="media-reset" onClick={() => set({ videoUrl: undefined })}>
+              Убрать видео
+            </button>
+          )}
+        </div>
+        <span className="media-preview__hint" style={{ display: "block", marginTop: 6 }}>
+          Видео проигрывается при открытии блюда и плавно сменяется фото. Держи ≤6 МБ, 2–4 сек.
+        </span>
       </div>
 
       <div className="editor-actions">

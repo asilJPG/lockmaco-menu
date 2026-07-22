@@ -17,6 +17,8 @@ export interface MenuItem {
   description: L10n;
   price: number;
   imageUrl: string;
+  imagePosition?: string; // object-position, напр. "50% 30%" — центрирование кадра
+  videoUrl?: string; // короткое видео блюда (Kling); проигрывается в диалоге и уходит в фото
   weight?: number;
   measureUnit?: "г" | "мл" | "шт";
   nutrition?: Nutrition;
