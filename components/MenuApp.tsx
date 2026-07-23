@@ -167,12 +167,13 @@ export default function MenuApp({ menu, theme = "classic" }: { menu: MenuData; t
   const deferredQuery = useDeferredValue(query);
   const [activeCat, setActiveCat] = useState<string>("all");
   const quickFilter = "all";
-  const [loading, setLoading] = useState(true);
   const [selected, setSelected] = useState<MenuItem | null>(null);
   const [copied, setCopied] = useState(false);
   const [closing, setClosing] = useState(false);
   const [videoEnded, setVideoEnded] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [progress, setProgress] = useState(0);
   const dialogRef = useRef<HTMLDialogElement>(null);
 
   const t = UI[lang];
@@ -198,8 +199,43 @@ export default function MenuApp({ menu, theme = "classic" }: { menu: MenuData; t
       }
     }
 
-    const timer = setTimeout(() => setLoading(false), 1600);
-    return () => clearTimeout(timer);
+  }, [menu]);
+
+  // Настоящая предзагрузка: показываем меню, только когда фото готовы
+  useEffect(() => {
+    const urls: string[] = [];
+    for (const sec of ["food", "drinks"] as const)
+      for (const cat of menu.sections[sec])
+        for (const item of cat.items)
+          if (item.available && item.imageUrl) urls.push(item.imageUrl);
+
+    if (urls.length === 0) {
+      setLoading(false);
+      return;
+    }
+
+    let done = 0;
+    let finished = false;
+    const finish = () => {
+      if (finished) return;
+      finished = true;
+      setProgress(1);
+      setTimeout(() => setLoading(false), 250);
+    };
+    const bump = () => {
+      done += 1;
+      setProgress(done / urls.length);
+      if (done >= urls.length) finish();
+    };
+    urls.forEach((u) => {
+      const img = new Image();
+      img.onload = bump;
+      img.onerror = bump;
+      img.src = u;
+    });
+    // страховка от зависания на медленной сети
+    const fallback = setTimeout(finish, 7000);
+    return () => clearTimeout(fallback);
   }, [menu]);
 
   useEffect(() => {
@@ -300,7 +336,9 @@ export default function MenuApp({ menu, theme = "classic" }: { menu: MenuData; t
           <span className="welcome-kicker">{t.qr_menu}</span>
           <div className="welcome-logo">{menu.brand.welcomeTitle}</div>
           <div className="welcome-line">{menu.brand.welcomeLine}</div>
-          <div className="welcome-progress"><span /></div>
+          <div className="welcome-progress welcome-progress--real">
+            <span style={{ width: `${Math.round(progress * 100)}%` }} />
+          </div>
         </div>
       </div>
 

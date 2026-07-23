@@ -113,6 +113,13 @@ button {
   animation: progress 1.4s ease-in-out infinite;
 }
 
+/* Реальный прогресс: ширина по факту загрузки фото */
+.welcome-progress--real span {
+  width: 0;
+  animation: none;
+  transition: width 0.3s ease;
+}
+
 @keyframes progress {
   0% { transform: translateX(-100%); }
   100% { transform: translateX(400%); }
