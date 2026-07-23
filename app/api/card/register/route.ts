@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getOrCreateCustomer, normalizePhone } from "@/lib/loyalty";
+import { googleWalletConfigured } from "@/lib/google-wallet";
 import { CARD_COOKIE, sealCustomerId } from "@/lib/session";
 
 export async function POST(req: NextRequest) {
@@ -11,7 +12,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ ok: false, error: "invalid" }, { status: 400 });
     }
     const customer = await getOrCreateCustomer(normalized, trimmedName);
-    const res = NextResponse.json({ ok: true, customer });
+    const res = NextResponse.json({ ok: true, customer, walletEnabled: googleWalletConfigured() });
     res.cookies.set(CARD_COOKIE, sealCustomerId(customer.id), {
       httpOnly: true,
       sameSite: "lax",

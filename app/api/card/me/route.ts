@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getCustomerById } from "@/lib/loyalty";
+import { googleWalletConfigured } from "@/lib/google-wallet";
 import { CARD_COOKIE, unsealCustomerId } from "@/lib/session";
 
 export async function GET(req: NextRequest) {
@@ -8,7 +9,7 @@ export async function GET(req: NextRequest) {
   try {
     const customer = await getCustomerById(id);
     if (!customer) return NextResponse.json({ ok: false }, { status: 401 });
-    return NextResponse.json({ ok: true, customer });
+    return NextResponse.json({ ok: true, customer, walletEnabled: googleWalletConfigured() });
   } catch (e) {
     return NextResponse.json({ ok: false, error: String(e) }, { status: 500 });
   }

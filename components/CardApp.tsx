@@ -110,6 +110,7 @@ export default function CardApp({ theme = "classic" }: { theme?: string }) {
   const [phone, setPhone] = useState("");
   const [busy, setBusy] = useState(false);
   const [walletBusy, setWalletBusy] = useState(false);
+  const [walletEnabled, setWalletEnabled] = useState(false);
   const [error, setError] = useState(false);
   const [walletError, setWalletError] = useState<string | null>(null);
   const [isIos, setIsIos] = useState(false);
@@ -128,7 +129,10 @@ export default function CardApp({ theme = "classic" }: { theme?: string }) {
     if (saved && LANGS.includes(saved as Lang)) setLang(saved as Lang);
     fetch("/api/card/me")
       .then((r) => (r.ok ? r.json() : null))
-      .then((d) => d?.customer && setCustomer(d.customer))
+      .then((d) => {
+        if (d?.customer) setCustomer(d.customer);
+        setWalletEnabled(!!d?.walletEnabled);
+      })
       .finally(() => setChecking(false));
   }, []);
 
@@ -163,8 +167,10 @@ export default function CardApp({ theme = "classic" }: { theme?: string }) {
         body: JSON.stringify({ name, phone }),
       });
       const data = await res.json().catch(() => null);
-      if (res.ok && data?.customer) setCustomer(data.customer);
-      else setError(true);
+      if (res.ok && data?.customer) {
+        setCustomer(data.customer);
+        setWalletEnabled(!!data.walletEnabled);
+      } else setError(true);
     } catch (err) {
       setError(true);
     } finally {
@@ -236,11 +242,15 @@ export default function CardApp({ theme = "classic" }: { theme?: string }) {
             </p>
           </div>
 
-          <button className="wallet-btn" onClick={addToWallet} disabled={walletBusy}>
-            <span className="wallet-btn__icon">G</span>
-            {walletBusy ? t.card_wallet_loading : t.card_wallet}
-          </button>
-          {walletError && <p className="card-error">{walletError}</p>}
+          {walletEnabled && (
+            <>
+              <button className="wallet-btn" onClick={addToWallet} disabled={walletBusy}>
+                <span className="wallet-btn__icon">G</span>
+                {walletBusy ? t.card_wallet_loading : t.card_wallet}
+              </button>
+              {walletError && <p className="card-error">{walletError}</p>}
+            </>
+          )}
 
           <button className="card-logout" onClick={logout}>{t.card_logout}</button>
         </div>
