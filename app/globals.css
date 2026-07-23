@@ -1640,6 +1640,78 @@ body:has(dialog[open]) {
   opacity: 0.6;
 }
 
+/* ---------- Программа лояльности (стиль Shvili) ---------- */
+.loyalty-program {
+  width: 100%;
+  max-width: 480px;
+  text-align: center;
+  padding: 8px 4px 4px;
+  box-sizing: border-box;
+}
+
+.loyalty-program .lp-title {
+  font-family: var(--font-serif), serif;
+  font-weight: 700;
+  font-size: clamp(24px, 6vw, 32px);
+  color: var(--brand-primary);
+  margin-bottom: 12px;
+}
+
+.loyalty-program .lp-intro {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--muted);
+  max-width: 400px;
+  margin: 0 auto 22px;
+}
+
+.loyalty-program .lp-section {
+  margin-bottom: 18px;
+}
+
+.loyalty-program .lp-section h3 {
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  color: var(--brand-gold);
+  margin-bottom: 5px;
+}
+
+.loyalty-program .lp-section p {
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--text);
+  margin: 0 auto;
+  max-width: 420px;
+}
+
+.loyalty-program .lp-section p + p {
+  margin-top: 4px;
+}
+
+.loyalty-program .lp-unit {
+  font-weight: 800;
+  color: var(--brand-primary);
+  font-size: 15px !important;
+}
+
+.loyalty-program .lp-join {
+  margin-top: 8px;
+  border: none;
+  border-radius: 999px;
+  background: var(--brand-primary);
+  color: var(--brand-cream);
+  font-size: 15px;
+  font-weight: 700;
+  padding: 13px 40px;
+  box-shadow: 0 10px 24px rgba(62, 32, 16, 0.25);
+  transition: transform 0.15s ease;
+}
+
+.loyalty-program .lp-join:active {
+  transform: scale(0.97);
+}
+
 .card-rules-block {
   width: 100%;
   max-width: 420px;

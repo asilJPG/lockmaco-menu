@@ -68,6 +68,39 @@ function LoyaltyCard({ customer, lang }: { customer: Customer; lang: Lang }) {
   );
 }
 
+function LoyaltyProgram({ lang, onJoin }: { lang: Lang; onJoin?: () => void }) {
+  const t = UI[lang];
+  return (
+    <div className="loyalty-program">
+      <h2 className="lp-title">{t.card_rules_title}</h2>
+      <p className="lp-intro">{t.card_program_intro}</p>
+
+      <div className="lp-section">
+        <h3>{t.card_program_h_accrual}</h3>
+        <p>{t.card_program_accrual}</p>
+      </div>
+      <div className="lp-section">
+        <h3>{t.card_program_h_welcome}</h3>
+        <p>{t.card_program_welcome}</p>
+      </div>
+      <div className="lp-section">
+        <h3>{t.card_program_h_rules}</h3>
+        <p>{t.card_program_rules}</p>
+        <p className="lp-unit">{t.card_program_unit}</p>
+        <p>{t.card_program_spend}</p>
+      </div>
+      <div className="lp-section">
+        <h3>{t.card_program_h_birthday}</h3>
+        <p>{t.card_program_birthday}</p>
+      </div>
+
+      {onJoin && (
+        <button type="button" className="lp-join" onClick={onJoin}>{t.card_program_join}</button>
+      )}
+    </div>
+  );
+}
+
 export default function CardApp({ theme = "classic" }: { theme?: string }) {
   const [activeTheme, setActiveTheme] = useState(theme);
   const [lang, setLang] = useState<Lang>("ru");
@@ -194,27 +227,7 @@ export default function CardApp({ theme = "classic" }: { theme?: string }) {
             <p className="card-qr-hint">{t.card_qr_hint}</p>
           </div>
 
-          <div className="card-rules-block">
-            <h3>{t.card_rules_title}</h3>
-            <ul>
-              <li>
-                <span className="bullet">🎁</span>
-                <span>{t.card_rule_welcome}</span>
-              </li>
-              <li>
-                <span className="bullet">⚡</span>
-                <span>{t.card_rule_cashback}</span>
-              </li>
-              <li>
-                <span className="bullet">💳</span>
-                <span>{t.card_rule_spend}</span>
-              </li>
-              <li>
-                <span className="bullet">🎂</span>
-                <span>{t.card_rule_birthday}</span>
-              </li>
-            </ul>
-          </div>
+          <LoyaltyProgram lang={lang} />
 
           <div className="card-pwa-block">
             <p>
@@ -232,8 +245,13 @@ export default function CardApp({ theme = "classic" }: { theme?: string }) {
           <button className="card-logout" onClick={logout}>{t.card_logout}</button>
         </div>
       ) : (
-        <form className="card-form" onSubmit={submit}>
-          <p className="card-intro">{t.card_intro}</p>
+        <>
+          <LoyaltyProgram
+            lang={lang}
+            onJoin={() => document.querySelector(".card-form")?.scrollIntoView({ behavior: "smooth", block: "center" })}
+          />
+          <form className="card-form" onSubmit={submit}>
+            <p className="card-intro">{t.card_intro}</p>
           <label className="card-field">
             <span>{t.card_name}</span>
             <input
@@ -262,7 +280,8 @@ export default function CardApp({ theme = "classic" }: { theme?: string }) {
           <button className="card-submit" disabled={busy}>
             {busy ? t.card_loading : t.card_submit}
           </button>
-        </form>
+          </form>
+        </>
       )}
     </div>
   );
