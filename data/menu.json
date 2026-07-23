@@ -357,7 +357,8 @@
               "proteins": 6,
               "fats": 23,
               "carbs": 67
-            }
+            },
+            "imagePosition": "54% 67%"
           },
           {
             "id": "crepes-fruit",
@@ -433,7 +434,8 @@
               "proteins": 8,
               "fats": 15,
               "carbs": 54
-            }
+            },
+            "imagePosition": "50% 43%"
           },
           {
             "id": "ice-strawberry",
@@ -455,7 +457,8 @@
               "proteins": 8,
               "fats": 15,
               "carbs": 69
-            }
+            },
+            "imagePosition": "50% 42%"
           },
           {
             "id": "ice-raspberry",
@@ -521,7 +524,8 @@
               "proteins": 5,
               "fats": 22,
               "carbs": 52
-            }
+            },
+            "imagePosition": "50% 42%"
           },
           {
             "id": "ice-peach-banana",
@@ -543,7 +547,8 @@
               "proteins": 7,
               "fats": 16,
               "carbs": 57
-            }
+            },
+            "imagePosition": "50% 42%"
           },
           {
             "id": "ice-mix",
@@ -565,7 +570,8 @@
               "proteins": 8,
               "fats": 23,
               "carbs": 53
-            }
+            },
+            "imagePosition": "50% 42%"
           },
           {
             "id": "ice-choco-moko",
@@ -587,7 +593,8 @@
               "proteins": 7,
               "fats": 15,
               "carbs": 68
-            }
+            },
+            "imagePosition": "50% 42%"
           },
           {
             "id": "ice-choco",
@@ -609,7 +616,8 @@
               "proteins": 8,
               "fats": 23,
               "carbs": 63
-            }
+            },
+            "imagePosition": "50% 41%"
           },
           {
             "id": "ice-choco-mix",
@@ -949,7 +957,8 @@
             },
             "price": 33000,
             "imageUrl": "/uploads/kasha-risovaya.jpg",
-            "available": true
+            "available": true,
+            "imagePosition": "54% 74%"
           },
           {
             "id": "croissant-vetchina",
@@ -1029,7 +1038,8 @@
             },
             "price": 30000,
             "imageUrl": "/uploads/omlet-yaichnica.jpg",
-            "available": true
+            "available": true,
+            "imagePosition": "58% 50%"
           },
           {
             "id": "omlet-turkey",
@@ -1045,7 +1055,8 @@
             },
             "price": 35000,
             "imageUrl": "/uploads/omlet-turkey.jpg",
-            "available": true
+            "available": true,
+            "imagePosition": "60% 51%"
           },
           {
             "id": "hleb-borodinsky",
@@ -1125,7 +1136,8 @@
             },
             "price": 28000,
             "imageUrl": "/uploads/breakfast-cottage.jpg",
-            "available": true
+            "available": true,
+            "imagePosition": "62% 56%"
           },
           {
             "id": "breakfast-croquet",
@@ -1141,7 +1153,8 @@
             },
             "price": 42000,
             "imageUrl": "/uploads/breakfast-croquet.jpg",
-            "available": true
+            "available": true,
+            "imagePosition": "52% 57%"
           },
           {
             "id": "breakfast-syrniki",
@@ -1248,7 +1261,8 @@
             "price": 52000,
             "imageUrl": "/uploads/meat-wings.jpg",
             "available": true,
-            "videoUrl": "/uploads/meat-wings.mp4"
+            "videoUrl": "/uploads/meat-wings.mp4",
+            "imagePosition": "47% 42%"
           },
           {
             "id": "meat-cutlet",
@@ -1264,7 +1278,8 @@
             },
             "price": 47000,
             "imageUrl": "/uploads/meat-cutlet.jpg",
-            "available": true
+            "available": true,
+            "imagePosition": "52% 58%"
           },
           {
             "id": "meat-cordon-bleu",
@@ -1312,7 +1327,8 @@
             },
             "price": 95000,
             "imageUrl": "/uploads/meat-salmon-rice.jpg",
-            "available": true
+            "available": true,
+            "imagePosition": "50% 56%"
           },
           {
             "id": "meat-medallions",
@@ -1328,7 +1344,8 @@
             },
             "price": 128000,
             "imageUrl": "/uploads/meat-medallions.jpg",
-            "available": true
+            "available": true,
+            "imagePosition": "59% 63%"
           },
           {
             "id": "meat-drumstick",
@@ -1344,7 +1361,8 @@
             },
             "price": 69000,
             "imageUrl": "/uploads/meat-drumstick.jpg",
-            "available": true
+            "available": true,
+            "imagePosition": "64% 59%"
           },
           {
             "id": "meat-lamb-shoulder",
@@ -1376,7 +1394,8 @@
             },
             "price": 113000,
             "imageUrl": "/uploads/meat-beef-cheeks.jpg",
-            "available": true
+            "available": true,
+            "imagePosition": "44% 48%"
           },
           {
             "id": "meat-duck-breast",
@@ -1434,7 +1453,8 @@
             },
             "price": 62000,
             "imageUrl": "/uploads/pasta-alfredo.jpg",
-            "available": true
+            "available": true,
+            "imagePosition": "56% 56%"
           },
           {
             "id": "pasta-pomodoro",
@@ -1450,7 +1470,8 @@
             },
             "price": 59000,
             "imageUrl": "/uploads/pasta-pomodoro.jpg",
-            "available": true
+            "available": true,
+            "imagePosition": "54% 65%"
           },
           {
             "id": "pasta-bolognese",
@@ -1508,7 +1529,8 @@
             },
             "price": 60000,
             "imageUrl": "/uploads/pizza-four-cheeses.jpg",
-            "available": true
+            "available": true,
+            "imagePosition": "56% 40%"
           },
           {
             "id": "pizza-lokmaco",
@@ -1604,7 +1626,8 @@
             },
             "price": 90000,
             "imageUrl": "/uploads/pizza-pepperoni.jpg",
-            "available": true
+            "available": true,
+            "imagePosition": "55% 47%"
           },
           {
             "id": "pizza-stracciatella",
@@ -1678,7 +1701,8 @@
             },
             "price": 35000,
             "imageUrl": "/uploads/salad-watermelon.jpg",
-            "available": true
+            "available": true,
+            "imagePosition": "50% 44%"
           },
           {
             "id": "salad-eggplant",
@@ -1710,7 +1734,8 @@
             },
             "price": 45000,
             "imageUrl": "/uploads/salad-vitamin.jpg",
-            "available": true
+            "available": true,
+            "imagePosition": "57% 51%"
           },
           {
             "id": "salad-greek",
@@ -1758,7 +1783,8 @@
             },
             "price": 47000,
             "imageUrl": "/uploads/salad-duck.jpg",
-            "available": true
+            "available": true,
+            "imagePosition": "57% 64%"
           },
           {
             "id": "salad-caesar",
@@ -1774,7 +1800,8 @@
             },
             "price": 44000,
             "imageUrl": "/uploads/salad-caesar.jpg",
-            "available": true
+            "available": true,
+            "imagePosition": "60% 66%"
           }
         ]
       },
@@ -1832,7 +1859,8 @@
             },
             "price": 36000,
             "imageUrl": "/uploads/soup-mastava.jpg",
-            "available": true
+            "available": true,
+            "imagePosition": "62% 55%"
           },
           {
             "id": "soup-okroshka",
@@ -1882,7 +1910,8 @@
               "proteins": 0,
               "fats": 0,
               "carbs": 1
-            }
+            },
+            "imagePosition": "56% 64%"
           },
           {
             "id": "americano",
@@ -1904,7 +1933,8 @@
               "proteins": 0,
               "fats": 0,
               "carbs": 1
-            }
+            },
+            "imagePosition": "55% 61%"
           },
           {
             "id": "americano-double",
@@ -1948,7 +1978,8 @@
               "proteins": 4,
               "fats": 5,
               "carbs": 24
-            }
+            },
+            "imagePosition": "51% 57%"
           },
           {
             "id": "latte",
@@ -1970,7 +2001,8 @@
               "proteins": 4,
               "fats": 7,
               "carbs": 21
-            }
+            },
+            "imagePosition": "54% 59%"
           },
           {
             "id": "cacao",
@@ -1992,7 +2024,8 @@
               "proteins": 0,
               "fats": 0,
               "carbs": 27
-            }
+            },
+            "imagePosition": "48% 58%"
           },
           {
             "id": "cappuccino-double",
@@ -2080,7 +2113,8 @@
               "proteins": 0,
               "fats": 0,
               "carbs": 25
-            }
+            },
+            "imagePosition": "51% 57%"
           },
           {
             "id": "mocaccino",
@@ -2102,7 +2136,8 @@
               "proteins": 0,
               "fats": 0,
               "carbs": 22
-            }
+            },
+            "imagePosition": "48% 64%"
           }
         ]
       },
@@ -2134,7 +2169,8 @@
               "proteins": 0,
               "fats": 0,
               "carbs": 0
-            }
+            },
+            "imagePosition": "48% 58%"
           },
           {
             "id": "ice-cappuccino",
@@ -2178,7 +2214,8 @@
               "proteins": 4,
               "fats": 6,
               "carbs": 15
-            }
+            },
+            "imagePosition": "47% 58%"
           },
           {
             "id": "frappuccino",
@@ -2200,7 +2237,8 @@
               "proteins": 0,
               "fats": 0,
               "carbs": 31
-            }
+            },
+            "imagePosition": "50% 64%"
           }
         ]
       },
@@ -2254,7 +2292,8 @@
               "proteins": 0,
               "fats": 0,
               "carbs": 1
-            }
+            },
+            "imagePosition": "44% 62%"
           },
           {
             "id": "tea-bardak",
@@ -2298,7 +2337,8 @@
               "proteins": 0,
               "fats": 0,
               "carbs": 1
-            }
+            },
+            "imagePosition": "47% 60%"
           },
           {
             "id": "tea-fruit",
@@ -2320,7 +2360,8 @@
               "proteins": 0,
               "fats": 0,
               "carbs": 0
-            }
+            },
+            "imagePosition": "49% 62%"
           },
           {
             "id": "tea-berry",
@@ -2342,7 +2383,8 @@
               "proteins": 0,
               "fats": 0,
               "carbs": 1
-            }
+            },
+            "imagePosition": "47% 56%"
           },
           {
             "id": "tea-ginger",
@@ -2560,7 +2602,8 @@
               "proteins": 0,
               "fats": 0,
               "carbs": 21
-            }
+            },
+            "imagePosition": "51% 78%"
           },
           {
             "id": "fresh-apple",
@@ -2604,7 +2647,8 @@
               "proteins": 0,
               "fats": 0,
               "carbs": 34
-            }
+            },
+            "imagePosition": "50% 79%"
           },
           {
             "id": "fresh-orange",
@@ -2648,7 +2692,8 @@
               "proteins": 0,
               "fats": 0,
               "carbs": 31
-            }
+            },
+            "imagePosition": "44% 75%"
           },
           {
             "id": "fresh-orange-lemon",
@@ -2702,7 +2747,8 @@
               "proteins": 0,
               "fats": 0,
               "carbs": 25
-            }
+            },
+            "imagePosition": "58% 72%"
           },
           {
             "id": "smoothie-strawberry-banana",
@@ -2800,7 +2846,8 @@
               "proteins": 0,
               "fats": 0,
               "carbs": 34
-            }
+            },
+            "imagePosition": "53% 72%"
           },
           {
             "id": "shake-choco",
@@ -2866,7 +2913,8 @@
               "proteins": 0,
               "fats": 0,
               "carbs": 27
-            }
+            },
+            "imagePosition": "59% 70%"
           },
           {
             "id": "shake-raspberry",
@@ -2910,7 +2958,8 @@
               "proteins": 0,
               "fats": 0,
               "carbs": 25
-            }
+            },
+            "imagePosition": "57% 76%"
           },
           {
             "id": "shake-strawberry-banana",
