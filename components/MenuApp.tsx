@@ -564,7 +564,8 @@ export default function MenuApp({ menu, theme = "classic" }: { menu: MenuData; t
                   </>
                 ) : (
                   <>
-                    <img className="dialog-img" src={selected.imageUrl} alt={selected.name[lang]} style={{ objectPosition: selected.imagePosition }} onLoad={(e) => e.currentTarget.classList.add("loaded")} />
+                    <img className="dialog-img reveal" src={selected.imageUrl} alt={selected.name[lang]} style={{ objectPosition: selected.imagePosition }} onLoad={(e) => e.currentTarget.classList.add("loaded")} />
+                    <div className="dish-glare" aria-hidden />
                     {isHot(selected.id) && <Steam />}
                   </>
                 )}

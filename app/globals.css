@@ -934,6 +934,48 @@ body:has(dialog[open]) {
   opacity: 1;
 }
 
+/* ---------- Кинематографичное открытие блюда (wow) ---------- */
+.dialog-img.reveal.loaded {
+  animation: dishReveal 1.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes dishReveal {
+  0% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.dish-glare {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.dish-glare::before {
+  content: "";
+  position: absolute;
+  top: -60%;
+  left: -70%;
+  width: 45%;
+  height: 220%;
+  background: linear-gradient(105deg, transparent 0%, rgba(255, 255, 255, 0.5) 50%, transparent 100%);
+  transform: rotate(8deg);
+  animation: glareSweep 1.5s ease-out 0.2s both;
+}
+
+@keyframes glareSweep {
+  0% { left: -70%; opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { left: 140%; opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dialog-img.reveal.loaded { animation: none; }
+  .dish-glare { display: none; }
+}
+
 /* ---------- Пар от горячих блюд ---------- */
 .steam {
   position: absolute;
