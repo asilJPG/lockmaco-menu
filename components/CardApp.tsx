@@ -105,6 +105,7 @@ export default function CardApp({ theme = "classic" }: { theme?: string }) {
   const [activeTheme, setActiveTheme] = useState(theme);
   const [lang, setLang] = useState<Lang>("ru");
   const [customer, setCustomer] = useState<Customer | null>(null);
+  const [showForm, setShowForm] = useState(false);
   const [checking, setChecking] = useState(true);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
@@ -242,24 +243,18 @@ export default function CardApp({ theme = "classic" }: { theme?: string }) {
             </p>
           </div>
 
-          {walletEnabled && (
-            <>
-              <button className="wallet-btn" onClick={addToWallet} disabled={walletBusy}>
-                <span className="wallet-btn__icon">G</span>
-                {walletBusy ? t.card_wallet_loading : t.card_wallet}
-              </button>
-              {walletError && <p className="card-error">{walletError}</p>}
-            </>
-          )}
+          <button className="wallet-btn" onClick={addToWallet} disabled={walletBusy}>
+            <span className="wallet-btn__icon">G</span>
+            {walletBusy ? t.card_wallet_loading : t.card_wallet}
+          </button>
+          {walletError && <p className="card-error">{walletError}</p>}
 
           <button className="card-logout" onClick={logout}>{t.card_logout}</button>
         </div>
+      ) : !showForm ? (
+        <LoyaltyProgram lang={lang} onJoin={() => setShowForm(true)} />
       ) : (
         <>
-          <LoyaltyProgram
-            lang={lang}
-            onJoin={() => document.querySelector(".card-form")?.scrollIntoView({ behavior: "smooth", block: "center" })}
-          />
           <form className="card-form" onSubmit={submit}>
             <p className="card-intro">{t.card_intro}</p>
           <label className="card-field">
