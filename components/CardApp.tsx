@@ -2,7 +2,6 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import QRCode from "qrcode";
-import jsQR from "jsqr";
 import type { Lang } from "@/lib/types";
 import { LANGS, UI, formatPrice } from "@/lib/i18n";
 
@@ -82,13 +81,6 @@ export default function CardApp({ theme = "classic" }: { theme?: string }) {
   const [walletError, setWalletError] = useState<string | null>(null);
   const [isIos, setIsIos] = useState(false);
   const qrRef = useRef<HTMLCanvasElement>(null);
-
-  // Сканирование чеков Soliq
-  const [showClaimModal, setShowClaimModal] = useState(false);
-  const [claimUrl, setClaimUrl] = useState("");
-  const [claimLoading, setClaimLoading] = useState(false);
-  const [claimResult, setClaimResult] = useState<{ points: number; newBalance: number } | null>(null);
-  const [claimErr, setClaimErr] = useState<string | null>(null);
 
   const t = UI[lang];
 
@@ -171,90 +163,6 @@ export default function CardApp({ theme = "classic" }: { theme?: string }) {
     }
   };
 
-  const claimReceipt = async (urlToClaim: string) => {
-    if (!urlToClaim.trim()) return;
-    setClaimLoading(true);
-    setClaimErr(null);
-    setClaimResult(null);
-
-    try {
-      const res = await fetch("/api/card/claim-receipt", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ qrUrl: urlToClaim }),
-      });
-
-      const data = await res.json().catch(() => null);
-      if (res.ok && data?.success) {
-        setClaimResult({ points: data.earnedPoints, newBalance: data.newBalance });
-        setCustomer((prev) => prev ? { ...prev, balance: data.newBalance } : null);
-      } else {
-        setClaimErr(data?.error || t.card_claim_error);
-      }
-    } catch (err) {
-      setClaimErr(t.card_claim_error);
-    } finally {
-      setClaimLoading(false);
-    }
-  };
-
-  const handlePhotoUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-
-    setClaimLoading(true);
-    setClaimErr(null);
-    setClaimResult(null);
-
-    const reader = new FileReader();
-    reader.onload = (event) => {
-      const img = new Image();
-      img.onload = () => {
-        const canvas = document.createElement("canvas");
-        const ctx = canvas.getContext("2d");
-        if (!ctx) {
-          setClaimErr("Canvas error");
-          setClaimLoading(false);
-          return;
-        }
-        const maxDim = 800;
-        let w = img.width;
-        let h = img.height;
-        if (w > maxDim || h > maxDim) {
-          if (w > h) {
-            h = Math.round((h * maxDim) / w);
-            w = maxDim;
-          } else {
-            w = Math.round((w * maxDim) / h);
-            h = maxDim;
-          }
-        }
-        canvas.width = w;
-        canvas.height = h;
-        ctx.drawImage(img, 0, 0, w, h);
-
-        const imgData = ctx.getImageData(0, 0, w, h);
-        const code = jsQR(imgData.data, w, h);
-
-        if (code && code.data) {
-          setClaimUrl(code.data);
-          claimReceipt(code.data);
-        } else {
-          setClaimErr(
-            lang === "ru"
-              ? "QR-код не найден. Пожалуйста, сфотографируйте чек ближе и четче."
-              : lang === "uz"
-              ? "QR-kod topilmadi. Iltimos, chekni yaqinroq va aniqroq rasmga oling."
-              : "QR code not found. Please take a closer and clearer picture of the receipt."
-          );
-          setClaimLoading(false);
-        }
-      };
-      img.src = event.target?.result as string;
-    };
-    reader.readAsDataURL(file);
-  };
-
   return (
     <div className="qr-shell card-shell" data-theme={activeTheme}>
       <header className="qr-header">
@@ -311,11 +219,6 @@ export default function CardApp({ theme = "classic" }: { theme?: string }) {
             </p>
           </div>
 
-          <button className="claim-btn" onClick={() => setShowClaimModal(true)}>
-            <span className="bullet">🧾</span>
-            {t.card_claim_btn}
-          </button>
-
           <button className="wallet-btn" onClick={addToWallet} disabled={walletBusy}>
             <span className="wallet-btn__icon">G</span>
             {walletBusy ? t.card_wallet_loading : t.card_wallet}
@@ -323,80 +226,6 @@ export default function CardApp({ theme = "classic" }: { theme?: string }) {
           {walletError && <p className="card-error">{walletError}</p>}
 
           <button className="card-logout" onClick={logout}>{t.card_logout}</button>
-
-          {showClaimModal && (
-            <div className="claim-modal__overlay">
-              <div className="claim-modal">
-                <div className="claim-modal__header">
-                  <h2>{t.card_claim_title}</h2>
-                  <button className="claim-modal__close-x" onClick={() => {
-                    setShowClaimModal(false);
-                    setClaimErr(null);
-                    setClaimResult(null);
-                    setClaimUrl("");
-                  }}>✕</button>
-                </div>
-                <div className="claim-modal__content">
-                  <p className="claim-modal__desc">{t.card_claim_desc}</p>
-                  
-                  {claimResult ? (
-                    <div className="claim-modal__success">
-                      <div className="claim-success__icon">✓</div>
-                      <p>{t.card_claim_success.replace("{points}", formatPrice(claimResult.points))}</p>
-                      <button className="claim-modal__btn-primary" onClick={() => {
-                        setShowClaimModal(false);
-                        setClaimResult(null);
-                        setClaimUrl("");
-                      }}>
-                        {t.card_claim_close}
-                      </button>
-                    </div>
-                  ) : (
-                    <div className="claim-modal__form">
-                      <label className="claim-scan__label">
-                        <input
-                          type="file"
-                          accept="image/*"
-                          capture="environment"
-                          onChange={handlePhotoUpload}
-                          style={{ display: "none" }}
-                          disabled={claimLoading}
-                        />
-                        <span className="claim-scan__btn">
-                          <span className="bullet">📸</span> {t.card_claim_scan}
-                        </span>
-                      </label>
-
-                      <div className="claim-modal__divider">
-                        <span>{lang === "uz" ? "yoki" : lang === "en" ? "or" : "или"}</span>
-                      </div>
-
-                      <label className="card-field">
-                        <span>{lang === "uz" ? "Chek havolasi" : lang === "en" ? "Receipt link" : "Ссылка чека"}</span>
-                        <textarea
-                          rows={3}
-                          placeholder={t.card_claim_paste_placeholder}
-                          value={claimUrl}
-                          onChange={(e) => setClaimUrl(e.target.value)}
-                          disabled={claimLoading}
-                        />
-                      </label>
-
-                      {claimErr && <p className="card-error">{claimErr}</p>}
-
-                      <button
-                        className="claim-modal__btn-primary"
-                        onClick={() => claimReceipt(claimUrl)}
-                        disabled={claimLoading || !claimUrl.trim()}
-                      >
-                        {claimLoading ? t.card_loading : t.card_claim_submit}
-                      </button>
-                    </div>
-                  )}
-                </div>
-              </div>
-            </div>
-          )}
         </div>
       ) : (
         <form className="card-form" onSubmit={submit}>

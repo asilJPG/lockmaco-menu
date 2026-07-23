@@ -240,66 +240,6 @@ async function mockGetById(id: string): Promise<LoyaltyCustomer | null> {
   return (await mockRead())[id] ?? null;
 }
 
-async function mockTopup(customerId: string, sum: number): Promise<boolean> {
-  const all = await mockRead();
-  const customer = all[customerId];
-  if (customer) {
-    customer.balance += sum;
-    await mockWrite(all);
-    return true;
-  }
-  return false;
-}
-
-async function iikoTopup(customerId: string, sum: number, comment: string): Promise<boolean> {
-  const token = await getIikoToken();
-  const customerRes = await fetch("https://api-ru.iiko.services/api/1/loyalty/iiko/customer/info", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "Authorization": `Bearer ${token}`
-    },
-    body: JSON.stringify({
-      type: "id",
-      id: customerId,
-      organizationId: IIKO_ORGANIZATION_ID
-    })
-  });
-
-  if (!customerRes.ok) {
-    throw new Error(`Failed to get customer info in topup: ${customerRes.status}`);
-  }
-
-  const customerData = await customerRes.json();
-  if (!customerData.walletBalances || customerData.walletBalances.length === 0) {
-    throw new Error("No wallets found for this customer");
-  }
-
-  const walletId = customerData.walletBalances[0].id;
-
-  const topupRes = await fetch("https://api-ru.iiko.services/api/1/loyalty/iiko/customer/wallet/topup", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "Authorization": `Bearer ${token}`
-    },
-    body: JSON.stringify({
-      organizationId: IIKO_ORGANIZATION_ID,
-      customerId,
-      walletId,
-      sum,
-      comment
-    })
-  });
-
-  if (!topupRes.ok) {
-    const errText = await topupRes.text();
-    throw new Error(`iiko wallet topup failed: ${topupRes.status} ${errText}`);
-  }
-
-  return true;
-}
-
 /* ---------- public API ---------- */
 
 export async function getOrCreateCustomer(phone: string, name: string): Promise<LoyaltyCustomer> {
@@ -308,8 +248,4 @@ export async function getOrCreateCustomer(phone: string, name: string): Promise<
 
 export async function getCustomerById(id: string): Promise<LoyaltyCustomer | null> {
   return usingIiko ? iikoGetCustomer("id", id) : mockGetById(id);
-}
-
-export async function topupCustomerWallet(customerId: string, sum: number, comment: string): Promise<boolean> {
-  return usingIiko ? iikoTopup(customerId, sum, comment) : mockTopup(customerId, sum);
 }
