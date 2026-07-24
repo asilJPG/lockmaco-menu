@@ -80,10 +80,6 @@ function LoyaltyProgram({ lang, onJoin }: { lang: Lang; onJoin?: () => void }) {
         <p>{t.card_program_accrual}</p>
       </div>
       <div className="lp-section">
-        <h3>{t.card_program_h_welcome}</h3>
-        <p>{t.card_program_welcome}</p>
-      </div>
-      <div className="lp-section">
         <h3>{t.card_program_h_rules}</h3>
         <p>{t.card_program_rules}</p>
         <p className="lp-unit">{t.card_program_unit}</p>

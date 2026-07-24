@@ -228,7 +228,7 @@ async function mockGetOrCreate(phone: string, name: string): Promise<LoyaltyCust
     name,
     phone,
     cardNumber: makeCardNumber(),
-    balance: 50000, // Приветственный бонус (реальное начисление — в iiko)
+    balance: 0,
     createdAt: new Date().toISOString(),
   };
   all[customer.id] = customer;
