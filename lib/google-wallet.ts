@@ -9,7 +9,7 @@ interface WalletConfig {
   clientEmail: string;
   privateKey: string;
   origin: string;
-  logoUrl: string;
+  logoUrl: string | null;
 }
 
 export function googleWalletConfigured(): boolean {
@@ -35,7 +35,7 @@ function getConfig(): WalletConfig {
     origin,
     privateKey: privateKey.replace(/\\n/g, "\n"),
     classSuffix: process.env.GOOGLE_WALLET_CLASS_SUFFIX || "lokmaco_loyalty",
-    logoUrl: process.env.GOOGLE_WALLET_LOGO_URL || `${origin.replace(/\/$/, "")}/favicon.ico`,
+    logoUrl: process.env.GOOGLE_WALLET_LOGO_URL || null,
   };
 }
 
@@ -81,8 +81,11 @@ export function createGoogleWalletLink(customer: LoyaltyCustomer): string {
     id: classId,
     issuerName: "The Lokmaco",
     reviewStatus: "UNDER_REVIEW",
-    programName: "The Lokmaco Bonus",
-    programLogo: walletImage(config.logoUrl, "The Lokmaco logo"),
+    programName: "Бонусная карта",
+    hexBackgroundColor: "#3B2416",
+    ...(config.logoUrl
+      ? { programLogo: walletImage(config.logoUrl, "The Lokmaco logo") }
+      : {}),
   };
 
   const loyaltyObject = {
