@@ -271,15 +271,6 @@ export default function MenuApp({ menu, theme = "classic" }: { menu: MenuData; t
     const picked = availableItems.filter((i) => i.badges?.some((b) => b === "hit" || b === "new"));
     return (picked.length ? picked : availableItems).slice(0, 4);
   }, [availableItems]);
-  const selectedCategory = useMemo(
-    () => categories.find((c) => c.items.some((i) => i.id === selected?.id)),
-    [categories, selected]
-  );
-  const relatedItems = useMemo(() => {
-    if (!selected || !selectedCategory) return [];
-    return selectedCategory.items.filter((i) => i.available && i.id !== selected.id).slice(0, 3);
-  }, [selected, selectedCategory]);
-
   const filtered = useMemo(() => {
     const q = deferredQuery.trim().toLowerCase();
     return categories
@@ -642,24 +633,6 @@ export default function MenuApp({ menu, theme = "classic" }: { menu: MenuData; t
                     <div><b>{selected.nutrition.proteins ?? "—"}</b><span>{t.proteins}</span></div>
                     <div><b>{selected.nutrition.fats ?? "—"}</b><span>{t.fats}</span></div>
                     <div><b>{selected.nutrition.carbs ?? "—"}</b><span>{t.carbs}</span></div>
-                  </div>
-                </div>
-              ) : null}
-              {relatedItems.length > 0 ? (
-                <div className="related-block">
-                  <h4>{t.related_title}</h4>
-                  <div className="related-list">
-                    {relatedItems.map((item) => (
-                      <button
-                        key={item.id}
-                        type="button"
-                        className="related-item"
-                        onClick={() => setSelected(item)}
-                      >
-                        <span>{item.name[lang]}</span>
-                        <b>{formatPrice(item.price)} {cur}</b>
-                      </button>
-                    ))}
                   </div>
                 </div>
               ) : null}
