@@ -846,8 +846,10 @@
               "en": ""
             },
             "price": 50000,
-            "imageUrl": "",
-            "available": true
+            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/bliny-myaso.jpg",
+            "available": true,
+            "imagePosition": "",
+            "imageZoom": 1
           },
           {
             "id": "bliny-nutella",
