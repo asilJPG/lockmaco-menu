@@ -352,6 +352,117 @@ export default function AdminApp() {
   );
 }
 
+function PanZoomPreview({
+  imageUrl,
+  videoUrl,
+  imagePosition,
+  imageZoom,
+  onChange,
+}: {
+  imageUrl: string;
+  videoUrl?: string;
+  imagePosition?: string;
+  imageZoom?: number;
+  onChange: (position: string | undefined, zoom: number | undefined) => void;
+}) {
+  const frameRef = useRef<HTMLDivElement>(null);
+  const [posX, posY] = (() => {
+    const parts = (imagePosition || "50% 50%").split(" ");
+    return [parseFloat(parts[0]) || 50, parseFloat(parts[1]) || 50];
+  })();
+  const zoom = imageZoom || 1;
+
+  const commit = (x: number, y: number, z: number) => {
+    const cx = Math.min(100, Math.max(0, x));
+    const cy = Math.min(100, Math.max(0, y));
+    const cz = Math.min(3, Math.max(1, z));
+    const isDefault = cx === 50 && cy === 50 && cz === 1;
+    onChange(isDefault ? undefined : `${cx.toFixed(1)}% ${cy.toFixed(1)}%`, isDefault ? undefined : cz);
+  };
+
+  // Drag: инвертируем движение, тянешь картинку — сдвигается object-position в обратную сторону.
+  const dragRef = useRef<{ x: number; y: number; startX: number; startY: number } | null>(null);
+  const onPointerDown = (e: React.PointerEvent) => {
+    if (e.pointerType === "touch" && (e.nativeEvent as PointerEvent & { targetTouches?: TouchList }).targetTouches && (e.nativeEvent as PointerEvent & { targetTouches?: TouchList }).targetTouches!.length > 1) return;
+    (e.currentTarget as HTMLDivElement).setPointerCapture(e.pointerId);
+    dragRef.current = { x: e.clientX, y: e.clientY, startX: posX, startY: posY };
+  };
+  const onPointerMove = (e: React.PointerEvent) => {
+    if (!dragRef.current || !frameRef.current) return;
+    const rect = frameRef.current.getBoundingClientRect();
+    // движение курсора в % рамки; чем больше zoom, тем чувствительнее
+    const dx = ((e.clientX - dragRef.current.x) / rect.width) * 100 / zoom;
+    const dy = ((e.clientY - dragRef.current.y) / rect.height) * 100 / zoom;
+    commit(dragRef.current.startX - dx, dragRef.current.startY - dy, zoom);
+  };
+  const onPointerUp = (e: React.PointerEvent) => {
+    dragRef.current = null;
+    (e.currentTarget as HTMLDivElement).releasePointerCapture(e.pointerId);
+  };
+
+  const onWheel = (e: React.WheelEvent) => {
+    e.preventDefault();
+    const delta = -e.deltaY * 0.002;
+    commit(posX, posY, zoom + delta);
+  };
+
+  // Pinch-zoom для touch
+  const pinchRef = useRef<{ dist: number; zoom: number } | null>(null);
+  const touchDist = (t: React.TouchList) =>
+    Math.hypot(t[0].clientX - t[1].clientX, t[0].clientY - t[1].clientY);
+  const onTouchStart = (e: React.TouchEvent) => {
+    if (e.touches.length === 2) {
+      pinchRef.current = { dist: touchDist(e.touches), zoom };
+    }
+  };
+  const onTouchMove = (e: React.TouchEvent) => {
+    if (e.touches.length === 2 && pinchRef.current) {
+      e.preventDefault();
+      const ratio = touchDist(e.touches) / pinchRef.current.dist;
+      commit(posX, posY, pinchRef.current.zoom * ratio);
+    }
+  };
+  const onTouchEnd = () => { pinchRef.current = null; };
+
+  const style = { objectPosition: `${posX}% ${posY}%`, transformOrigin: `${posX}% ${posY}%`, transform: `scale(${zoom})` };
+
+  return (
+    <div className="media-preview">
+      <div
+        ref={frameRef}
+        className="media-preview__frame media-preview__frame--interactive"
+        onPointerDown={onPointerDown}
+        onPointerMove={onPointerMove}
+        onPointerUp={onPointerUp}
+        onPointerCancel={onPointerUp}
+        onWheel={onWheel}
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
+      >
+        {videoUrl ? (
+          // eslint-disable-next-line jsx-a11y/media-has-caption
+          <video src={videoUrl} poster={imageUrl} muted loop autoPlay playsInline style={style} draggable={false} />
+        ) : (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={imageUrl} alt="" style={style} draggable={false} />
+        )}
+      </div>
+      <div className="media-preview__controls">
+        <span className="media-preview__hint">Тяни картинку, чтобы двигать · Колёсико или щипок для зума</span>
+        <div className="media-preview__stats">
+          <span>Центр: {posX.toFixed(0)}% × {posY.toFixed(0)}%</span>
+          <span>Зум: {zoom.toFixed(2)}×</span>
+        </div>
+        <button type="button" className="media-reset"
+          onClick={() => onChange(undefined, undefined)}>
+          Сбросить
+        </button>
+      </div>
+    </div>
+  );
+}
+
 function ItemEditor({
   initial,
   onSave,
@@ -370,13 +481,6 @@ function ItemEditor({
   const [uploadingVideo, setUploadingVideo] = useState(false);
 
   const set = (patch: Partial<MenuItem>) => setItem((i) => ({ ...i, ...patch }));
-
-  // Центрирование кадра: object-position "X% Y%"
-  const [posX, posY] = (() => {
-    const parts = (item.imagePosition || "50% 50%").split(" ");
-    return [parseInt(parts[0]) || 50, parseInt(parts[1]) || 50];
-  })();
-  const setPos = (x: number, y: number) => set({ imagePosition: `${x}% ${y}%` });
 
   return (
     <div className="item-editor__body">
@@ -476,35 +580,13 @@ function ItemEditor({
         </div>
 
         {item.imageUrl && (
-          <div className="media-preview">
-            <div className="media-preview__frame">
-              {item.videoUrl ? (
-                // eslint-disable-next-line jsx-a11y/media-has-caption
-                <video src={item.videoUrl} poster={item.imageUrl} muted loop autoPlay playsInline
-                  style={{ objectPosition: item.imagePosition }} />
-              ) : (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img src={item.imageUrl} alt="" style={{ objectPosition: item.imagePosition }} />
-              )}
-            </div>
-            <div className="media-preview__controls">
-              <span className="media-preview__hint">Центрирование кадра (как в меню — обрезка 4:3)</span>
-              <label className="media-slider">
-                <span>По горизонтали</span>
-                <input type="range" min={0} max={100} value={posX}
-                  onChange={(e) => setPos(Number(e.target.value), posY)} />
-              </label>
-              <label className="media-slider">
-                <span>По вертикали</span>
-                <input type="range" min={0} max={100} value={posY}
-                  onChange={(e) => setPos(posX, Number(e.target.value))} />
-              </label>
-              <button type="button" className="media-reset"
-                onClick={() => set({ imagePosition: undefined })}>
-                Сбросить в центр
-              </button>
-            </div>
-          </div>
+          <PanZoomPreview
+            imageUrl={item.imageUrl}
+            videoUrl={item.videoUrl}
+            imagePosition={item.imagePosition}
+            imageZoom={item.imageZoom}
+            onChange={(pos, zoom) => set({ imagePosition: pos, imageZoom: zoom })}
+          />
         )}
       </div>
 

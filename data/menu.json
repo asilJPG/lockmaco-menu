@@ -41,7 +41,7 @@
               "en": "8 pcs · 12 pcs — 64,000 · 16 pcs — 76,000"
             },
             "price": 48000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/lokma-choco.jpg",
+            "imageUrl": "",
             "available": true,
             "nutrition": {
               "kcal": 498,
@@ -63,7 +63,7 @@
               "en": "8 pcs · 12 pcs — 72,000 · 16 pcs — 81,000"
             },
             "price": 52000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/lokma-coconut.jpg",
+            "imageUrl": "",
             "available": true,
             "nutrition": {
               "kcal": 523,
@@ -107,7 +107,7 @@
               "en": "8 pcs · 12 pcs — 80,000 · 16 pcs — 90,000"
             },
             "price": 60000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/lokma-fruit.jpg",
+            "imageUrl": "",
             "available": true,
             "nutrition": {
               "kcal": 395,
@@ -152,7 +152,7 @@
               "en": "Lokma, fruit, ice cream and hot chocolate"
             },
             "price": 85000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/fondue.jpg",
+            "imageUrl": "",
             "available": true,
             "nutrition": {
               "kcal": 427,
@@ -184,7 +184,7 @@
               "en": ""
             },
             "price": 45000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/hk-choco.jpg",
+            "imageUrl": "",
             "available": true,
             "nutrition": {
               "kcal": 397,
@@ -206,7 +206,7 @@
               "en": ""
             },
             "price": 53000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/hk-banana.jpg",
+            "imageUrl": "",
             "available": true,
             "nutrition": {
               "kcal": 420,
@@ -228,7 +228,7 @@
               "en": ""
             },
             "price": 55000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/hk-strawberry.jpg",
+            "imageUrl": "",
             "available": true,
             "nutrition": {
               "kcal": 405,
@@ -250,7 +250,7 @@
               "en": ""
             },
             "price": 65000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/hk-fruit.jpg",
+            "imageUrl": "",
             "available": true,
             "nutrition": {
               "kcal": 384,
@@ -272,7 +272,7 @@
               "en": ""
             },
             "price": 45000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/belgian-choco.jpg",
+            "imageUrl": "",
             "available": true,
             "nutrition": {
               "kcal": 483,
@@ -294,7 +294,7 @@
               "en": ""
             },
             "price": 53000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/belgian-banana.jpg",
+            "imageUrl": "",
             "available": true,
             "nutrition": {
               "kcal": 400,
@@ -338,7 +338,7 @@
               "en": ""
             },
             "price": 65000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/belgian-fruit.jpg",
+            "imageUrl": "",
             "available": true,
             "nutrition": {
               "kcal": 457,
@@ -370,7 +370,7 @@
               "en": ""
             },
             "price": 70000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/pancakes-fruit.jpg",
+            "imageUrl": "",
             "available": true,
             "badges": [
               "new"
@@ -381,7 +381,7 @@
               "fats": 23,
               "carbs": 67
             },
-            "imagePosition": "54% 67%"
+            "imagePosition": ""
           },
           {
             "id": "crepes-fruit",
@@ -396,7 +396,7 @@
               "en": ""
             },
             "price": 68000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/crepes-fruit.jpg",
+            "imageUrl": "",
             "available": true,
             "nutrition": {
               "kcal": 423,
@@ -450,7 +450,7 @@
               "en": ""
             },
             "price": 35000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/ice-vanilla.jpg",
+            "imageUrl": "",
             "available": true,
             "nutrition": {
               "kcal": 489,
@@ -458,7 +458,7 @@
               "fats": 15,
               "carbs": 54
             },
-            "imagePosition": "50% 43%"
+            "imagePosition": ""
           },
           {
             "id": "ice-strawberry",
@@ -473,7 +473,7 @@
               "en": ""
             },
             "price": 35000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/ice-strawberry.jpg",
+            "imageUrl": "",
             "available": true,
             "nutrition": {
               "kcal": 467,
@@ -481,7 +481,7 @@
               "fats": 15,
               "carbs": 69
             },
-            "imagePosition": "50% 42%"
+            "imagePosition": ""
           },
           {
             "id": "ice-raspberry",
@@ -496,7 +496,7 @@
               "en": ""
             },
             "price": 35000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/ice-raspberry.jpg",
+            "imageUrl": "",
             "available": true,
             "nutrition": {
               "kcal": 416,
@@ -518,7 +518,7 @@
               "en": ""
             },
             "price": 35000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/ice-kiwi.jpg",
+            "imageUrl": "",
             "available": true,
             "nutrition": {
               "kcal": 508,
@@ -540,7 +540,7 @@
               "en": ""
             },
             "price": 35000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/ice-berry.jpg",
+            "imageUrl": "",
             "available": true,
             "nutrition": {
               "kcal": 493,
@@ -548,7 +548,7 @@
               "fats": 22,
               "carbs": 52
             },
-            "imagePosition": "50% 42%"
+            "imagePosition": ""
           },
           {
             "id": "ice-peach-banana",
@@ -563,7 +563,7 @@
               "en": ""
             },
             "price": 35000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/ice-peach-banana.jpg",
+            "imageUrl": "",
             "available": true,
             "nutrition": {
               "kcal": 465,
@@ -571,7 +571,7 @@
               "fats": 16,
               "carbs": 57
             },
-            "imagePosition": "50% 42%"
+            "imagePosition": ""
           },
           {
             "id": "ice-mix",
@@ -586,7 +586,7 @@
               "en": ""
             },
             "price": 40000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/ice-mix.jpg",
+            "imageUrl": "",
             "available": true,
             "nutrition": {
               "kcal": 385,
@@ -594,7 +594,7 @@
               "fats": 23,
               "carbs": 53
             },
-            "imagePosition": "50% 42%"
+            "imagePosition": ""
           },
           {
             "id": "ice-choco-moko",
@@ -609,7 +609,7 @@
               "en": ""
             },
             "price": 45000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/ice-choco-moko.jpg",
+            "imageUrl": "",
             "available": true,
             "nutrition": {
               "kcal": 487,
@@ -617,7 +617,7 @@
               "fats": 15,
               "carbs": 68
             },
-            "imagePosition": "50% 42%"
+            "imagePosition": ""
           },
           {
             "id": "ice-choco",
@@ -632,7 +632,7 @@
               "en": ""
             },
             "price": 45000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/ice-choco.jpg",
+            "imageUrl": "",
             "available": true,
             "nutrition": {
               "kcal": 517,
@@ -640,7 +640,7 @@
               "fats": 23,
               "carbs": 63
             },
-            "imagePosition": "50% 41%"
+            "imagePosition": ""
           },
           {
             "id": "ice-choco-mix",
@@ -655,7 +655,7 @@
               "en": "Cup with chocolate toppings"
             },
             "price": 70000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/ice-choco-mix.jpg",
+            "imageUrl": "",
             "available": true,
             "nutrition": {
               "kcal": 489,
@@ -677,7 +677,7 @@
               "en": "Cup with fresh fruit"
             },
             "price": 65000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/ice-frutti-mix.jpg",
+            "imageUrl": "",
             "available": true,
             "nutrition": {
               "kcal": 490,
@@ -699,7 +699,7 @@
               "en": ""
             },
             "price": 65000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/ice-tsukaty-mix.jpg",
+            "imageUrl": "",
             "available": true,
             "nutrition": {
               "kcal": 498,
@@ -721,7 +721,7 @@
               "en": "0.5 kg · 1 kg — 140,000"
             },
             "price": 70000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/icebox-vanilla.jpg",
+            "imageUrl": "",
             "available": true,
             "nutrition": {
               "kcal": 381,
@@ -743,7 +743,7 @@
               "en": "0.5 kg · 1 kg — 120,000"
             },
             "price": 60000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/icebox-choco.jpg",
+            "imageUrl": "",
             "available": true,
             "nutrition": {
               "kcal": 422,
@@ -765,7 +765,7 @@
               "en": "0.5 kg · 1 kg — 120,000"
             },
             "price": 60000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/icebox-choco-moko.jpg",
+            "imageUrl": "",
             "available": true,
             "nutrition": {
               "kcal": 480,
@@ -787,7 +787,7 @@
               "en": "0.5 kg · 1 kg — 120,000"
             },
             "price": 60000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/icebox-mix.jpg",
+            "imageUrl": "",
             "available": true,
             "nutrition": {
               "kcal": 508,
@@ -851,7 +851,7 @@
               "en": ""
             },
             "price": 30000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/bliny-nutella.jpg",
+            "imageUrl": "",
             "available": true
           },
           {
@@ -867,7 +867,7 @@
               "en": ""
             },
             "price": 30000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/bliny-tvorog.jpg",
+            "imageUrl": "",
             "available": true
           },
           {
@@ -883,7 +883,7 @@
               "en": ""
             },
             "price": 30000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/bliny-apple.jpg",
+            "imageUrl": "",
             "available": true
           },
           {
@@ -979,9 +979,9 @@
               "en": ""
             },
             "price": 33000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/kasha-risovaya.jpg",
+            "imageUrl": "",
             "available": true,
-            "imagePosition": "54% 74%"
+            "imagePosition": ""
           },
           {
             "id": "croissant-vetchina",
@@ -1028,7 +1028,7 @@
               "en": ""
             },
             "price": 40000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/croissant-skrembl.jpg",
+            "imageUrl": "",
             "available": true
           },
           {
@@ -1060,9 +1060,9 @@
               "en": ""
             },
             "price": 30000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/omlet-yaichnica.jpg",
+            "imageUrl": "",
             "available": true,
-            "imagePosition": "58% 50%"
+            "imagePosition": ""
           },
           {
             "id": "omlet-turkey",
@@ -1077,9 +1077,9 @@
               "en": ""
             },
             "price": 35000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/omlet-turkey.jpg",
+            "imageUrl": "",
             "available": true,
-            "imagePosition": "60% 51%"
+            "imagePosition": ""
           },
           {
             "id": "hleb-borodinsky",
@@ -1158,9 +1158,9 @@
               "en": ""
             },
             "price": 28000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/breakfast-cottage.jpg",
+            "imageUrl": "",
             "available": true,
-            "imagePosition": "62% 56%"
+            "imagePosition": ""
           },
           {
             "id": "breakfast-croquet",
@@ -1175,9 +1175,9 @@
               "en": ""
             },
             "price": 42000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/breakfast-croquet.jpg",
+            "imageUrl": "",
             "available": true,
-            "imagePosition": "52% 57%"
+            "imagePosition": ""
           },
           {
             "id": "breakfast-syrniki",
@@ -1192,7 +1192,7 @@
               "en": ""
             },
             "price": 44000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/breakfast-syrniki.jpg",
+            "imageUrl": "",
             "available": true
           },
           {
@@ -1208,7 +1208,7 @@
               "en": ""
             },
             "price": 55000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/breakfast-shakshuka.jpg",
+            "imageUrl": "",
             "available": true
           }
         ]
@@ -1234,7 +1234,7 @@
               "en": ""
             },
             "price": 90000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/meat-befstroganov.jpg",
+            "imageUrl": "",
             "available": true
           },
           {
@@ -1250,7 +1250,7 @@
               "en": ""
             },
             "price": 173000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/meat-lamb-shank.jpg",
+            "imageUrl": "",
             "available": true
           },
           {
@@ -1266,7 +1266,7 @@
               "en": ""
             },
             "price": 135000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/meat-lamb-rack.jpg",
+            "imageUrl": "",
             "available": true
           },
           {
@@ -1282,10 +1282,10 @@
               "en": ""
             },
             "price": 52000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/meat-wings.jpg",
+            "imageUrl": "",
             "available": true,
-            "videoUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/meat-wings.mp4",
-            "imagePosition": "47% 42%"
+            "videoUrl": "",
+            "imagePosition": ""
           },
           {
             "id": "meat-cutlet",
@@ -1300,9 +1300,9 @@
               "en": ""
             },
             "price": 47000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/meat-cutlet.jpg",
+            "imageUrl": "",
             "available": true,
-            "imagePosition": "52% 58%"
+            "imagePosition": ""
           },
           {
             "id": "meat-cordon-bleu",
@@ -1333,7 +1333,7 @@
               "en": ""
             },
             "price": 65000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/meat-roll.jpg",
+            "imageUrl": "",
             "available": true
           },
           {
@@ -1349,9 +1349,9 @@
               "en": ""
             },
             "price": 95000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/meat-salmon-rice.jpg",
+            "imageUrl": "",
             "available": true,
-            "imagePosition": "50% 56%"
+            "imagePosition": ""
           },
           {
             "id": "meat-medallions",
@@ -1366,9 +1366,9 @@
               "en": ""
             },
             "price": 128000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/meat-medallions.jpg",
+            "imageUrl": "",
             "available": true,
-            "imagePosition": "59% 63%"
+            "imagePosition": ""
           },
           {
             "id": "meat-drumstick",
@@ -1383,9 +1383,9 @@
               "en": ""
             },
             "price": 69000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/meat-drumstick.jpg",
+            "imageUrl": "",
             "available": true,
-            "imagePosition": "64% 59%"
+            "imagePosition": ""
           },
           {
             "id": "meat-lamb-shoulder",
@@ -1400,7 +1400,7 @@
               "en": ""
             },
             "price": 120000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/meat-lamb-shoulder.jpg",
+            "imageUrl": "",
             "available": true
           },
           {
@@ -1416,9 +1416,9 @@
               "en": ""
             },
             "price": 113000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/meat-beef-cheeks.jpg",
+            "imageUrl": "",
             "available": true,
-            "imagePosition": "44% 48%"
+            "imagePosition": ""
           },
           {
             "id": "meat-duck-breast",
@@ -1433,7 +1433,7 @@
               "en": ""
             },
             "price": 76000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/meat-duck-breast.jpg",
+            "imageUrl": "",
             "available": true
           },
           {
@@ -1449,7 +1449,7 @@
               "en": ""
             },
             "price": 49000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/meat-schnitzel.jpg",
+            "imageUrl": "",
             "available": true
           }
         ]
@@ -1475,9 +1475,9 @@
               "en": ""
             },
             "price": 62000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/pasta-alfredo.jpg",
+            "imageUrl": "",
             "available": true,
-            "imagePosition": "56% 56%"
+            "imagePosition": ""
           },
           {
             "id": "pasta-pomodoro",
@@ -1492,9 +1492,9 @@
               "en": ""
             },
             "price": 59000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/pasta-pomodoro.jpg",
+            "imageUrl": "",
             "available": true,
-            "imagePosition": "54% 65%"
+            "imagePosition": ""
           },
           {
             "id": "pasta-bolognese",
@@ -1509,7 +1509,7 @@
               "en": ""
             },
             "price": 65000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/pasta-bolognese.jpg",
+            "imageUrl": "",
             "available": true
           },
           {
@@ -1525,7 +1525,7 @@
               "en": ""
             },
             "price": 61000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/pasta-arrabbiata.jpg",
+            "imageUrl": "",
             "available": true
           }
         ]
@@ -1551,9 +1551,9 @@
               "en": ""
             },
             "price": 60000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/pizza-four-cheeses.jpg",
+            "imageUrl": "",
             "available": true,
-            "imagePosition": "56% 40%"
+            "imagePosition": ""
           },
           {
             "id": "pizza-lokmaco",
@@ -1600,7 +1600,7 @@
               "en": ""
             },
             "price": 52000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/pizza-margherita.jpg",
+            "imageUrl": "",
             "available": true
           },
           {
@@ -1616,7 +1616,7 @@
               "en": ""
             },
             "price": 80000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/pizza-mozzarella.jpg",
+            "imageUrl": "",
             "available": true
           },
           {
@@ -1632,7 +1632,7 @@
               "en": ""
             },
             "price": 105000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/pizza-meat.jpg",
+            "imageUrl": "",
             "available": true
           },
           {
@@ -1648,9 +1648,9 @@
               "en": ""
             },
             "price": 90000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/pizza-pepperoni.jpg",
+            "imageUrl": "",
             "available": true,
-            "imagePosition": "55% 47%"
+            "imagePosition": ""
           },
           {
             "id": "pizza-stracciatella",
@@ -1681,7 +1681,7 @@
               "en": ""
             },
             "price": 95000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/pizza-caesar.jpg",
+            "imageUrl": "",
             "available": true
           }
         ]
@@ -1707,7 +1707,7 @@
               "en": ""
             },
             "price": 19000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/salad-achichuk.jpg",
+            "imageUrl": "",
             "available": true
           },
           {
@@ -1723,9 +1723,9 @@
               "en": ""
             },
             "price": 35000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/salad-watermelon.jpg",
+            "imageUrl": "",
             "available": true,
-            "imagePosition": "50% 44%"
+            "imagePosition": ""
           },
           {
             "id": "salad-eggplant",
@@ -1756,9 +1756,9 @@
               "en": ""
             },
             "price": 45000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/salad-vitamin.jpg",
+            "imageUrl": "",
             "available": true,
-            "imagePosition": "57% 51%"
+            "imagePosition": ""
           },
           {
             "id": "salad-greek",
@@ -1773,7 +1773,7 @@
               "en": ""
             },
             "price": 45000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/salad-greek.jpg",
+            "imageUrl": "",
             "available": true
           },
           {
@@ -1789,7 +1789,7 @@
               "en": ""
             },
             "price": 49000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/salad-tuna.jpg",
+            "imageUrl": "",
             "available": true
           },
           {
@@ -1805,9 +1805,9 @@
               "en": ""
             },
             "price": 47000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/salad-duck.jpg",
+            "imageUrl": "",
             "available": true,
-            "imagePosition": "57% 64%"
+            "imagePosition": ""
           },
           {
             "id": "salad-caesar",
@@ -1822,9 +1822,9 @@
               "en": ""
             },
             "price": 44000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/salad-caesar.jpg",
+            "imageUrl": "",
             "available": true,
-            "imagePosition": "60% 66%"
+            "imagePosition": ""
           }
         ]
       },
@@ -1849,7 +1849,7 @@
               "en": ""
             },
             "price": 42000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/soup-borsch.jpg",
+            "imageUrl": "",
             "available": true
           },
           {
@@ -1865,7 +1865,7 @@
               "en": ""
             },
             "price": 28000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/soup-noodle.jpg",
+            "imageUrl": "",
             "available": true
           },
           {
@@ -1881,9 +1881,9 @@
               "en": ""
             },
             "price": 36000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/soup-mastava.jpg",
+            "imageUrl": "",
             "available": true,
-            "imagePosition": "62% 55%"
+            "imagePosition": ""
           },
           {
             "id": "soup-okroshka",
@@ -1926,7 +1926,7 @@
               "en": ""
             },
             "price": 20000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/espresso.jpg",
+            "imageUrl": "",
             "available": true,
             "nutrition": {
               "kcal": 4,
@@ -1934,7 +1934,7 @@
               "fats": 0,
               "carbs": 1
             },
-            "imagePosition": "56% 64%"
+            "imagePosition": ""
           },
           {
             "id": "americano",
@@ -1949,7 +1949,7 @@
               "en": ""
             },
             "price": 22000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/americano.jpg",
+            "imageUrl": "",
             "available": true,
             "nutrition": {
               "kcal": 5,
@@ -1957,7 +1957,7 @@
               "fats": 0,
               "carbs": 1
             },
-            "imagePosition": "55% 61%"
+            "imagePosition": ""
           },
           {
             "id": "americano-double",
@@ -1994,7 +1994,7 @@
               "en": ""
             },
             "price": 28000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/cappuccino.jpg",
+            "imageUrl": "",
             "available": true,
             "nutrition": {
               "kcal": 207,
@@ -2002,7 +2002,7 @@
               "fats": 5,
               "carbs": 24
             },
-            "imagePosition": "51% 57%"
+            "imagePosition": ""
           },
           {
             "id": "latte",
@@ -2017,7 +2017,7 @@
               "en": ""
             },
             "price": 28000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/latte.jpg",
+            "imageUrl": "",
             "available": true,
             "nutrition": {
               "kcal": 198,
@@ -2025,7 +2025,7 @@
               "fats": 7,
               "carbs": 21
             },
-            "imagePosition": "54% 59%"
+            "imagePosition": ""
           },
           {
             "id": "cacao",
@@ -2040,7 +2040,7 @@
               "en": ""
             },
             "price": 28000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/cacao.jpg",
+            "imageUrl": "",
             "available": true,
             "nutrition": {
               "kcal": 104,
@@ -2048,7 +2048,7 @@
               "fats": 0,
               "carbs": 27
             },
-            "imagePosition": "48% 58%"
+            "imagePosition": ""
           },
           {
             "id": "cappuccino-double",
@@ -2129,7 +2129,7 @@
               "en": ""
             },
             "price": 34000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/hot-choco.jpg",
+            "imageUrl": "",
             "available": true,
             "nutrition": {
               "kcal": 107,
@@ -2137,7 +2137,7 @@
               "fats": 0,
               "carbs": 25
             },
-            "imagePosition": "51% 57%"
+            "imagePosition": ""
           },
           {
             "id": "mocaccino",
@@ -2152,7 +2152,7 @@
               "en": ""
             },
             "price": 38000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/mocaccino.jpg",
+            "imageUrl": "",
             "available": true,
             "nutrition": {
               "kcal": 116,
@@ -2160,7 +2160,7 @@
               "fats": 0,
               "carbs": 22
             },
-            "imagePosition": "48% 64%"
+            "imagePosition": ""
           }
         ]
       },
@@ -2185,7 +2185,7 @@
               "en": ""
             },
             "price": 35000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/ice-americano.jpg",
+            "imageUrl": "",
             "available": true,
             "nutrition": {
               "kcal": 3,
@@ -2193,7 +2193,7 @@
               "fats": 0,
               "carbs": 0
             },
-            "imagePosition": "48% 58%"
+            "imagePosition": ""
           },
           {
             "id": "ice-cappuccino",
@@ -2230,7 +2230,7 @@
               "en": ""
             },
             "price": 35000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/ice-latte.jpg",
+            "imageUrl": "",
             "available": true,
             "nutrition": {
               "kcal": 214,
@@ -2238,7 +2238,7 @@
               "fats": 6,
               "carbs": 15
             },
-            "imagePosition": "47% 58%"
+            "imagePosition": ""
           },
           {
             "id": "frappuccino",
@@ -2253,7 +2253,7 @@
               "en": ""
             },
             "price": 38000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/frappuccino.jpg",
+            "imageUrl": "",
             "available": true,
             "nutrition": {
               "kcal": 136,
@@ -2261,7 +2261,7 @@
               "fats": 0,
               "carbs": 31
             },
-            "imagePosition": "50% 64%"
+            "imagePosition": ""
           }
         ]
       },
@@ -2308,7 +2308,7 @@
               "en": ""
             },
             "price": 22000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/tea-lemon.jpg",
+            "imageUrl": "",
             "available": true,
             "nutrition": {
               "kcal": 2,
@@ -2316,7 +2316,7 @@
               "fats": 0,
               "carbs": 1
             },
-            "imagePosition": "44% 62%"
+            "imagePosition": ""
           },
           {
             "id": "tea-bardak",
@@ -2353,7 +2353,7 @@
               "en": ""
             },
             "price": 35000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/tea-raspberry.jpg",
+            "imageUrl": "",
             "available": true,
             "nutrition": {
               "kcal": 5,
@@ -2361,7 +2361,7 @@
               "fats": 0,
               "carbs": 1
             },
-            "imagePosition": "47% 60%"
+            "imagePosition": ""
           },
           {
             "id": "tea-fruit",
@@ -2376,7 +2376,7 @@
               "en": ""
             },
             "price": 35000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/tea-fruit.jpg",
+            "imageUrl": "",
             "available": true,
             "nutrition": {
               "kcal": 2,
@@ -2384,7 +2384,7 @@
               "fats": 0,
               "carbs": 0
             },
-            "imagePosition": "49% 62%"
+            "imagePosition": ""
           },
           {
             "id": "tea-berry",
@@ -2399,7 +2399,7 @@
               "en": ""
             },
             "price": 35000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/tea-berry.jpg",
+            "imageUrl": "",
             "available": true,
             "nutrition": {
               "kcal": 6,
@@ -2407,7 +2407,7 @@
               "fats": 0,
               "carbs": 1
             },
-            "imagePosition": "47% 56%"
+            "imagePosition": ""
           },
           {
             "id": "tea-ginger",
@@ -2488,7 +2488,7 @@
               "en": ""
             },
             "price": 38000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/tea-moroccan.jpg",
+            "imageUrl": "",
             "available": true,
             "nutrition": {
               "kcal": 7,
@@ -2618,7 +2618,7 @@
               "en": ""
             },
             "price": 35000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/fresh-carrot.jpg",
+            "imageUrl": "",
             "available": true,
             "nutrition": {
               "kcal": 139,
@@ -2626,7 +2626,7 @@
               "fats": 0,
               "carbs": 21
             },
-            "imagePosition": "51% 78%"
+            "imagePosition": ""
           },
           {
             "id": "fresh-apple",
@@ -2663,7 +2663,7 @@
               "en": ""
             },
             "price": 35000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/fresh-carrot-apple.jpg",
+            "imageUrl": "",
             "available": true,
             "nutrition": {
               "kcal": 122,
@@ -2671,7 +2671,7 @@
               "fats": 0,
               "carbs": 34
             },
-            "imagePosition": "50% 79%"
+            "imagePosition": ""
           },
           {
             "id": "fresh-orange",
@@ -2686,7 +2686,7 @@
               "en": ""
             },
             "price": 68000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/fresh-orange.jpg",
+            "imageUrl": "",
             "available": true,
             "nutrition": {
               "kcal": 142,
@@ -2708,7 +2708,7 @@
               "en": ""
             },
             "price": 55000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/fresh-orange-apple.jpg",
+            "imageUrl": "",
             "available": true,
             "nutrition": {
               "kcal": 119,
@@ -2716,7 +2716,7 @@
               "fats": 0,
               "carbs": 31
             },
-            "imagePosition": "44% 75%"
+            "imagePosition": ""
           },
           {
             "id": "fresh-orange-lemon",
@@ -2763,7 +2763,7 @@
               "en": "Kiwi, apple, kiwi syrup, apple juice, fresh lemon"
             },
             "price": 45000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/smoothie-kiwi-apple.jpg",
+            "imageUrl": "",
             "available": true,
             "nutrition": {
               "kcal": 167,
@@ -2771,7 +2771,7 @@
               "fats": 0,
               "carbs": 25
             },
-            "imagePosition": "58% 72%"
+            "imagePosition": ""
           },
           {
             "id": "smoothie-strawberry-banana",
@@ -2862,7 +2862,7 @@
               "en": ""
             },
             "price": 38000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/shake-vanilla.jpg",
+            "imageUrl": "",
             "available": true,
             "nutrition": {
               "kcal": 115,
@@ -2870,7 +2870,7 @@
               "fats": 0,
               "carbs": 34
             },
-            "imagePosition": "53% 72%"
+            "imagePosition": ""
           },
           {
             "id": "shake-choco",
@@ -2885,7 +2885,7 @@
               "en": ""
             },
             "price": 38000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/shake-choco.jpg",
+            "imageUrl": "",
             "available": true,
             "nutrition": {
               "kcal": 92,
@@ -2907,7 +2907,7 @@
               "en": ""
             },
             "price": 38000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/shake-strawberry.jpg",
+            "imageUrl": "",
             "available": true,
             "nutrition": {
               "kcal": 119,
@@ -2929,7 +2929,7 @@
               "en": ""
             },
             "price": 38000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/shake-kiwi.jpg",
+            "imageUrl": "",
             "available": true,
             "nutrition": {
               "kcal": 127,
@@ -2937,7 +2937,7 @@
               "fats": 0,
               "carbs": 27
             },
-            "imagePosition": "59% 70%"
+            "imagePosition": ""
           },
           {
             "id": "shake-raspberry",
@@ -2974,7 +2974,7 @@
               "en": ""
             },
             "price": 38000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/shake-banana.jpg",
+            "imageUrl": "",
             "available": true,
             "nutrition": {
               "kcal": 145,
@@ -2982,7 +2982,7 @@
               "fats": 0,
               "carbs": 25
             },
-            "imagePosition": "57% 76%"
+            "imagePosition": ""
           },
           {
             "id": "shake-strawberry-banana",
@@ -3051,7 +3051,7 @@
               "en": "Pitcher — 80,000"
             },
             "price": 28000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/mojito-classic.jpg",
+            "imageUrl": "",
             "available": true,
             "nutrition": {
               "kcal": 141,
@@ -3073,7 +3073,7 @@
               "en": "Pitcher — 95,000"
             },
             "price": 34000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/mojito-strawberry.jpg",
+            "imageUrl": "",
             "available": true,
             "nutrition": {
               "kcal": 159,
@@ -3117,7 +3117,7 @@
               "en": "Pitcher — 95,000"
             },
             "price": 34000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/mojito-kiwi.jpg",
+            "imageUrl": "",
             "available": true,
             "nutrition": {
               "kcal": 130,
@@ -3237,7 +3237,7 @@
               "en": "Vanilla syrup, espresso, tapioca, milk, cream"
             },
             "price": 40000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/bubbletea-coffee.jpg",
+            "imageUrl": "",
             "available": true,
             "nutrition": {
               "kcal": 141,
@@ -3313,7 +3313,7 @@
               "en": "Blue Curacao syrup, vanilla syrup, pineapple juice, Sprite"
             },
             "price": 34000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/cocktail-maldives.jpg",
+            "imageUrl": "",
             "available": true,
             "nutrition": {
               "kcal": 139,
@@ -3335,7 +3335,7 @@
               "en": "Vanilla & passion fruit syrups, apple juice, iced tea, butterfly pea"
             },
             "price": 34000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/cocktail-sunset.jpg",
+            "imageUrl": "",
             "available": true,
             "nutrition": {
               "kcal": 116,

@@ -451,7 +451,7 @@ export default function MenuApp({ menu, theme = "classic" }: { menu: MenuData; t
                   >
                     <DishBadges badges={item.badges} lang={lang} />
                     {item.imageUrl ? (
-                      <img className="dish-card__img" src={item.imageUrl} alt={item.name[lang]} loading="lazy" style={{ objectPosition: item.imagePosition }} onLoad={(e) => e.currentTarget.classList.add("loaded")} />
+                      <img className="dish-card__img" src={item.imageUrl} alt={item.name[lang]} loading="lazy" style={{ objectPosition: item.imagePosition, transformOrigin: item.imagePosition, transform: item.imageZoom && item.imageZoom !== 1 ? `scale(${item.imageZoom})` : undefined }} />
                     ) : (
                       <div className="dish-card__placeholder" aria-hidden>{menu.brand.name[0]}</div>
                     )}
@@ -593,7 +593,7 @@ export default function MenuApp({ menu, theme = "classic" }: { menu: MenuData; t
                   </>
                 ) : (
                   <>
-                    <img className="dialog-img reveal" src={selected.imageUrl} alt={selected.name[lang]} style={{ objectPosition: selected.imagePosition }} onLoad={(e) => e.currentTarget.classList.add("loaded")} />
+                    <img className="dialog-img reveal" src={selected.imageUrl} alt={selected.name[lang]} style={{ objectPosition: selected.imagePosition, transformOrigin: selected.imagePosition, transform: selected.imageZoom && selected.imageZoom !== 1 ? `scale(${selected.imageZoom})` : undefined }} />
                     <div className="dish-glare" aria-hidden />
                     {isHot(selected.id) && <Steam />}
                   </>

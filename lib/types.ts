@@ -17,7 +17,8 @@ export interface MenuItem {
   description: L10n;
   price: number;
   imageUrl: string;
-  imagePosition?: string; // object-position, напр. "50% 30%" — центрирование кадра
+  imagePosition?: string; // object-position "50% 30%" — точка центра при кропе
+  imageZoom?: number; // 1 = обычный кроп cover, 1.5 = ближе; применяется как transform: scale
   videoUrl?: string; // короткое видео блюда (Kling); проигрывается в диалоге и уходит в фото
   weight?: number;
   measureUnit?: "г" | "мл" | "шт";

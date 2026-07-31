@@ -241,14 +241,23 @@
 }
 
 .media-preview__frame {
-  width: 220px;
+  width: 320px;
+  max-width: 100%;
   aspect-ratio: 4 / 3;
   flex: 0 0 auto;
   border-radius: 12px;
   overflow: hidden;
   background: #f0e9dd;
   border: 1px solid rgba(92, 51, 23, 0.14);
+  position: relative;
 }
+
+.media-preview__frame--interactive {
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+}
+.media-preview__frame--interactive:active { cursor: grabbing; }
 
 .media-preview__frame img,
 .media-preview__frame video {
@@ -256,6 +265,16 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.media-preview__stats {
+  display: flex;
+  gap: 12px;
+  font-size: 12px;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
 }
 
 .media-preview__controls {
