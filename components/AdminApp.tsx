@@ -32,15 +32,6 @@ async function resizeImage(file: File, maxSide = 900): Promise<string> {
   return dataUrl.split(",")[1];
 }
 
-function fileToBase64(file: File): Promise<string> {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onload = () => resolve(String(reader.result).split(",")[1]);
-    reader.onerror = reject;
-    reader.readAsDataURL(file);
-  });
-}
-
 export default function AdminApp() {
   const [password, setPassword] = useState("");
   const [authed, setAuthed] = useState(false);
@@ -120,20 +111,6 @@ export default function AdminApp() {
       setStatus({ ok: false, text: `Ошибка загрузки фото: ${json.error || res.status}` });
     } catch (err) {
       setStatus({ ok: false, text: "Сетевая ошибка при загрузке фото" });
-    }
-    return null;
-  }
-
-  async function uploadVideo(file: File): Promise<string | null> {
-    try {
-      const ext = file.name.toLowerCase().endsWith(".webm") ? "webm" : "mp4";
-      const base64 = await fileToBase64(file);
-      const res = await api("/api/admin/upload", { method: "POST", body: JSON.stringify({ base64, ext }) });
-      const json = await res.json().catch(() => ({}));
-      if (res.ok) return json.url;
-      setStatus({ ok: false, text: `Ошибка загрузки видео: ${json.error || res.status}` });
-    } catch (err) {
-      setStatus({ ok: false, text: "Сетевая ошибка при загрузке видео" });
     }
     return null;
   }
@@ -331,7 +308,6 @@ export default function AdminApp() {
             key={editing.item.id}
             initial={editing.item}
             uploadImage={uploadImage}
-            uploadVideo={uploadVideo}
             onCancel={() => setEditing(null)}
             onSave={(item) => {
               update((m) => {
@@ -354,13 +330,11 @@ export default function AdminApp() {
 
 function PanZoomPreview({
   imageUrl,
-  videoUrl,
   imagePosition,
   imageZoom,
   onChange,
 }: {
   imageUrl: string;
-  videoUrl?: string;
   imagePosition?: string;
   imageZoom?: number;
   onChange: (position: string | undefined, zoom: number | undefined) => void;
@@ -440,13 +414,8 @@ function PanZoomPreview({
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}
       >
-        {videoUrl ? (
-          // eslint-disable-next-line jsx-a11y/media-has-caption
-          <video src={videoUrl} poster={imageUrl} muted loop autoPlay playsInline style={style} draggable={false} />
-        ) : (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img src={imageUrl} alt="" style={style} draggable={false} />
-        )}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={imageUrl} alt="" style={style} draggable={false} />
       </div>
       <div className="media-preview__controls">
         <span className="media-preview__hint">Тяни картинку, чтобы двигать · Колёсико или щипок для зума</span>
@@ -468,17 +437,14 @@ function ItemEditor({
   onSave,
   onCancel,
   uploadImage,
-  uploadVideo,
 }: {
   initial: MenuItem;
   onSave: (item: MenuItem) => void;
   onCancel: () => void;
   uploadImage: (f: File) => Promise<string | null>;
-  uploadVideo: (f: File) => Promise<string | null>;
 }) {
   const [item, setItem] = useState<MenuItem>(initial);
   const [uploading, setUploading] = useState(false);
-  const [uploadingVideo, setUploadingVideo] = useState(false);
 
   const set = (patch: Partial<MenuItem>) => setItem((i) => ({ ...i, ...patch }));
 
@@ -582,36 +548,11 @@ function ItemEditor({
         {item.imageUrl && (
           <PanZoomPreview
             imageUrl={item.imageUrl}
-            videoUrl={item.videoUrl}
             imagePosition={item.imagePosition}
             imageZoom={item.imageZoom}
             onChange={(pos, zoom) => set({ imagePosition: pos, imageZoom: zoom })}
           />
         )}
-      </div>
-
-      <div className="admin-field">
-        <label>Видео блюда (необязательно · MP4/WebM)</label>
-        <div className="upload-row">
-          <input type="file" accept="video/mp4,video/webm" disabled={uploadingVideo}
-            onChange={async (e) => {
-              const file = e.target.files?.[0];
-              if (!file) return;
-              setUploadingVideo(true);
-              const url = await uploadVideo(file);
-              if (url) set({ videoUrl: url });
-              setUploadingVideo(false);
-            }} />
-          {uploadingVideo && <span style={{ fontSize: 13, color: "var(--muted)" }}>Загрузка...</span>}
-          {item.videoUrl && !uploadingVideo && (
-            <button type="button" className="media-reset" onClick={() => set({ videoUrl: undefined })}>
-              Убрать видео
-            </button>
-          )}
-        </div>
-        <span className="media-preview__hint" style={{ display: "block", marginTop: 6 }}>
-          Видео проигрывается при открытии блюда и плавно сменяется фото. Держи ≤6 МБ, 2–4 сек.
-        </span>
       </div>
 
       <div className="editor-actions">

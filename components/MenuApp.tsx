@@ -4,27 +4,6 @@ import { useDeferredValue, useEffect, useMemo, useRef, useState } from "react";
 import type { Lang, MenuData, MenuItem, SectionKey } from "@/lib/types";
 import { BADGES, LANGS, UI, formatPrice, unitLabel } from "@/lib/i18n";
 
-// Пар показываем только для горячих блюд (не для мороженого/холодных напитков)
-const HOT_PREFIXES = ["meat-", "soup-", "pasta-", "pizza-"];
-const HOT_IDS = new Set([
-  "espresso", "americano", "americano-double", "cappuccino", "cappuccino-double",
-  "latte", "latte-double", "cacao", "hot-choco", "mocaccino", "raf",
-  "breakfast-shakshuka", "breakfast-croquet", "breakfast-english", "breakfast-syrniki",
-  "omlet-yaichnica", "omlet-farsh", "omlet-turkey",
-  "bliny-nutella", "bliny-tvorog", "bliny-apple", "bliny-maslo", "bliny-myaso",
-]);
-function isHot(id: string): boolean {
-  return HOT_PREFIXES.some((p) => id.startsWith(p)) || HOT_IDS.has(id);
-}
-
-function Steam() {
-  return (
-    <div className="steam" aria-hidden>
-      <span /><span /><span /><span /><span />
-    </div>
-  );
-}
-
 function DishBadges({ badges, lang }: { badges?: string[]; lang: Lang }) {
   if (!badges?.length) return null;
   return (
@@ -170,7 +149,6 @@ export default function MenuApp({ menu, theme = "classic" }: { menu: MenuData; t
   const [selected, setSelected] = useState<MenuItem | null>(null);
   const [copied, setCopied] = useState(false);
   const [closing, setClosing] = useState(false);
-  const [videoEnded, setVideoEnded] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [loading, setLoading] = useState(true);
   const [progress, setProgress] = useState(0);
@@ -241,7 +219,6 @@ export default function MenuApp({ menu, theme = "classic" }: { menu: MenuData; t
   useEffect(() => {
     const dialog = dialogRef.current;
     if (selected) {
-      setVideoEnded(false);
       if (!dialog?.open) dialog?.showModal();
       const newUrl = `${window.location.pathname}?item=${selected.id}`;
       window.history.replaceState({ itemId: selected.id }, "", newUrl);
@@ -552,52 +529,7 @@ export default function MenuApp({ menu, theme = "classic" }: { menu: MenuData; t
             <DishBadges badges={selected.badges} lang={lang} />
             {selected.imageUrl ? (
               <div className="dialog-img-wrapper" style={{ position: "relative" }}>
-                {selected.videoUrl ? (
-                  <>
-                    <img
-                      src={selected.imageUrl}
-                      alt={selected.name[lang]}
-                      style={{
-                        position: "absolute",
-                        top: 0,
-                        left: 0,
-                        width: "100%",
-                        height: "100%",
-                        objectFit: "cover",
-                        objectPosition: selected.imagePosition,
-                        opacity: videoEnded ? 1 : 0,
-                        transition: "opacity 0.8s ease"
-                      }}
-                    />
-                    <video
-                      className="dialog-img loaded"
-                      src={selected.videoUrl}
-                      poster={selected.imageUrl}
-                      autoPlay
-                      muted
-                      playsInline
-                      onEnded={() => setVideoEnded(true)}
-                      style={{
-                        position: "absolute",
-                        top: 0,
-                        left: 0,
-                        width: "100%",
-                        height: "100%",
-                        objectFit: "cover",
-                        objectPosition: selected.imagePosition,
-                        zIndex: 2,
-                        opacity: videoEnded ? 0 : 1,
-                        transition: "opacity 0.8s ease"
-                      }}
-                    />
-                  </>
-                ) : (
-                  <>
-                    <img className="dialog-img reveal" src={selected.imageUrl} alt={selected.name[lang]} style={{ objectPosition: selected.imagePosition, transformOrigin: selected.imagePosition, transform: selected.imageZoom && selected.imageZoom !== 1 ? `scale(${selected.imageZoom})` : undefined }} />
-                    <div className="dish-glare" aria-hidden />
-                    {isHot(selected.id) && <Steam />}
-                  </>
-                )}
+                <img className="dialog-img" src={selected.imageUrl} alt={selected.name[lang]} style={{ objectPosition: selected.imagePosition, transformOrigin: selected.imagePosition, transform: selected.imageZoom && selected.imageZoom !== 1 ? `scale(${selected.imageZoom})` : undefined }} />
               </div>
             ) : (
               <div className="dialog-img-wrapper">
