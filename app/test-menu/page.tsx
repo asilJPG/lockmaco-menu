@@ -1,7 +1,10 @@
 import MenuApp from "@/components/MenuApp";
-import menu from "@/data/menu.json";
-import type { MenuData } from "@/lib/types";
+import { readMenu } from "@/lib/store";
 
-export default function TestMenuPage() {
-  return <MenuApp menu={menu as MenuData} />;
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
+export default async function TestMenuPage() {
+  const menu = await readMenu();
+  return <MenuApp menu={menu} />;
 }
