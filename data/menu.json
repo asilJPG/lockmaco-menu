@@ -86,14 +86,16 @@
               "en": "8 pcs · 12 pcs — 78,000 · 16 pcs — 88,000"
             },
             "price": 58000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/1785484592395-hwxso7.jpg",
+            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/lokma-pistachio.jpg",
             "available": true,
             "nutrition": {
               "kcal": 472,
               "proteins": 6,
               "fats": 18,
               "carbs": 68
-            }
+            },
+            "imagePosition": "",
+            "imageZoom": 1
           },
           {
             "id": "lokma-fruit",
@@ -130,7 +132,7 @@
               "en": ""
             },
             "price": 85000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/1785484618259-d85s6m.jpg",
+            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/fondue-classic.jpg",
             "available": true,
             "nutrition": {
               "kcal": 427,
@@ -138,7 +140,9 @@
               "fats": 18,
               "carbs": 59
             },
-            "videoUrl": ""
+            "videoUrl": "",
+            "imagePosition": "",
+            "imageZoom": 1
           },
           {
             "id": "fondue",
@@ -161,7 +165,9 @@
               "fats": 18,
               "carbs": 59
             },
-            "videoUrl": ""
+            "videoUrl": "",
+            "imagePosition": "",
+            "imageZoom": 1
           }
         ]
       },
@@ -421,14 +427,16 @@
               "en": ""
             },
             "price": 45000,
-            "imageUrl": "",
+            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/strawberry-cup.jpg",
             "available": true,
             "nutrition": {
               "kcal": 397,
               "proteins": 6,
               "fats": 18,
               "carbs": 57
-            }
+            },
+            "imagePosition": "",
+            "imageZoom": 1
           }
         ]
       },
@@ -1827,7 +1835,7 @@
               "en": ""
             },
             "price": 47000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/salad-duck.jpg",
+            "imageUrl": "",
             "available": true,
             "imagePosition": ""
           },
@@ -1844,7 +1852,7 @@
               "en": ""
             },
             "price": 44000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/salad-caesar.jpg",
+            "imageUrl": "",
             "available": true,
             "imagePosition": ""
           },
@@ -1919,7 +1927,7 @@
               "en": ""
             },
             "price": 42000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/soup-borsch.jpg",
+            "imageUrl": "",
             "available": true,
             "videoUrl": ""
           },
@@ -1952,7 +1960,7 @@
               "en": ""
             },
             "price": 36000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/soup-mastava.jpg",
+            "imageUrl": "",
             "available": true,
             "imagePosition": ""
           },
@@ -2832,7 +2840,7 @@
               "en": ""
             },
             "price": 68000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/fresh-orange.jpg",
+            "imageUrl": "",
             "available": true,
             "nutrition": {
               "kcal": 142,
@@ -3219,7 +3227,7 @@
               "en": "Pitcher — 95,000"
             },
             "price": 34000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/mojito-strawberry.jpg",
+            "imageUrl": "",
             "available": true,
             "nutrition": {
               "kcal": 159,
@@ -3263,7 +3271,7 @@
               "en": "Pitcher — 95,000"
             },
             "price": 34000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/mojito-kiwi.jpg",
+            "imageUrl": "",
             "available": true,
             "nutrition": {
               "kcal": 130,
