@@ -9,12 +9,13 @@ QR-меню для кофейни-кондитерской The Lokmaco (Ферг
 - Роутинг: `/` — старое фото-меню (из `origin/main`), `/test-menu` — новое QR-меню, `/admin` — админка, `/card` — бонусная карта клиента.
 - Публичное меню `/test-menu`: RU/UZ/EN, welcome-лоадер, секции Еда/Напитки, категории-чипсы, поиск, диалог блюда с КБЖУ. Всё в `components/MenuApp.tsx`.
 - Админка `/admin` (`components/AdminApp.tsx`): пароль из `ADMIN_PASSWORD`, CRUD категорий/блюд, три языка полей, загрузка фото (ресайз до 900px JPEG на клиенте).
-- Сохранение: `menu.json` — GitHub на Vercel / файл локально; фото и видео — Supabase Storage (bucket `lokmaco-uploads`, публичный). Env: `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, `SUPABASE_STORAGE_BUCKET`. Новое фото появляется на проде мгновенно (без пересборки).
+- Сохранение: всё в Supabase Storage (bucket `lokmaco-uploads`, публичный) — `menu.json` + фото/видео. Env: `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, `SUPABASE_STORAGE_BUCKET`. Любое изменение в админке появляется на проде мгновенно, без пересборки Vercel. GitHub-путь удалён.
 - Палитра: эспрессо `#3B2416` + мёд `#E0A83E` + фисташка `#7FA653` + тёплый крем `#FAF3E7` (переменные в `app/globals.css`). Шрифты: Playfair Display + Manrope.
 - Бонусная система: iiko Card API. Кэшбэк от суммы чека: <400к — 3%, ≥400к — 5%. Списание бонусов — макс 50% от чека.
 
 ## Сделано 2026-07-30
 
+- **menu.json тоже → Supabase Storage**: убран GitHub-путь полностью из `lib/store.ts`. Теперь при сохранении из админки Vercel НЕ пересобирается — правки видны мгновенно (cache-control: no-cache на menu.json, cache 1 год на фото/видео). Env `GITHUB_TOKEN`/`GITHUB_REPO`/`GITHUB_BRANCH` больше не нужны на Vercel (можно удалить).
 - **Фото → Supabase Storage** (bucket `lokmaco-uploads`, публичный, кэш 1 год). Раньше загрузка фото коммитилась в GitHub → пересборка Vercel 2-3 мин. Теперь `writeImage` в `lib/store.ts` кладёт в Supabase, возвращает публичный URL — на сайте фото появляется мгновенно. `menu.json` по-прежнему в GitHub (пересборка только при добавлении/удалении блюд). Миграция: 114 файлов (105 фото + 9 видео) залиты через `_tests/migrate_to_supabase.mjs`, 106 URL в `menu.json` переписаны на полные Supabase-ссылки. Vercel env добавить: `SUPABASE_STORAGE_BUCKET=lokmaco-uploads`.
 - **Перегенерация фото 900px → 1400px** из оригиналов фотосессии (`_temp_photos/menu_items/*`, 5224×3483). Скрипт `_tests/reapply_hires.py` — 73 фото, чётче на Retina/HiDPI.
 
