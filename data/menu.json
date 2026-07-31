@@ -817,7 +817,7 @@
               "en": "Pancakes with Butter"
             },
             "description": {
-              "ru": "",
+              "ru": "Классические блины со сливочным маслом. Подаются со сметаной.",
               "uz": "",
               "en": ""
             },
@@ -833,27 +833,27 @@
               "en": "Pancakes with Meat"
             },
             "description": {
-              "ru": "",
+              "ru": "Сочная мясная начинка. Подаются со сметаной.",
               "uz": "",
               "en": ""
             },
-            "price": 32000,
+            "price": 50000,
             "imageUrl": "",
             "available": true
           },
           {
             "id": "bliny-nutella",
             "name": {
-              "ru": "Блины с Нутеллой",
+              "ru": "Блины с Nutella",
               "uz": "Nutellali quymoqlar",
               "en": "Pancakes with Nutella"
             },
             "description": {
-              "ru": "",
+              "ru": "Тонкие блины с топлёным шоколадом. Подаются со сметаной.",
               "uz": "",
               "en": ""
             },
-            "price": 30000,
+            "price": 35000,
             "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/bliny-nutella.jpg",
             "available": true
           },
@@ -865,34 +865,34 @@
               "en": "Pancakes with Cottage Cheese"
             },
             "description": {
-              "ru": "",
+              "ru": "Нежный творог в тонких блинах. Подаются со сметаной.",
               "uz": "",
               "en": ""
             },
-            "price": 30000,
+            "price": 38000,
             "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/bliny-tvorog.jpg",
             "available": true
           },
           {
             "id": "bliny-apple",
             "name": {
-              "ru": "Блины с Яблочным джемом",
+              "ru": "Блины с яблочным джемом",
               "uz": "Olmali murabboli quymoqlar",
               "en": "Pancakes with Apple Jam"
             },
             "description": {
-              "ru": "",
+              "ru": "Натуральный яблочный джем. Подаются со сметаной.",
               "uz": "",
               "en": ""
             },
-            "price": 30000,
+            "price": 35000,
             "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/bliny-apple.jpg",
             "available": true
           },
           {
             "id": "dop-med",
             "name": {
-              "ru": "Мед 50г",
+              "ru": "Мёд 50г",
               "uz": "Asal 50g",
               "en": "Honey 50g"
             },
@@ -901,14 +901,14 @@
               "uz": "",
               "en": ""
             },
-            "price": 5000,
+            "price": 15000,
             "imageUrl": "",
             "available": true
           },
           {
             "id": "dop-sgushenka",
             "name": {
-              "ru": "Сгущенка 50г",
+              "ru": "Сгущённое молоко 50г",
               "uz": "Quyultirilgan sut 50g",
               "en": "Condensed Milk 50g"
             },
@@ -945,11 +945,11 @@
               "en": "Semolina Porridge"
             },
             "description": {
-              "ru": "",
+              "ru": "Лёгкая и воздушная, с яблочным вареньем.",
               "uz": "",
               "en": ""
             },
-            "price": 33000,
+            "price": 38000,
             "imageUrl": "",
             "available": true
           },
@@ -961,11 +961,11 @@
               "en": "Oat Porridge"
             },
             "description": {
-              "ru": "",
+              "ru": "Тёплый завтрак с черничным вареньем.",
               "uz": "",
               "en": ""
             },
-            "price": 33000,
+            "price": 38000,
             "imageUrl": "",
             "available": true
           },
@@ -977,11 +977,11 @@
               "en": "Rice Porridge"
             },
             "description": {
-              "ru": "",
+              "ru": "Нежная и сливочная, с яблочным вареньем.",
               "uz": "",
               "en": ""
             },
-            "price": 33000,
+            "price": 38000,
             "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/kasha-risovaya.jpg",
             "available": true,
             "imagePosition": ""
@@ -994,11 +994,11 @@
               "en": "Croissant with Ham"
             },
             "description": {
-              "ru": "",
+              "ru": "Хрустящий круассан с нежной ветчиной, расплавленным сыром и свежими овощами.",
               "uz": "",
               "en": ""
             },
-            "price": 40000,
+            "price": 42000,
             "imageUrl": "",
             "available": true
           },
@@ -1010,11 +1010,11 @@
               "en": "Croissant with Salmon"
             },
             "description": {
-              "ru": "",
+              "ru": "Хрустящий круассан с нежным лососем, сливочным сыром и свежей зеленью.",
               "uz": "",
               "en": ""
             },
-            "price": 45000,
+            "price": 48000,
             "imageUrl": "",
             "available": true
           },
@@ -1026,23 +1026,23 @@
               "en": "Croissant Scramble"
             },
             "description": {
-              "ru": "",
+              "ru": "Хрустящий круассан с нежным яичным скрембом, сыром и свежей зеленью.",
               "uz": "",
               "en": ""
             },
-            "price": 40000,
+            "price": 42000,
             "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/croissant-skrembl.jpg",
             "available": true
           },
           {
             "id": "omlet-farsh",
             "name": {
-              "ru": "Фаршированный омлет",
+              "ru": "Фирменный омлет с сыром и базиликом",
               "uz": "Qiymali omlet",
               "en": "Stuffed Omelette"
             },
             "description": {
-              "ru": "",
+              "ru": "Воздушный омлет с сочным мясом, сыром и свежими томатами, украшен микрозеленью и зелёным маслом.",
               "uz": "",
               "en": ""
             },
@@ -1058,11 +1058,11 @@
               "en": "Fried Eggs"
             },
             "description": {
-              "ru": "",
+              "ru": "Готовится на оливковом масле.",
               "uz": "",
               "en": ""
             },
-            "price": 30000,
+            "price": 38000,
             "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/omlet-yaichnica.jpg",
             "available": true,
             "imagePosition": ""
@@ -1079,7 +1079,7 @@
               "uz": "",
               "en": ""
             },
-            "price": 35000,
+            "price": 42000,
             "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/omlet-turkey.jpg",
             "available": true,
             "imagePosition": ""
@@ -1140,11 +1140,11 @@
               "en": "English Breakfast"
             },
             "description": {
-              "ru": "",
+              "ru": "Сытный завтрак с баварскими сосисками, яйцами, шампиньонами и фасолью. Подаётся с Ciabatta и маслинами.",
               "uz": "",
               "en": ""
             },
-            "price": 68000,
+            "price": 85000,
             "imageUrl": "",
             "available": true
           },
@@ -1156,7 +1156,7 @@
               "en": "Country Cottage Cheese"
             },
             "description": {
-              "ru": "",
+              "ru": "Творог со сметаной, сахарной пудрой и свежими фруктами.",
               "uz": "",
               "en": ""
             },
@@ -1206,14 +1206,30 @@
               "en": "Shakshuka"
             },
             "description": {
-              "ru": "",
+              "ru": "Яйца, томатное рагу с болгарским перцем и специями. Подаётся с Ciabatta.",
               "uz": "",
               "en": ""
             },
-            "price": 55000,
+            "price": 56000,
             "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/breakfast-shakshuka.jpg",
             "available": true,
             "videoUrl": ""
+          },
+          {
+            "id": "bliny-cherry",
+            "name": {
+              "ru": "Блины с черникой",
+              "uz": "",
+              "en": ""
+            },
+            "description": {
+              "ru": "Свежая черника и ягодный соус. Подаются со сметаной.",
+              "uz": "",
+              "en": ""
+            },
+            "price": 32000,
+            "imageUrl": "",
+            "available": true
           }
         ]
       },
@@ -1228,12 +1244,12 @@
           {
             "id": "meat-befstroganov",
             "name": {
-              "ru": "Бефстроганов С Пюре",
+              "ru": "Бефстроганов с пюре",
               "uz": "Pyureli befstroganov",
               "en": "Beef Stroganoff with Mashed Potatoes"
             },
             "description": {
-              "ru": "",
+              "ru": "Слайсы говядины с шампиньонами в сливочном соусе, подаются с пюре.",
               "uz": "",
               "en": ""
             },
@@ -1244,12 +1260,12 @@
           {
             "id": "meat-lamb-shank",
             "name": {
-              "ru": "Голень ягненка с овощами",
+              "ru": "Голень ягнёнка с овощами",
               "uz": "Sabzavotli qo'zichoq boldiri",
               "en": "Lamb Shank with Vegetables"
             },
             "description": {
-              "ru": "",
+              "ru": "Нежная голень ягнёнка на кости, запечёная с бэби-картофелем, томатами черри и болгарским перцем.",
               "uz": "",
               "en": ""
             },
@@ -1260,12 +1276,12 @@
           {
             "id": "meat-lamb-rack",
             "name": {
-              "ru": "Каре Ягненка с картофелем",
+              "ru": "Каре ягнёнка с картофелем",
               "uz": "Kartoshkali qo'zichoq qovurg'asi",
               "en": "Rack of Lamb with Potatoes"
             },
             "description": {
-              "ru": "",
+              "ru": "Рёбрышки ягнёнка гриль с розмарином и запечёным картофелем.",
               "uz": "",
               "en": ""
             },
@@ -1276,12 +1292,12 @@
           {
             "id": "meat-wings",
             "name": {
-              "ru": "Крылья Терияки",
+              "ru": "Крылья терияки",
               "uz": "Teriyaki qanotchalari",
               "en": "Teriyaki Wings"
             },
             "description": {
-              "ru": "",
+              "ru": "Глазированные крылышки в соусе терияки с кунжутом.",
               "uz": "",
               "en": ""
             },
@@ -1299,7 +1315,7 @@
               "en": "Chicken Cutlet"
             },
             "description": {
-              "ru": "",
+              "ru": "Нежная домашняя котлета из цыпленка, подаётся с пюре.",
               "uz": "",
               "en": ""
             },
@@ -1316,7 +1332,7 @@
               "en": "Chicken Cordon Bleu"
             },
             "description": {
-              "ru": "",
+              "ru": "Сочное филе цыпленка в хрустящей панировке с начинкой из нежной ветчины и расплавленного сыра.",
               "uz": "",
               "en": ""
             },
@@ -1332,7 +1348,7 @@
               "en": "Chicken Roll"
             },
             "description": {
-              "ru": "",
+              "ru": "Нежное куриное филе с начинкой из шпината и сыра, подаётся с воздушным овощным пюре.",
               "uz": "",
               "en": ""
             },
@@ -1348,7 +1364,7 @@
               "en": "Salmon with Wild Rice"
             },
             "description": {
-              "ru": "",
+              "ru": "Нежное филе лосося на гриле, подаётся на подушке из дикого риса со сливочно-лимонным соусом.",
               "uz": "",
               "en": ""
             },
@@ -1365,7 +1381,7 @@
               "en": "Beef Medallions"
             },
             "description": {
-              "ru": "",
+              "ru": "Сочная говяжья вырезка с картофелем, грибами и соусом демиглас.",
               "uz": "",
               "en": ""
             },
@@ -1382,7 +1398,7 @@
               "en": "Chicken Leg"
             },
             "description": {
-              "ru": "",
+              "ru": "Фаршированный грибами окорочок цыпленка, подаётся с картофельным пюре и соусом с розмарином.",
               "uz": "",
               "en": ""
             },
@@ -1394,12 +1410,12 @@
           {
             "id": "meat-lamb-shoulder",
             "name": {
-              "ru": "Томленая Лопатка Ягненка",
+              "ru": "Томлёная лопатка ягнёнка",
               "uz": "Dimlangan qo'zichoq kuragi",
               "en": "Stewed Lamb Shoulder"
             },
             "description": {
-              "ru": "",
+              "ru": "Медленно томлёная лопатка ягнёнка, подаётся с картофельным пюре.",
               "uz": "",
               "en": ""
             },
@@ -1410,12 +1426,12 @@
           {
             "id": "meat-beef-cheeks",
             "name": {
-              "ru": "Томленые говяжьи щечки",
+              "ru": "Томлёные говяжьи щёчки",
               "uz": "Dimlangan mol yonoqlari",
               "en": "Stewed Beef Cheeks"
             },
             "description": {
-              "ru": "",
+              "ru": "Нежные говяжьи щёчки долгого томления с картофельным пюре.",
               "uz": "",
               "en": ""
             },
@@ -1432,7 +1448,7 @@
               "en": "Duck Breast with Berry Sauce"
             },
             "description": {
-              "ru": "",
+              "ru": "Нежная утиная грудка су-вид с пряным ягодным соусом.",
               "uz": "",
               "en": ""
             },
@@ -1448,7 +1464,7 @@
               "en": "Schnitzel"
             },
             "description": {
-              "ru": "",
+              "ru": "Хрустящий тонкий куриный шницель, лимон.",
               "uz": "",
               "en": ""
             },
@@ -1469,12 +1485,12 @@
           {
             "id": "pasta-alfredo",
             "name": {
-              "ru": "Альфредо паста куриный",
+              "ru": "Феттуччине Альфредо",
               "uz": "Tovuqli Alfredo pastasi",
               "en": "Chicken Alfredo Pasta"
             },
             "description": {
-              "ru": "",
+              "ru": "Паста в нежном сливочном соусе с чесноком, пармезаном и сочным филе цыпленка.",
               "uz": "",
               "en": ""
             },
@@ -1486,12 +1502,12 @@
           {
             "id": "pasta-pomodoro",
             "name": {
-              "ru": "Паста Аль помидоро",
+              "ru": "Феттуччине Аль Помидоро",
               "uz": "Al pomodoro pastasi",
               "en": "Pasta al Pomodoro"
             },
             "description": {
-              "ru": "",
+              "ru": "Паста с соусом из спелых томатов, чесноком, базиликом и оливковым маслом.",
               "uz": "",
               "en": ""
             },
@@ -1508,7 +1524,7 @@
               "en": "Pasta Bolognese"
             },
             "description": {
-              "ru": "",
+              "ru": "Паста с традиционным мясным соусом болоньезе и пармезаном.",
               "uz": "",
               "en": ""
             },
@@ -1520,12 +1536,12 @@
           {
             "id": "pasta-arrabbiata",
             "name": {
-              "ru": "Пене Арабиата",
+              "ru": "Пенне Аррабиата",
               "uz": "Penne Arabiata",
               "en": "Penne Arrabbiata"
             },
             "description": {
-              "ru": "",
+              "ru": "Пенне в пикантном томатном соусе с чесноком, перцем чили, оливковым маслом и пармезаном.",
               "uz": "",
               "en": ""
             },
@@ -1546,12 +1562,12 @@
           {
             "id": "pizza-four-cheeses",
             "name": {
-              "ru": "Пицца 4 сыра",
+              "ru": "Пицца Четыре сыра",
               "uz": "4 xil pishloqli pitsa",
               "en": "Pizza 4 Cheeses"
             },
             "description": {
-              "ru": "",
+              "ru": "Моцарелла, горгонзола, пармезан и нежная страчателла.",
               "uz": "",
               "en": ""
             },
@@ -1568,7 +1584,7 @@
               "en": "Pizza The Lokmaco"
             },
             "description": {
-              "ru": "",
+              "ru": "Сладкая пицца с шоколадной пастой Nutella и свежей клубникой.",
               "uz": "",
               "en": ""
             },
@@ -1579,16 +1595,16 @@
           {
             "id": "pizza-pear",
             "name": {
-              "ru": "Пицца Груша",
+              "ru": "Пицца Груша-горгонзола",
               "uz": "Nokli pitsa",
               "en": "Pizza Pear"
             },
             "description": {
-              "ru": "",
+              "ru": "Груша, сыр горгонзола, моцарелла, грецкие орехи, мёд.",
               "uz": "",
               "en": ""
             },
-            "price": 95000,
+            "price": 55000,
             "imageUrl": "",
             "available": true
           },
@@ -1600,7 +1616,7 @@
               "en": "Pizza Margherita"
             },
             "description": {
-              "ru": "",
+              "ru": "Томатный соус, моцарелла, свежий базилик, оливковое масло.",
               "uz": "",
               "en": ""
             },
@@ -1632,7 +1648,7 @@
               "en": "Pizza Meat"
             },
             "description": {
-              "ru": "",
+              "ru": "Сытная пицца с беконом, салями, ветчиной и говядиной.",
               "uz": "",
               "en": ""
             },
@@ -1643,12 +1659,12 @@
           {
             "id": "pizza-pepperoni",
             "name": {
-              "ru": "Пицца Пеперони",
+              "ru": "Пицца Пепперони",
               "uz": "Peperoni pitsasi",
               "en": "Pizza Pepperoni"
             },
             "description": {
-              "ru": "",
+              "ru": "Пикантная колбаса пепперони, моцарелла, томатный соус.",
               "uz": "",
               "en": ""
             },
@@ -1661,12 +1677,12 @@
           {
             "id": "pizza-stracciatella",
             "name": {
-              "ru": "Пицца Страчателла",
+              "ru": "Пицца со Страчателлой",
               "uz": "Strachatella pitsasi",
               "en": "Pizza Stracciatella"
             },
             "description": {
-              "ru": "",
+              "ru": "Страчателла, томаты черри, соус песто, базилик.",
               "uz": "",
               "en": ""
             },
@@ -1682,7 +1698,7 @@
               "en": "Pizza Caesar"
             },
             "description": {
-              "ru": "",
+              "ru": "Куриное филе, листья романо, томаты черри, моцарелла, соус цезарь.",
               "uz": "",
               "en": ""
             },
@@ -1736,12 +1752,12 @@
           {
             "id": "salad-eggplant",
             "name": {
-              "ru": "Салат Баклажанный",
+              "ru": "Салат с баклажанами",
               "uz": "Baqlajonli salat",
               "en": "Eggplant Salad"
             },
             "description": {
-              "ru": "",
+              "ru": "Баклажаны фри, томаты, кинза, кунжут, пикантный сладко-острый соус.",
               "uz": "",
               "en": ""
             },
@@ -1769,12 +1785,12 @@
           {
             "id": "salad-greek",
             "name": {
-              "ru": "Салат Греческий",
+              "ru": "Греческий классический",
               "uz": "Grekcha salat",
               "en": "Greek Salad"
             },
             "description": {
-              "ru": "",
+              "ru": "Свежие огурцы, томаты, перец, сыр фета, оливки Каламата, масло Extra Virgin.",
               "uz": "",
               "en": ""
             },
@@ -1785,12 +1801,12 @@
           {
             "id": "salad-tuna",
             "name": {
-              "ru": "Салат С Тунцом",
+              "ru": "С тунцом и зеленью",
               "uz": "Tunesli salat",
               "en": "Tuna Salad"
             },
             "description": {
-              "ru": "",
+              "ru": "Микс-салат, опалённый тунец, перепелиные яйца, цитрусовая заправка.",
               "uz": "",
               "en": ""
             },
@@ -1801,12 +1817,12 @@
           {
             "id": "salad-duck",
             "name": {
-              "ru": "Салат Утиный",
+              "ru": "С уткой и грушей",
               "uz": "O'rdakli salat",
               "en": "Duck Salad"
             },
             "description": {
-              "ru": "",
+              "ru": "Копчёная утиная грудка, карамелизированная груша, руккола, ягодный соус.",
               "uz": "",
               "en": ""
             },
@@ -1818,12 +1834,12 @@
           {
             "id": "salad-caesar",
             "name": {
-              "ru": "Салат Цезарь",
+              "ru": "Цезарь с цыпленком",
               "uz": "Sezar salati",
               "en": "Caesar Salad"
             },
             "description": {
-              "ru": "",
+              "ru": "Листья романо, цыпленок шницель, чесночные гренки, соус цезарь, пармезан.",
               "uz": "",
               "en": ""
             },
@@ -1831,6 +1847,54 @@
             "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/salad-caesar.jpg",
             "available": true,
             "imagePosition": ""
+          },
+          {
+            "id": "salad-goat-orange",
+            "name": {
+              "ru": "С козьим сыром и апельсином",
+              "uz": "",
+              "en": ""
+            },
+            "description": {
+              "ru": "Молодой козий сыр, дольки свежего апельсина, руккола, кедровые орехи.",
+              "uz": "",
+              "en": ""
+            },
+            "price": 52000,
+            "imageUrl": "",
+            "available": true
+          },
+          {
+            "id": "salad-watermelon-feta",
+            "name": {
+              "ru": "С арбузом и фетой",
+              "uz": "",
+              "en": ""
+            },
+            "description": {
+              "ru": "Сочный арбуз, сыр фета, свежая мята, крем-бальзамик.",
+              "uz": "",
+              "en": ""
+            },
+            "price": 35000,
+            "imageUrl": "",
+            "available": true
+          },
+          {
+            "id": "salad-chef-green",
+            "name": {
+              "ru": "Зелёный салат от шефа",
+              "uz": "",
+              "en": ""
+            },
+            "description": {
+              "ru": "Микс-салат с брокколи, стручковой фасолью, огурцами и запечёным картофелем под греческой заправкой с кунжутом.",
+              "uz": "",
+              "en": ""
+            },
+            "price": 45000,
+            "imageUrl": "",
+            "available": true
           }
         ]
       },
@@ -1845,12 +1909,12 @@
           {
             "id": "soup-borsch",
             "name": {
-              "ru": "Борщ",
+              "ru": "Борщ с говядиной",
               "uz": "Borsh",
               "en": "Borsch"
             },
             "description": {
-              "ru": "",
+              "ru": "Классический наваристый борщ с говядиной, подаётся со сметаной.",
               "uz": "",
               "en": ""
             },
@@ -1862,12 +1926,12 @@
           {
             "id": "soup-noodle",
             "name": {
-              "ru": "Лапша куриная",
+              "ru": "Домашняя лапша с курицей",
               "uz": "Tovuqli ugra",
               "en": "Chicken Noodle Soup"
             },
             "description": {
-              "ru": "",
+              "ru": "Куриный бульон с домашней лапшой, нежным филе и свежей зеленью.",
               "uz": "",
               "en": ""
             },
@@ -1878,12 +1942,12 @@
           {
             "id": "soup-mastava",
             "name": {
-              "ru": "Мастава",
+              "ru": "Рисовый суп с ягнёнком",
               "uz": "Mastava",
               "en": "Mastava"
             },
             "description": {
-              "ru": "",
+              "ru": "Густой суп с рисом, овощами, кусочками ягнёнка и восточными специями.",
               "uz": "",
               "en": ""
             },
@@ -1900,11 +1964,85 @@
               "en": "Okroshka"
             },
             "description": {
-              "ru": "",
+              "ru": "Холодный суп с зеленью и овощами.",
               "uz": "",
               "en": ""
             },
             "price": 37000,
+            "imageUrl": "",
+            "available": true
+          }
+        ]
+      },
+      {
+        "id": "garnir",
+        "name": {
+          "ru": "Гарнир",
+          "uz": "Garnir",
+          "en": "Sides"
+        },
+        "items": [
+          {
+            "id": "garnir-rice",
+            "name": {
+              "ru": "Рис с овощами",
+              "uz": "Sabzavotli guruch",
+              "en": "Rice with vegetables"
+            },
+            "description": {
+              "ru": "Рассыпчатый рис с весенними овощами.",
+              "uz": "",
+              "en": ""
+            },
+            "price": 19000,
+            "imageUrl": "",
+            "available": true
+          },
+          {
+            "id": "garnir-fri",
+            "name": {
+              "ru": "Картофель фри",
+              "uz": "Kartoshka fri",
+              "en": "French fries"
+            },
+            "description": {
+              "ru": "Хрустящий золотистый картофель фри с кетчупом.",
+              "uz": "",
+              "en": ""
+            },
+            "price": 25000,
+            "imageUrl": "",
+            "available": true
+          },
+          {
+            "id": "garnir-derevensky",
+            "name": {
+              "ru": "Картофель по-деревенски",
+              "uz": "Qishloqcha kartoshka",
+              "en": "Country potatoes"
+            },
+            "description": {
+              "ru": "Запеченные дольки картофеля под нежным сырным соусом.",
+              "uz": "",
+              "en": ""
+            },
+            "price": 26000,
+            "imageUrl": "",
+            "available": true
+          },
+          {
+            "id": "garnir-pure",
+            "name": {
+              "ru": "Картофельное пюре",
+              "uz": "Kartoshka pyuresi",
+              "en": "Mashed potatoes"
+            },
+            "description": {
+              "ru": "Классическое нежное пюре со сливочным маслом.",
+              "uz": "",
+              "en": ""
+            },
+            "price": 19000,
             "imageUrl": "",
             "available": true
           }
