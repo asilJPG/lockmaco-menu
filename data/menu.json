@@ -85,7 +85,7 @@
               "en": "8 pcs · 12 pcs — 78,000 · 16 pcs — 88,000"
             },
             "price": 58000,
-            "imageUrl": "https://vesuiwsmamurbhqxjjha.supabase.co/storage/v1/object/public/lokmaco-uploads/lokma-pistachio.jpg",
+            "imageUrl": "",
             "available": true,
             "nutrition": {
               "kcal": 472,
@@ -115,6 +115,29 @@
               "fats": 23,
               "carbs": 69
             }
+          },
+          {
+            "id": "fondue-classic",
+            "name": {
+              "ru": "Фондю",
+              "uz": "Fondyu",
+              "en": "Fondue"
+            },
+            "description": {
+              "ru": "",
+              "uz": "",
+              "en": ""
+            },
+            "price": 85000,
+            "imageUrl": "",
+            "available": true,
+            "nutrition": {
+              "kcal": 427,
+              "proteins": 7,
+              "fats": 18,
+              "carbs": 59
+            },
+            "videoUrl": ""
           },
           {
             "id": "fondue",
