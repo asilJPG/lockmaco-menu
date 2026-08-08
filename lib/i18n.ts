@@ -34,7 +34,7 @@ export const UI: Record<Lang, Record<string, string>> = {
     card_name: "Имя",
     card_phone: "Номер телефона",
     card_submit: "Получить карту",
-    card_loading: "Создаем бонусную карту...",
+    card_loading: "Создаём бонусную карту...",
     card_error: "Проверьте имя и номер телефона",
     card_balance: "Баланс",
     card_bonuses: "бонусов",
