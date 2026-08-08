@@ -20,14 +20,18 @@ const newItem = (): MenuItem => ({
   available: true,
 });
 
-async function resizeImage(file: File, maxSide = 900): Promise<string> {
+async function resizeImage(file: File, maxSide = 1400): Promise<string> {
   const bitmap = await createImageBitmap(file);
   const scale = Math.min(1, maxSide / Math.max(bitmap.width, bitmap.height));
   const canvas = document.createElement("canvas");
   canvas.width = Math.round(bitmap.width * scale);
   canvas.height = Math.round(bitmap.height * scale);
-  canvas.getContext("2d")!.drawImage(bitmap, 0, 0, canvas.width, canvas.height);
-  const dataUrl = canvas.toDataURL("image/jpeg", 0.82);
+  const ctx = canvas.getContext("2d")!;
+  // Белая подложка — иначе прозрачные PNG сохраняются в JPEG с чёрным фоном.
+  ctx.fillStyle = "#ffffff";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.drawImage(bitmap, 0, 0, canvas.width, canvas.height);
+  const dataUrl = canvas.toDataURL("image/jpeg", 0.88);
   bitmap.close();
   return dataUrl.split(",")[1];
 }
