@@ -277,6 +277,31 @@
   font-variant-numeric: tabular-nums;
 }
 
+/* Правило третей — сеточка поверх превью, как в Telegram */
+.media-preview__grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+.media-preview__grid span {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.6);
+}
+.media-preview__grid span:nth-child(1) {
+  left: 33.333%; top: 0; bottom: 0; width: 1px;
+}
+.media-preview__grid span:nth-child(2) {
+  left: 66.666%; top: 0; bottom: 0; width: 1px;
+}
+.media-preview__grid span:nth-child(3) {
+  top: 33.333%; left: 0; right: 0; height: 1px;
+}
+.media-preview__grid span:nth-child(4) {
+  top: 66.666%; left: 0; right: 0; height: 1px;
+}
+
 .media-preview__controls {
   flex: 1 1 220px;
   display: flex;

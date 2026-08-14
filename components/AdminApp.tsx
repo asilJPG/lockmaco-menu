@@ -163,9 +163,9 @@ export default function AdminApp() {
         <a href="/" target="_blank" style={{ color: "var(--brand-gold)", fontSize: 13, fontWeight: 700 }}>
           Открыть меню ↗
         </a>
-        <button className="admin-btn admin-btn--gold" onClick={save} disabled={saving || !dirty}>
-          {saving ? "Сохраняю..." : dirty ? "Сохранить" : "Сохранено"}
-        </button>
+        <span style={{ fontSize: 13, color: "var(--muted)", fontWeight: 600 }}>
+          {saving ? "Сохраняю..." : dirty ? "Ждём..." : "Сохранено ✓"}
+        </span>
       </div>
 
       {status && (
@@ -428,6 +428,9 @@ function PanZoomPreview({
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={imageUrl} alt="" style={style} draggable={false} />
+        <div className="media-preview__grid" aria-hidden>
+          <span /><span /><span /><span />
+        </div>
       </div>
       <div className="media-preview__controls">
         <span className="media-preview__hint">Тяни картинку, чтобы двигать · Колёсико или щипок для зума</span>
