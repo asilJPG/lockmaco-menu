@@ -64,7 +64,9 @@ export async function writeImage(fileName: string, base64: string): Promise<stri
         upsert: true,
       });
     if (error) throw new Error(`Supabase upload ${fileName}: ${error.message}`);
-    return supabase().storage.from(BUCKET).getPublicUrl(fileName).data.publicUrl;
+    const publicUrl = supabase().storage.from(BUCKET).getPublicUrl(fileName).data.publicUrl;
+    // Версионный параметр — обходит браузерный кэш и CDN если файл перезаписан.
+    return `${publicUrl}?v=${Date.now()}`;
   }
   const abs = path.join(process.cwd(), "public/uploads", fileName);
   await fs.mkdir(path.dirname(abs), { recursive: true });
