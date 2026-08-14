@@ -34,7 +34,7 @@ export async function writeMenu(menu: MenuData): Promise<void> {
   if (useSupabase) {
     const { error } = await supabase()
       .storage.from(BUCKET)
-      .upload(MENU_KEY, new Blob([json], { type: "application/json" }), {
+      .upload(MENU_KEY, Buffer.from(json, "utf-8"), {
         contentType: "application/json",
         cacheControl: "0",
         upsert: true,

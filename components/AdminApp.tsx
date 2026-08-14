@@ -64,6 +64,14 @@ export default function AdminApp() {
     else dialogRef.current?.close();
   }, [editing]);
 
+  // Автосохранение: каждое изменение menu уходит на сервер с дебаунсом 500мс.
+  useEffect(() => {
+    if (!menu || !dirty) return;
+    const t = setTimeout(() => { save(); }, 500);
+    return () => clearTimeout(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [menu, dirty]);
+
   async function login(pass: string) {
     const res = await fetch("/api/admin/menu", { headers: { "x-admin-password": pass } });
     if (res.ok) {
@@ -95,7 +103,7 @@ export default function AdminApp() {
       const json = await res.json().catch(() => ({}));
       if (res.ok) {
         setDirty(false);
-        setStatus({ ok: true, text: "Сохранено. На проде сайт обновится через ~1 минуту после пересборки." });
+        setStatus({ ok: true, text: "Сохранено ✓ (обнови сайт — увидишь сразу)" });
       } else {
         setStatus({ ok: false, text: `Ошибка сохранения: ${json.error || res.status}` });
       }
