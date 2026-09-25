@@ -13,14 +13,6 @@ QR-меню для кофейни-кондитерской The Lokmaco (Ферг
 - Палитра: эспрессо `#3B2416` + мёд `#E0A83E` + фисташка `#7FA653` + тёплый крем `#FAF3E7` (переменные в `app/globals.css`). Шрифты: Playfair Display + Manrope.
 - Бонусная система: iiko Card API. Кэшбэк от суммы чека: <400к — 3%, ≥400к — 5%. Списание бонусов — макс 50% от чека.
 
-## Сделано 2026-09-25
-
-- **Счётчик посещений сайта (аналитика в админке)**:
-  - Невидимый фоновый трекер `AnalyticsTracker.tsx` в `app/layout.tsx`: фиксирует заходы через `sendBeacon` на `/api/stats/visit` с генерацией анонимного `visitorId` в localStorage (без задержек для пользователя, игнорирует админку).
-  - Хранение и агрегация в `lib/stats.ts`: пишет в таблицу Supabase `site_visits` (с fallback на `data/stats.json` локально).
-  - Схема БД и RPC-функция `get_site_stats()` добавлены в `supabase.sql`.
-  - В админке `/admin` (`components/AdminApp.tsx` + `admin.css`): блок «Посещаемость сайта» с карточками просмотров и уникальных гостей (Сегодня, 7 дней, 30 дней, Всего) и кнопкой быстрого обновления.
-
 ## Сделано 2026-07-30
 
 - **menu.json тоже → Supabase Storage**: убран GitHub-путь полностью из `lib/store.ts`. Теперь при сохранении из админки Vercel НЕ пересобирается — правки видны мгновенно (cache-control: no-cache на menu.json, cache 1 год на фото/видео). Env `GITHUB_TOKEN`/`GITHUB_REPO`/`GITHUB_BRANCH` больше не нужны на Vercel (можно удалить).

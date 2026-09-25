@@ -132,47 +132,8 @@
   gap: 10px;
 }
 
-.admin-grid-4 {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-}
-
-.admin-stat-box {
-  background: #fff;
-  border: 1px solid rgba(92, 51, 23, 0.1);
-  border-radius: 12px;
-  padding: 12px 14px;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.admin-stat-label {
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--muted);
-}
-
-.admin-stat-val {
-  font-family: var(--font-serif), serif;
-  font-size: 26px;
-  font-weight: 700;
-  color: var(--brand-dark);
-  line-height: 1.1;
-}
-
-.admin-stat-sub {
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--brand-gold, #e0a83e);
-}
-
 @media (max-width: 640px) {
   .admin-grid-2, .admin-grid-3 { grid-template-columns: 1fr; }
-  .admin-grid-4 { grid-template-columns: repeat(2, 1fr); }
 }
 
 .admin-field label {

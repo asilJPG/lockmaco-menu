@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import { Playfair_Display, Manrope } from "next/font/google";
-import AnalyticsTracker from "@/components/AnalyticsTracker";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -54,10 +53,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="mobile-web-app-capable" content="yes" />
       </head>
-      <body className={`${playfair.variable} ${manrope.variable}`}>
-        <AnalyticsTracker />
-        {children}
-      </body>
+      <body className={`${playfair.variable} ${manrope.variable}`}>{children}</body>
     </html>
   );
 }
