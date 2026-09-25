@@ -1,5 +1,10 @@
-import OldMenu from "@/components/OldMenu";
+import MenuApp from "@/components/MenuApp";
+import { readMenu } from "@/lib/store";
 
-export default function Page() {
-  return <OldMenu />;
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
+export default async function Page() {
+  const menu = await readMenu();
+  return <MenuApp menu={menu} />;
 }

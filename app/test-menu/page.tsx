@@ -1,10 +1,5 @@
-import MenuApp from "@/components/MenuApp";
-import { readMenu } from "@/lib/store";
+import { redirect } from "next/navigation";
 
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
-
-export default async function TestMenuPage() {
-  const menu = await readMenu();
-  return <MenuApp menu={menu} />;
+export default function TestMenuRedirect() {
+  redirect("/");
 }
