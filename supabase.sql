@@ -44,3 +44,66 @@ alter table public.loyalty_transactions enable row level security;
 
 -- Клиентский сайт ходит через server-side API с SUPABASE_SERVICE_ROLE_KEY.
 -- Поэтому публичные RLS-политики здесь не нужны.
+
+-- ==========================================================
+-- Аналитика посещений сайта (счётчик)
+-- ==========================================================
+create table if not exists public.site_visits (
+  id bigint generated always as identity primary key,
+  visitor_id text not null,
+  path text not null default '/',
+  created_at timestamptz not null default now()
+);
+
+create index if not exists site_visits_created_at_idx on public.site_visits (created_at desc);
+create index if not exists site_visits_visitor_created_idx on public.site_visits (visitor_id, created_at desc);
+
+alter table public.site_visits enable row level security;
+
+-- Быстрая агрегация статистики одной функцией
+create or replace function public.get_site_stats()
+returns jsonb
+language plpgsql
+security definer
+as $$
+declare
+  v_today_start timestamptz := date_trunc('day', now());
+  v_week_start timestamptz := now() - interval '7 days';
+  v_month_start timestamptz := now() - interval '30 days';
+
+  v_today_visits int;
+  v_today_uniques int;
+  v_week_visits int;
+  v_week_uniques int;
+  v_month_visits int;
+  v_month_uniques int;
+  v_all_visits int;
+begin
+  select count(*), count(distinct visitor_id)
+  into v_today_visits, v_today_uniques
+  from public.site_visits
+  where created_at >= v_today_start;
+
+  select count(*), count(distinct visitor_id)
+  into v_week_visits, v_week_uniques
+  from public.site_visits
+  where created_at >= v_week_start;
+
+  select count(*), count(distinct visitor_id)
+  into v_month_visits, v_month_uniques
+  from public.site_visits
+  where created_at >= v_month_start;
+
+  select count(*)
+  into v_all_visits
+  from public.site_visits;
+
+  return jsonb_build_object(
+    'today', jsonb_build_object('visits', v_today_visits, 'uniques', v_today_uniques),
+    'week', jsonb_build_object('visits', v_week_visits, 'uniques', v_week_uniques),
+    'month', jsonb_build_object('visits', v_month_visits, 'uniques', v_month_uniques),
+    'allTime', jsonb_build_object('visits', v_all_visits, 'uniques', v_month_uniques)
+  );
+end;
+$$;
+

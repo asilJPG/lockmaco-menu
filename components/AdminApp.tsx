@@ -36,10 +36,19 @@ async function resizeImage(file: File, maxSide = 1400): Promise<string> {
   return dataUrl.split(",")[1];
 }
 
+interface StatsOverview {
+  today: { visits: number; uniques: number };
+  week: { visits: number; uniques: number };
+  month: { visits: number; uniques: number };
+  allTime: { visits: number; uniques: number };
+}
+
 export default function AdminApp() {
   const [password, setPassword] = useState("");
   const [authed, setAuthed] = useState(false);
   const [menu, setMenu] = useState<MenuData | null>(null);
+  const [stats, setStats] = useState<StatsOverview | null>(null);
+  const [statsLoading, setStatsLoading] = useState(false);
   const [section, setSection] = useState<SectionKey>("food");
   const [status, setStatus] = useState<{ ok: boolean; text: string } | null>(null);
   const [saving, setSaving] = useState(false);
@@ -72,6 +81,21 @@ export default function AdminApp() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [menu, dirty]);
 
+  async function fetchStats(pass: string) {
+    setStatsLoading(true);
+    try {
+      const res = await fetch("/api/admin/stats", { headers: { "x-admin-password": pass } });
+      if (res.ok) {
+        const json = await res.json();
+        if (json.ok) setStats(json.stats);
+      }
+    } catch (e) {
+      console.error("fetchStats error:", e);
+    } finally {
+      setStatsLoading(false);
+    }
+  }
+
   async function login(pass: string) {
     const res = await fetch("/api/admin/menu", { headers: { "x-admin-password": pass } });
     if (res.ok) {
@@ -79,6 +103,7 @@ export default function AdminApp() {
       setMenu(json.menu);
       setAuthed(true);
       sessionStorage.setItem("lokmaco-admin-pass", pass);
+      fetchStats(pass);
     } else {
       setStatus({ ok: false, text: res.status === 401 ? "Неверный пароль" : "Ошибка загрузки меню" });
     }
@@ -171,6 +196,47 @@ export default function AdminApp() {
       {status && (
         <div className={`admin-status ${status.ok ? "admin-status--ok" : "admin-status--err"}`}>{status.text}</div>
       )}
+
+      <div className="admin-card">
+        <div className="admin-card__head">
+          <h3>Посещаемость сайта</h3>
+          <button
+            className="admin-btn admin-btn--ghost admin-btn--sm"
+            onClick={() => fetchStats(password)}
+            disabled={statsLoading}
+          >
+            {statsLoading ? "Обновляю..." : "Обновить ↻"}
+          </button>
+        </div>
+        {stats ? (
+          <div className="admin-grid-4" style={{ marginTop: 12 }}>
+            <div className="admin-stat-box">
+              <span className="admin-stat-label">Сегодня</span>
+              <span className="admin-stat-val">{stats.today.visits}</span>
+              <span className="admin-stat-sub">{stats.today.uniques} гостей</span>
+            </div>
+            <div className="admin-stat-box">
+              <span className="admin-stat-label">За 7 дней</span>
+              <span className="admin-stat-val">{stats.week.visits}</span>
+              <span className="admin-stat-sub">{stats.week.uniques} гостей</span>
+            </div>
+            <div className="admin-stat-box">
+              <span className="admin-stat-label">За 30 дней</span>
+              <span className="admin-stat-val">{stats.month.visits}</span>
+              <span className="admin-stat-sub">{stats.month.uniques} гостей</span>
+            </div>
+            <div className="admin-stat-box">
+              <span className="admin-stat-label">Всего</span>
+              <span className="admin-stat-val">{stats.allTime.visits}</span>
+              <span className="admin-stat-sub">визитов</span>
+            </div>
+          </div>
+        ) : (
+          <div style={{ fontSize: 13, color: "var(--muted)", marginTop: 10 }}>
+            {statsLoading ? "Загрузка статистики..." : "Нет данных о посещениях"}
+          </div>
+        )}
+      </div>
 
       <div className="admin-card">
         <div className="admin-card__head"><h3>Бренд</h3></div>
