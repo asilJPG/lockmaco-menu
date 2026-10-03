@@ -460,6 +460,7 @@ function ItemEditor({
 }) {
   const [item, setItem] = useState<MenuItem>(initial);
   const [uploading, setUploading] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const set = (patch: Partial<MenuItem>) => setItem((i) => ({ ...i, ...patch }));
 
@@ -548,7 +549,11 @@ function ItemEditor({
       <div className="admin-field">
         <label>Фото</label>
         <div className="upload-row">
-          <input type="file" accept="image/*" disabled={uploading}
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept="image/*"
+            disabled={uploading}
             onChange={async (e) => {
               const file = e.target.files?.[0];
               if (!file) return;
@@ -556,7 +561,21 @@ function ItemEditor({
               const url = await uploadImage(file);
               if (url) set({ imageUrl: url });
               setUploading(false);
-            }} />
+            }}
+          />
+          {item.imageUrl && (
+            <button
+              type="button"
+              className="admin-btn admin-btn--danger admin-btn--sm"
+              disabled={uploading}
+              onClick={() => {
+                set({ imageUrl: "", imagePosition: undefined, imageZoom: undefined });
+                if (fileInputRef.current) fileInputRef.current.value = "";
+              }}
+            >
+              Удалить фото
+            </button>
+          )}
           {uploading && <span style={{ fontSize: 13, color: "var(--muted)" }}>Загрузка...</span>}
         </div>
 
