@@ -761,18 +761,45 @@ button {
   }
 }
 
+@keyframes productImagePulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 .dish-card__img {
   aspect-ratio: 4 / 3;
   width: 100%;
   object-fit: cover;
   display: block;
   background: var(--brand-cream);
-  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: productImagePulse 14s ease-in-out infinite;
+  will-change: transform;
+}
+
+.dish-card:nth-child(2n) .dish-card__img {
+  animation-delay: -3.5s;
+}
+
+.dish-card:nth-child(3n) .dish-card__img {
+  animation-delay: -7s;
+}
+
+.dish-card:nth-child(4n) .dish-card__img {
+  animation-delay: -10.5s;
 }
 
 @media (hover: hover) {
   .dish-card:hover .dish-card__img {
-    transform: scale(1.05);
+    animation-play-state: paused;
+    transform: scale(1.1);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
 }
 
@@ -1044,6 +1071,8 @@ body:has(dialog[open]) {
   height: 100%;
   object-fit: cover;
   display: block;
+  animation: productImagePulse 14s ease-in-out infinite;
+  will-change: transform;
 }
 
 .dialog-body {
