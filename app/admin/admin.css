@@ -220,47 +220,169 @@
   .lang-fields { grid-template-columns: 1fr; }
 }
 
-.upload-row {
+/* ---------- Фото блюда в редакторе (как в референсе) ---------- */
+.item-photo-card {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  aspect-ratio: 16 / 10;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #f1f5f9;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+}
+
+.item-photo-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.item-photo-card__overlay {
+  position: absolute;
+  top: 10px;
+  right: 10px;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 6px;
+  z-index: 2;
 }
 
-.upload-row img {
-  width: 90px;
-  height: 68px;
-  object-fit: cover;
-  border-radius: 10px;
+.photo-overlay-btn {
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  color: #1e293b;
+  font-family: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  transition: transform 0.15s, background-color 0.15s;
 }
 
-.media-preview {
+.photo-overlay-btn:active {
+  transform: scale(0.95);
+}
+
+.photo-overlay-btn--edit {
+  padding: 6px 12px;
+  font-size: 13px;
+}
+
+.photo-overlay-btn--delete {
+  width: 32px;
+  height: 32px;
   display: flex;
-  gap: 16px;
-  margin-top: 12px;
-  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  color: #ef4444;
 }
 
-.media-preview__frame {
-  width: 320px;
-  max-width: 100%;
-  aspect-ratio: 4 / 3;
-  flex: 0 0 auto;
-  border-radius: 12px;
-  overflow: hidden;
-  background: #f0e9dd;
-  border: 1px solid rgba(92, 51, 23, 0.14);
+.item-photo-card__loading {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--brand-dark);
+  z-index: 3;
+}
+
+.photo-dropzone {
+  width: 100%;
+  max-width: 440px;
+  aspect-ratio: 16 / 10;
+  border-radius: 16px;
+  border: 2px dashed rgba(92, 51, 23, 0.22);
+  background: rgba(255, 255, 255, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.photo-dropzone:hover {
+  background: #ffffff;
+  border-color: var(--brand-gold, #e0a83e);
+}
+
+.photo-dropzone__icon {
+  font-size: 32px;
+}
+
+.photo-dropzone__text {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  text-align: center;
+  padding: 0 16px;
+}
+
+/* ---------- Модалка кадрирования (Crop Modal) ---------- */
+.crop-modal__backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.crop-modal__dialog {
+  background: #ffffff;
+  border-radius: 24px;
+  width: 100%;
+  max-width: 520px;
+  padding: 18px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  animation: cropModalIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes cropModalIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.crop-modal__stage {
   position: relative;
-}
-
-.media-preview__frame--interactive {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #0f172a;
   cursor: grab;
   touch-action: none;
   user-select: none;
 }
-.media-preview__frame--interactive:active { cursor: grabbing; }
 
-.media-preview__frame img,
-.media-preview__frame video {
+.crop-modal__stage:active {
+  cursor: grabbing;
+}
+
+.crop-modal__stage img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -269,79 +391,81 @@
   will-change: transform;
 }
 
-.media-preview__stats {
-  display: flex;
-  gap: 12px;
-  font-size: 12px;
-  color: var(--muted);
-  font-variant-numeric: tabular-nums;
-}
-
-/* Правило третей — сеточка поверх превью, как в Telegram */
-.media-preview__grid {
+.crop-modal__crop-box {
   position: absolute;
-  inset: 0;
+  inset: 12px;
   pointer-events: none;
-  z-index: 2;
-}
-.media-preview__grid span {
-  position: absolute;
-  background: rgba(255, 255, 255, 0.85);
-  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.6);
-}
-.media-preview__grid span:nth-child(1) {
-  left: 33.333%; top: 0; bottom: 0; width: 1px;
-}
-.media-preview__grid span:nth-child(2) {
-  left: 66.666%; top: 0; bottom: 0; width: 1px;
-}
-.media-preview__grid span:nth-child(3) {
-  top: 33.333%; left: 0; right: 0; height: 1px;
-}
-.media-preview__grid span:nth-child(4) {
-  top: 66.666%; left: 0; right: 0; height: 1px;
-}
-
-.media-preview__controls {
-  flex: 1 1 220px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  min-width: 200px;
-}
-
-.media-preview__hint {
-  font-size: 12px;
-  color: var(--muted);
-}
-
-.media-slider {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  font-size: 13px;
-  color: var(--text);
-}
-
-.media-slider input[type="range"] {
-  width: 100%;
-  accent-color: var(--brand-gold, #e0a83e);
-}
-
-.media-reset {
-  align-self: flex-start;
-  border: 1px solid rgba(92, 51, 23, 0.2);
-  background: transparent;
-  color: var(--text);
-  font-size: 13px;
-  font-weight: 600;
-  padding: 7px 12px;
+  border: 2px dashed rgba(255, 120, 90, 0.85);
   border-radius: 10px;
+  box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.crop-box-crosshair {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 20px;
+  line-height: 1;
+  font-weight: 300;
+}
+
+.crop-modal__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.crop-modal__tools {
+  display: flex;
+  gap: 8px;
+}
+
+.crop-tool-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: #f8fafc;
+  color: #334155;
+  font-size: 15px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.crop-tool-btn:hover {
+  background: #f1f5f9;
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+.crop-tool-btn:active {
+  transform: scale(0.94);
+}
+
+.crop-modal__actions {
+  display: flex;
+  gap: 8px;
+}
+
+.admin-btn--primary-action {
+  background: #ff7654;
+  color: #ffffff;
+}
+
+.admin-btn--primary-action:hover {
+  background: #f86540;
 }
 
 .editor-actions {
   display: flex;
   gap: 10px;
   justify-content: flex-end;
-  padding-top: 6px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(92, 51, 23, 0.08);
 }

@@ -340,47 +340,51 @@ export default function AdminApp() {
   );
 }
 
-function PanZoomPreview({
+function CropModal({
   imageUrl,
   imagePosition,
   imageZoom,
-  onChange,
+  onSave,
+  onClose,
 }: {
   imageUrl: string;
   imagePosition?: string;
   imageZoom?: number;
-  onChange: (position: string | undefined, zoom: number | undefined) => void;
+  onSave: (position: string | undefined, zoom: number | undefined) => void;
+  onClose: () => void;
 }) {
   const frameRef = useRef<HTMLDivElement>(null);
-  const [posX, posY] = (() => {
+  const [posX, setPosX] = useState(() => {
     const parts = (imagePosition || "50% 50%").split(" ");
-    return [parseFloat(parts[0]) || 50, parseFloat(parts[1]) || 50];
-  })();
-  const zoom = imageZoom || 1;
+    return parseFloat(parts[0]) || 50;
+  });
+  const [posY, setPosY] = useState(() => {
+    const parts = (imagePosition || "50% 50%").split(" ");
+    return parseFloat(parts[1]) || 50;
+  });
+  const [zoom, setZoom] = useState(imageZoom || 1);
 
-  const commit = (x: number, y: number, z: number) => {
-    const cx = Math.min(100, Math.max(0, x));
-    const cy = Math.min(100, Math.max(0, y));
-    const cz = Math.min(3, Math.max(1, z));
-    const isDefault = cx === 50 && cy === 50 && cz === 1;
-    onChange(isDefault ? undefined : `${cx.toFixed(1)}% ${cy.toFixed(1)}%`, isDefault ? undefined : cz);
+  const clamp = (x: number, y: number, z: number) => {
+    setPosX(Math.min(100, Math.max(0, x)));
+    setPosY(Math.min(100, Math.max(0, y)));
+    setZoom(Math.min(3, Math.max(1, z)));
   };
 
-  // Drag: инвертируем движение, тянешь картинку — сдвигается object-position в обратную сторону.
   const dragRef = useRef<{ x: number; y: number; startX: number; startY: number } | null>(null);
+
   const onPointerDown = (e: React.PointerEvent) => {
-    if (e.pointerType === "touch" && (e.nativeEvent as PointerEvent & { targetTouches?: TouchList }).targetTouches && (e.nativeEvent as PointerEvent & { targetTouches?: TouchList }).targetTouches!.length > 1) return;
     (e.currentTarget as HTMLDivElement).setPointerCapture(e.pointerId);
     dragRef.current = { x: e.clientX, y: e.clientY, startX: posX, startY: posY };
   };
+
   const onPointerMove = (e: React.PointerEvent) => {
     if (!dragRef.current || !frameRef.current) return;
     const rect = frameRef.current.getBoundingClientRect();
-    // движение курсора в % рамки; чем больше zoom, тем чувствительнее
-    const dx = ((e.clientX - dragRef.current.x) / rect.width) * 100 / zoom;
-    const dy = ((e.clientY - dragRef.current.y) / rect.height) * 100 / zoom;
-    commit(dragRef.current.startX - dx, dragRef.current.startY - dy, zoom);
+    const dx = (((e.clientX - dragRef.current.x) / rect.width) * 100) / zoom;
+    const dy = (((e.clientY - dragRef.current.y) / rect.height) * 100) / zoom;
+    clamp(dragRef.current.startX - dx, dragRef.current.startY - dy, zoom);
   };
+
   const onPointerUp = (e: React.PointerEvent) => {
     dragRef.current = null;
     (e.currentTarget as HTMLDivElement).releasePointerCapture(e.pointerId);
@@ -388,11 +392,9 @@ function PanZoomPreview({
 
   const onWheel = (e: React.WheelEvent) => {
     e.preventDefault();
-    const delta = -e.deltaY * 0.002;
-    commit(posX, posY, zoom + delta);
+    clamp(posX, posY, zoom - e.deltaY * 0.002);
   };
 
-  // Pinch-zoom для touch
   const pinchRef = useRef<{ dist: number; zoom: number } | null>(null);
   const touchDist = (t: React.TouchList) =>
     Math.hypot(t[0].clientX - t[1].clientX, t[0].clientY - t[1].clientY);
@@ -405,43 +407,85 @@ function PanZoomPreview({
     if (e.touches.length === 2 && pinchRef.current) {
       e.preventDefault();
       const ratio = touchDist(e.touches) / pinchRef.current.dist;
-      commit(posX, posY, pinchRef.current.zoom * ratio);
+      clamp(posX, posY, pinchRef.current.zoom * ratio);
     }
   };
-  const onTouchEnd = () => { pinchRef.current = null; };
+  const onTouchEnd = () => {
+    pinchRef.current = null;
+  };
 
-  const style = { objectPosition: `${posX}% ${posY}%`, transformOrigin: `${posX}% ${posY}%`, transform: `scale(${zoom})` };
+  const style = {
+    objectPosition: `${posX}% ${posY}%`,
+    transformOrigin: `${posX}% ${posY}%`,
+    transform: `scale(${zoom})`,
+  };
+
+  const handleSave = () => {
+    const isDefault = posX === 50 && posY === 50 && zoom === 1;
+    onSave(isDefault ? undefined : `${posX.toFixed(1)}% ${posY.toFixed(1)}%`, isDefault ? undefined : zoom);
+    onClose();
+  };
 
   return (
-    <div className="media-preview">
-      <div
-        ref={frameRef}
-        className="media-preview__frame media-preview__frame--interactive"
-        onPointerDown={onPointerDown}
-        onPointerMove={onPointerMove}
-        onPointerUp={onPointerUp}
-        onPointerCancel={onPointerUp}
-        onWheel={onWheel}
-        onTouchStart={onTouchStart}
-        onTouchMove={onTouchMove}
-        onTouchEnd={onTouchEnd}
-      >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={imageUrl} alt="" style={style} draggable={false} />
-        <div className="media-preview__grid" aria-hidden>
-          <span /><span /><span /><span />
+    <div className="crop-modal__backdrop">
+      <div className="crop-modal__dialog">
+        <div
+          ref={frameRef}
+          className="crop-modal__stage"
+          onPointerDown={onPointerDown}
+          onPointerMove={onPointerMove}
+          onPointerUp={onPointerUp}
+          onPointerCancel={onPointerUp}
+          onWheel={onWheel}
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={imageUrl} alt="" style={style} draggable={false} />
+          <div className="crop-modal__crop-box" aria-hidden>
+            <span className="crop-box-border" />
+            <div className="crop-box-crosshair">+</div>
+          </div>
         </div>
-      </div>
-      <div className="media-preview__controls">
-        <span className="media-preview__hint">Тяни картинку, чтобы двигать · Колёсико или щипок для зума</span>
-        <div className="media-preview__stats">
-          <span>Центр: {posX.toFixed(0)}% × {posY.toFixed(0)}%</span>
-          <span>Зум: {zoom.toFixed(2)}×</span>
+
+        <div className="crop-modal__footer">
+          <div className="crop-modal__tools">
+            <button
+              type="button"
+              className="crop-tool-btn"
+              onClick={() => clamp(posX, posY, zoom - 0.2)}
+              title="Уменьшить"
+            >
+              🔍−
+            </button>
+            <button
+              type="button"
+              className="crop-tool-btn"
+              onClick={() => clamp(posX, posY, zoom + 0.2)}
+              title="Увеличить"
+            >
+              🔍+
+            </button>
+            <button
+              type="button"
+              className="crop-tool-btn"
+              onClick={() => { setPosX(50); setPosY(50); setZoom(1); }}
+              title="Сбросить"
+            >
+              ⟲
+            </button>
+          </div>
+
+          <div className="crop-modal__actions">
+            <button type="button" className="admin-btn admin-btn--ghost" onClick={onClose}>
+              Отмена
+            </button>
+            <button type="button" className="admin-btn admin-btn--primary-action" onClick={handleSave}>
+              Сохранить
+            </button>
+          </div>
         </div>
-        <button type="button" className="media-reset"
-          onClick={() => onChange(undefined, undefined)}>
-          Сбросить
-        </button>
       </div>
     </div>
   );
@@ -460,6 +504,7 @@ function ItemEditor({
 }) {
   const [item, setItem] = useState<MenuItem>(initial);
   const [uploading, setUploading] = useState(false);
+  const [showCrop, setShowCrop] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const set = (patch: Partial<MenuItem>) => setItem((i) => ({ ...i, ...patch }));
@@ -547,52 +592,107 @@ function ItemEditor({
       </div>
 
       <div className="admin-field">
-        <label>Фото</label>
-        <div className="upload-row">
-          <input
-            ref={fileInputRef}
-            type="file"
-            accept="image/*"
-            disabled={uploading}
-            onChange={async (e) => {
-              const file = e.target.files?.[0];
-              if (!file) return;
-              setUploading(true);
-              const url = await uploadImage(file);
-              if (url) set({ imageUrl: url });
-              setUploading(false);
-            }}
-          />
-          {item.imageUrl && (
-            <button
-              type="button"
-              className="admin-btn admin-btn--danger admin-btn--sm"
-              disabled={uploading}
-              onClick={() => {
-                set({ imageUrl: "", imagePosition: undefined, imageZoom: undefined });
-                if (fileInputRef.current) fileInputRef.current.value = "";
-              }}
-            >
-              Удалить фото
-            </button>
-          )}
-          {uploading && <span style={{ fontSize: 13, color: "var(--muted)" }}>Загрузка...</span>}
-        </div>
+        <label>Фото блюда</label>
+        <input
+          ref={fileInputRef}
+          type="file"
+          accept="image/*"
+          style={{ display: "none" }}
+          disabled={uploading}
+          onChange={async (e) => {
+            const file = e.target.files?.[0];
+            if (!file) return;
+            setUploading(true);
+            const url = await uploadImage(file);
+            if (url) set({ imageUrl: url, imagePosition: undefined, imageZoom: undefined });
+            setUploading(false);
+          }}
+        />
 
-        {item.imageUrl && (
-          <PanZoomPreview
+        {item.imageUrl ? (
+          <div className="item-photo-card">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={item.imageUrl}
+              alt=""
+              style={{
+                objectPosition: item.imagePosition,
+                transformOrigin: item.imagePosition,
+                transform: item.imageZoom && item.imageZoom !== 1 ? `scale(${item.imageZoom})` : undefined,
+              }}
+            />
+            <div className="item-photo-card__overlay">
+              <button
+                type="button"
+                className="photo-overlay-btn photo-overlay-btn--edit"
+                disabled={uploading}
+                onClick={() => setShowCrop(true)}
+              >
+                ✎ Изменить фото
+              </button>
+              <button
+                type="button"
+                className="photo-overlay-btn photo-overlay-btn--delete"
+                disabled={uploading}
+                title="Удалить фото"
+                onClick={() => {
+                  set({ imageUrl: "", imagePosition: undefined, imageZoom: undefined });
+                  if (fileInputRef.current) fileInputRef.current.value = "";
+                }}
+              >
+                ✕
+              </button>
+            </div>
+            {uploading && (
+              <div className="item-photo-card__loading">Загрузка нового фото...</div>
+            )}
+          </div>
+        ) : (
+          <div
+            className="photo-dropzone"
+            onClick={() => fileInputRef.current?.click()}
+          >
+            <span className="photo-dropzone__icon">📷</span>
+            <span className="photo-dropzone__text">
+              {uploading ? "Загрузка..." : "Нажмите, чтобы добавить фото блюда"}
+            </span>
+          </div>
+        )}
+
+        {showCrop && item.imageUrl && (
+          <CropModal
             imageUrl={item.imageUrl}
             imagePosition={item.imagePosition}
             imageZoom={item.imageZoom}
-            onChange={(pos, zoom) => set({ imagePosition: pos, imageZoom: zoom })}
+            onSave={(pos, zoom) => set({ imagePosition: pos, imageZoom: zoom })}
+            onClose={() => setShowCrop(false)}
           />
         )}
       </div>
 
+      <div className="admin-field" style={{ marginTop: 6 }}>
+        <label style={{ display: "flex", alignItems: "center", gap: 8, cursor: "pointer", fontSize: 14 }}>
+          <input
+            type="checkbox"
+            checked={item.available !== false}
+            onChange={(e) => set({ available: e.target.checked })}
+          />
+          <b>Блюдо доступно для заказа</b>
+        </label>
+      </div>
+
       <div className="editor-actions">
-        <button className="admin-btn admin-btn--ghost" onClick={onCancel}>Отмена</button>
-        <button className="admin-btn" disabled={!item.name.ru || !item.price}
-          onClick={() => onSave(item)}>Готово</button>
+        <button type="button" className="admin-btn admin-btn--ghost" onClick={onCancel}>
+          Отмена
+        </button>
+        <button
+          type="button"
+          className="admin-btn admin-btn--primary-action"
+          disabled={!item.name.ru || !item.price}
+          onClick={() => onSave(item)}
+        >
+          Сохранить
+        </button>
       </div>
     </div>
   );
